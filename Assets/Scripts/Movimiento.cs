@@ -39,7 +39,7 @@ public class Movimiento : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         spRd = GetComponent<SpriteRenderer>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -59,6 +59,17 @@ public class Movimiento : MonoBehaviour
             dir = true;
             spRd.flipX = true;
         }
+
+
+        if (movimientoH != 0)
+        {
+            animator.SetBool("isRunning", true);
+        }
+        if (movimientoH == 0)
+        {
+            animator.SetBool("isRunning", false);
+        }
+
 
 
         if (Input.GetKeyDown(KeyCode.Space))
