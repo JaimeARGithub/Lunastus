@@ -98,13 +98,14 @@ public class Movimiento : MonoBehaviour
         if (!isGrounded)
         {
             isJumping = true;
+            animator.SetBool("isJumping", true);
             // Aplicar gravedad personalizada si no está saltando ni en el suelo
             rb2d.AddForce(Vector2.down * gravedadPersonalizada * rb2d.gravityScale);
         }
         else
         {
             isJumping = false;
-            //animator.SetBool("isJumping", false);
+            animator.SetBool("isJumping", false);
         }
     }
 }
