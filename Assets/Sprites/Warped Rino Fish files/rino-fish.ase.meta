@@ -1,0 +1,811 @@
+fileFormatVersion: 2
+guid: 8a9be9fdc9a2e2a41b23346a380d61c9
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: rino-fish_Frame_0
+    originalName: 
+    pivot: {x: 0.5283019, y: -0.04444445}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 166
+      width: 53
+      height: 45
+    spriteID: 5e0c636acf52d5245a9c384ff03fa6ac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 166}
+  - name: rino-fish_Frame_1
+    originalName: 
+    pivot: {x: 0.45454544, y: -0.024390243}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 300
+      width: 44
+      height: 41
+    spriteID: 478192891d35bba4fbb6096f0acfc042
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 72, y: 300}
+  - name: rino-fish_Frame_9
+    originalName: 
+    pivot: {x: 0.50980395, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 464
+      width: 51
+      height: 43
+    spriteID: a95b27a253fbf5b419a28350706c6657
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 464}
+  - name: rino-fish_Frame_10
+    originalName: 
+    pivot: {x: 0.5192307, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 4
+      width: 52
+      height: 42
+    spriteID: 4311be2d0ecbd274b8d69c284ba9835f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 72, y: 4}
+  - name: rino-fish_Frame_11
+    originalName: 
+    pivot: {x: 0.5471698, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 414
+      width: 53
+      height: 42
+    spriteID: a90cb2588dd8a374fa78649720c23fa1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 414}
+  - name: rino-fish_Frame_12
+    originalName: 
+    pivot: {x: 0.54545456, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 313
+      width: 55
+      height: 42
+    spriteID: 3ffc9d530803a5e4b9d923b8dba53f1f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 313}
+  - name: rino-fish_Frame_13
+    originalName: 
+    pivot: {x: 0.5283019, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 363
+      width: 53
+      height: 43
+    spriteID: 0a5b66e5c1edf1c44ad852e6de1ac050
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 363}
+  - name: rino-fish_Frame_14
+    originalName: 
+    pivot: {x: 0.59183675, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 255
+      width: 49
+      height: 37
+    spriteID: 7e5705e3799244846b3df31f252d6a67
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 72, y: 255}
+  - name: rino-fish_Frame_15
+    originalName: 
+    pivot: {x: 0.63829786, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 157
+      width: 47
+      height: 42
+    spriteID: 66a1f65628960a540924f1ba47085cc6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 72, y: 157}
+  - name: rino-fish_Frame_16
+    originalName: 
+    pivot: {x: 0.63829786, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 54
+      width: 47
+      height: 45
+    spriteID: 44e772471c79ce44c8163bba3405e4f4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 72, y: 54}
+  - name: rino-fish_Frame_17
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 60
+      height: 45
+    spriteID: d10979bac59168d448b273cfe9ad6e17
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: rino-fish_Frame_18
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 219
+      width: 60
+      height: 39
+    spriteID: 3246a5cc600c2d54dad0480cdd526779
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 219}
+  - name: rino-fish_Frame_19
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 266
+      width: 60
+      height: 39
+    spriteID: 4e7eb29bd815dc4499312f68498b313c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 266}
+  - name: rino-fish_Frame_20
+    originalName: 
+    pivot: {x: 0.6122449, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 107
+      width: 49
+      height: 42
+    spriteID: 2e08563ed1498494bb4f26651220e9fe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 72, y: 107}
+  - name: rino-fish_Frame_21
+    originalName: 
+    pivot: {x: 0.5263158, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 113
+      width: 57
+      height: 45
+    spriteID: f61c2c183174ba349be9f5e1e18855c7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 113}
+  - name: rino-fish_Frame_22
+    originalName: 
+    pivot: {x: 0.5555556, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 57
+      width: 54
+      height: 48
+    spriteID: 8810ae8b2d0e9634f88e20cab19a23ec
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 57}
+  - name: rino-fish_Frame_23
+    originalName: 
+    pivot: {x: 0.41666663, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 207
+      width: 48
+      height: 40
+    spriteID: 511c2a17e2c2b3945b11750de4e9108b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 72, y: 207}
+  - name: rino-fish_Frame_2
+    originalName: 
+    pivot: {x: 0.45238096, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 401
+      width: 42
+      height: 42
+    spriteID: 320919e3ba710b74abdf47b79d901c45
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 72, y: 401}
+  - name: rino-fish_Frame_3
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 53
+      width: 40
+      height: 43
+    spriteID: 5ac26fb5d69569d4192b7ef73f81f9b1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 132, y: 53}
+  - name: rino-fish_Frame_4
+    originalName: 
+    pivot: {x: 0.45238096, y: -0.023809526}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 451
+      width: 42
+      height: 42
+    spriteID: 1b96fb05e429d1541961b75d085e3b90
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 72, y: 451}
+  - name: rino-fish_Frame_5
+    originalName: 
+    pivot: {x: 0.5609756, y: -0.024390243}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 155
+      width: 41
+      height: 41
+    spriteID: aed8360af53d93349a2a64e9f75b2d5e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 132, y: 155}
+  - name: rino-fish_Frame_6
+    originalName: 
+    pivot: {x: 0.43902442, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 349
+      width: 41
+      height: 44
+    spriteID: 1a741ed175dd62041a658f5738d196a1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 72, y: 349}
+  - name: rino-fish_Frame_7
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.04651163}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 104
+      width: 40
+      height: 43
+    spriteID: c7294d540439e5b41b079b307f34d77a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 132, y: 104}
+  - name: rino-fish_Frame_8
+    originalName: 
+    pivot: {x: 0.45238096, y: -0.024390243}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 4
+      width: 42
+      height: 41
+    spriteID: 5b26fb9fa2b05bf42a18bdab44467dca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 132, y: 4}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 403816039
+    name: rino-fish
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: rino-fish_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 2
+        y: 2
+        width: 53
+        height: 45
+      spriteId: 5e0c636acf52d5245a9c384ff03fa6ac
+    - name: rino-fish_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 10
+        y: 1
+        width: 44
+        height: 41
+      spriteId: 478192891d35bba4fbb6096f0acfc042
+    - name: rino-fish_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 4
+        y: 0
+        width: 51
+        height: 43
+      spriteId: a95b27a253fbf5b419a28350706c6657
+    - name: rino-fish_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 3
+        y: 0
+        width: 52
+        height: 42
+      spriteId: 4311be2d0ecbd274b8d69c284ba9835f
+    - name: rino-fish_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 1
+        y: 0
+        width: 53
+        height: 42
+      spriteId: a90cb2588dd8a374fa78649720c23fa1
+    - name: rino-fish_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 0
+        y: 0
+        width: 55
+        height: 42
+      spriteId: 3ffc9d530803a5e4b9d923b8dba53f1f
+    - name: rino-fish_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 2
+        y: 0
+        width: 53
+        height: 43
+      spriteId: 0a5b66e5c1edf1c44ad852e6de1ac050
+    - name: rino-fish_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 1
+        y: 0
+        width: 49
+        height: 37
+      spriteId: 7e5705e3799244846b3df31f252d6a67
+    - name: rino-fish_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 0
+        y: 0
+        width: 47
+        height: 42
+      spriteId: 66a1f65628960a540924f1ba47085cc6
+    - name: rino-fish_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 0
+        y: 0
+        width: 47
+        height: 45
+      spriteId: 44e772471c79ce44c8163bba3405e4f4
+    - name: rino-fish_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 0
+        y: 0
+        width: 60
+        height: 45
+      spriteId: d10979bac59168d448b273cfe9ad6e17
+    - name: rino-fish_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 0
+        y: 0
+        width: 60
+        height: 39
+      spriteId: 3246a5cc600c2d54dad0480cdd526779
+    - name: rino-fish_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 0
+        y: 0
+        width: 60
+        height: 39
+      spriteId: 4e7eb29bd815dc4499312f68498b313c
+    - name: rino-fish_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 0
+        y: 0
+        width: 49
+        height: 42
+      spriteId: 2e08563ed1498494bb4f26651220e9fe
+    - name: rino-fish_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 0
+        y: 0
+        width: 57
+        height: 45
+      spriteId: f61c2c183174ba349be9f5e1e18855c7
+    - name: rino-fish_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 0
+        y: 0
+        width: 54
+        height: 48
+      spriteId: 8810ae8b2d0e9634f88e20cab19a23ec
+    - name: rino-fish_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 10
+        y: 0
+        width: 48
+        height: 40
+      spriteId: 511c2a17e2c2b3945b11750de4e9108b
+    - name: rino-fish_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 11
+        y: 0
+        width: 42
+        height: 42
+      spriteId: 320919e3ba710b74abdf47b79d901c45
+    - name: rino-fish_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 10
+        y: 0
+        width: 40
+        height: 43
+      spriteId: 5ac26fb5d69569d4192b7ef73f81f9b1
+    - name: rino-fish_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 11
+        y: 1
+        width: 42
+        height: 42
+      spriteId: 1b96fb05e429d1541961b75d085e3b90
+    - name: rino-fish_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 7
+        y: 1
+        width: 41
+        height: 41
+      spriteId: aed8360af53d93349a2a64e9f75b2d5e
+    - name: rino-fish_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 12
+        y: 0
+        width: 41
+        height: 44
+      spriteId: 1a741ed175dd62041a658f5738d196a1
+    - name: rino-fish_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 10
+        y: 2
+        width: 40
+        height: 43
+      spriteId: c7294d540439e5b41b079b307f34d77a
+    - name: rino-fish_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 11
+        y: 1
+        width: 42
+        height: 41
+      spriteId: 5b26fb9fa2b05bf42a18bdab44467dca
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 60, y: 48}
