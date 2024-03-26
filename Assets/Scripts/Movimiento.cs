@@ -11,7 +11,6 @@ public class Movimiento : MonoBehaviour
 
 
     //Salto de jugador
-    private bool isJumping = false;
     private bool isGrounded = false;
     private bool quiereSaltar = false;
     private float potenciaSalto = 150F;
@@ -22,6 +21,10 @@ public class Movimiento : MonoBehaviour
 
     // Gravedad personalizada
     private float gravedadPersonalizada = 100f;
+
+    // Variables para el doble salto
+    private bool dobleSaltoDesbloqueado = true; // VARIABLE QUE DEPENDE DEL GAME MANAGER, CAMBIARLO PARA QUE LEA EL VALOR DE ÉL
+    private bool dobleSalto = true;
 
 
     //Para la utilizacion del Animator del jugador
@@ -85,10 +88,16 @@ public class Movimiento : MonoBehaviour
 
         if (quiereSaltar)
         {
-            if (isGrounded)
+            if (isGrounded || (dobleSalto && dobleSaltoDesbloqueado))
             {
+
                 rb2d.AddForce(Vector2.up * potenciaSalto, (ForceMode2D)ForceMode.VelocityChange);
-                isJumping = true;
+
+                if (!isGrounded && dobleSalto)
+                {
+
+                    dobleSalto = false;
+                }
             }
 
 
@@ -98,15 +107,18 @@ public class Movimiento : MonoBehaviour
 
         if (!isGrounded)
         {
-            isJumping = true;
             animator.SetBool("isJumping", true);
             // Aplicar gravedad personalizada si no está saltando ni en el suelo
             rb2d.AddForce(Vector2.down * gravedadPersonalizada * rb2d.gravityScale);
         }
         else
         {
-            isJumping = false;
             animator.SetBool("isJumping", false);
+
+            if (!dobleSalto)
+            {
+                dobleSalto = true;
+            }
         }
     }
 }
