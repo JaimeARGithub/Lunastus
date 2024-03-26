@@ -14,6 +14,7 @@ public class Movimiento : MonoBehaviour
     private bool isJumping = false;
     private bool isGrounded = false;
     private bool quiereSaltar = false;
+    private bool dobleSalto = true;
     private float potenciaSalto = 150F;
     public LayerMask groundLayer;
 
@@ -82,14 +83,17 @@ public class Movimiento : MonoBehaviour
     {
         isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
 
+
         if (quiereSaltar)
         {
-            if (isGrounded)
+            if (isGrounded || dobleSalto)
             {
-                Debug.Log("¡¡¡SALTO!!!");
                 rb2d.AddForce(Vector2.up * potenciaSalto, (ForceMode2D)ForceMode.VelocityChange);
                 isJumping = true;
+
+                dobleSalto = !dobleSalto;
             }
+
 
             quiereSaltar = false;
         }
