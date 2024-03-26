@@ -14,7 +14,6 @@ public class Movimiento : MonoBehaviour
     private bool isJumping = false;
     private bool isGrounded = false;
     private bool quiereSaltar = false;
-    private bool dobleSalto = true;
     private float potenciaSalto = 150F;
     public LayerMask groundLayer;
 
@@ -86,12 +85,10 @@ public class Movimiento : MonoBehaviour
 
         if (quiereSaltar)
         {
-            if (isGrounded || dobleSalto)
+            if (isGrounded)
             {
                 rb2d.AddForce(Vector2.up * potenciaSalto, (ForceMode2D)ForceMode.VelocityChange);
                 isJumping = true;
-
-                dobleSalto = !dobleSalto;
             }
 
 
