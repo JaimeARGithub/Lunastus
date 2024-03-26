@@ -91,7 +91,16 @@ public class Movimiento : MonoBehaviour
             if (isGrounded || (dobleSalto && dobleSaltoDesbloqueado))
             {
 
-                rb2d.AddForce(Vector2.up * potenciaSalto, (ForceMode2D)ForceMode.VelocityChange);
+                if (!isGrounded)
+                {
+                    rb2d.AddForce(Vector2.up * potenciaSalto, ForceMode2D.Impulse);
+                }
+                else
+                {
+                    rb2d.AddForce(Vector2.up * potenciaSalto, (ForceMode2D)ForceMode.VelocityChange);
+                }
+
+
 
                 if (!isGrounded && dobleSalto)
                 {
