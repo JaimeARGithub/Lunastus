@@ -8,7 +8,7 @@ public class Combate : MonoBehaviour
     public Animator animator;
 
     // Para detectar si se está saltando
-    private bool isGrounded = false;
+    public bool isGrounded = false;
     public LayerMask groundLayer;
     public Collider2D piesCollider;
 

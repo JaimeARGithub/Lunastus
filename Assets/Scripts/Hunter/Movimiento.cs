@@ -11,7 +11,7 @@ public class Movimiento : MonoBehaviour
 
 
     //Salto de jugador
-    private bool isGrounded = false;
+    public bool isGrounded = false;
     private bool quiereSaltar = false;
     private float potenciaSalto = 150F;
     public LayerMask groundLayer;
