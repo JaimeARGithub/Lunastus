@@ -1062,6 +1062,7 @@ GameObject:
   - component: {fileID: 620959116}
   - component: {fileID: 620959115}
   - component: {fileID: 620959114}
+  - component: {fileID: 620959117}
   m_Layer: 0
   m_Name: Hunter
   m_TagString: Untagged
@@ -1676,6 +1677,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &620959117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620959104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a631b94a1d3fe8a4b8df8d069d960f03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  piesCollider: {fileID: 620959111}
 --- !u!1 &1043174234
 GameObject:
   m_ObjectHideFlags: 0
