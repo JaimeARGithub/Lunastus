@@ -102,14 +102,14 @@ public class Movimiento : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             quiereSaltar = true;
         }
 
 
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             quiereBackdash = true;
         }
