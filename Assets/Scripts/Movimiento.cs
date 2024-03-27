@@ -46,6 +46,14 @@ public class Movimiento : MonoBehaviour
     [SerializeField] private TrailRenderer tr;
 
 
+    // Para la emición de sonidos
+    public AudioSource sonidoCaminar;
+    private float tiempoTranscurridoSonidoCaminar = 0f;
+    private float tiempoEsperaSonidoCaminar = 0.3f;
+    public AudioSource sonidoSalto;
+    public AudioSource sonidoBackdash;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -77,11 +85,20 @@ public class Movimiento : MonoBehaviour
         if (movimientoH != 0)
         {
             animator.SetBool("isRunning", true);
-        }
-        if (movimientoH == 0)
+
+            isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
+            if (!sonidoCaminar.isPlaying && isGrounded && tiempoTranscurridoSonidoCaminar >= tiempoEsperaSonidoCaminar)
+            {
+                sonidoCaminar.Play();
+                tiempoTranscurridoSonidoCaminar = 0f;
+            }
+        } else
         {
             animator.SetBool("isRunning", false);
+            sonidoCaminar.Stop();
         }
+
+        tiempoTranscurridoSonidoCaminar += Time.deltaTime;
 
 
 
@@ -107,6 +124,7 @@ public class Movimiento : MonoBehaviour
         {
             if (isGrounded || (dobleSalto && dobleSaltoDesbloqueado))
             {
+                sonidoSalto.Play();
 
                 if (!isGrounded)
                 {
@@ -180,6 +198,7 @@ public class Movimiento : MonoBehaviour
 
         Vector2 posicionInicial = transform.position;
         Vector2 posicionFinal;
+        sonidoBackdash.Play();
         if (!dir)
         {
             posicionFinal = posicionInicial - new Vector2(transform.localScale.x * fuerzaBackdash, 0f);
