@@ -35,6 +35,16 @@ public class Movimiento : MonoBehaviour
     // Para el movimiento; izq-drch
     private float movimientoH;
 
+    // Para el backdash
+    private bool puedeBackdash = true;
+    private bool isBackdashing;
+    private float fuerzaBackdash = 48f;
+    private float tiempoBackdash = 0.2f;
+    private float cooldownBackdash = 0.5f;
+    private bool quiereBackdash = true;
+
+    [SerializeField] private TrailRenderer tr;
+
 
 
     // Start is called before the first frame update
@@ -79,6 +89,13 @@ public class Movimiento : MonoBehaviour
         {
             quiereSaltar = true;
         }
+
+
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            quiereBackdash = true;
+        }
     }
 
     private void FixedUpdate()
@@ -117,6 +134,7 @@ public class Movimiento : MonoBehaviour
         if (!isGrounded)
         {
             animator.SetBool("isJumping", true);
+
             // Aplicar gravedad personalizada si no está saltando ni en el suelo
             rb2d.AddForce(Vector2.down * gravedadPersonalizada * rb2d.gravityScale);
         }
@@ -129,5 +147,52 @@ public class Movimiento : MonoBehaviour
                 dobleSalto = true;
             }
         }
+
+
+        if (quiereBackdash)
+        {
+            if (puedeBackdash)
+            {
+                StartCoroutine(Backdash());
+            }
+
+            quiereBackdash = false;
+        }
+    }
+
+
+    private IEnumerator Backdash()
+    {
+        // Se preparan las variables; se ajustan los indicadores de backdash (si puede y si lo está haciendo) y se guarda el valor de gravedad
+        puedeBackdash = false;
+        isBackdashing = true;
+        float gravedadOriginal = rb2d.gravityScale;
+        rb2d.gravityScale = 0f;
+
+
+        // Al rigidbody se le aplica la fuerza del backdash, se accionan la emisión y la animación
+        // Se espera a que pase el tiempo del backdash y se inhabilitan emisión y animación
+        if (!dir)
+        {
+            rb2d.velocity = new Vector2(-transform.localScale.x * fuerzaBackdash, 0f);
+        } else
+        {
+            rb2d.velocity = new Vector2(transform.localScale.x * fuerzaBackdash, 0f);
+        }
+
+        
+        tr.emitting = true;
+        animator.SetBool("isBackdashing", true);
+        yield return new WaitForSeconds(tiempoBackdash);
+        tr.emitting = false;
+        animator.SetBool("isBackdashing", false);
+
+        // Y se le devuelve al rigidbody la gravedad original
+        rb2d.gravityScale = gravedadOriginal;
+        isBackdashing = false;
+
+        // Tras ello, dentro de la corrutina se indica el tiempo de enfriamiento del backdash
+        yield return new WaitForSeconds(cooldownBackdash);
+        puedeBackdash = true;
     }
 }
