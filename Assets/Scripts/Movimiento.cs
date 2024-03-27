@@ -38,7 +38,7 @@ public class Movimiento : MonoBehaviour
     // Para el backdash
     private bool puedeBackdash = true;
     private bool isBackdashing;
-    private float fuerzaBackdash = 48f;
+    private float fuerzaBackdash = 1f;
     private float tiempoBackdash = 0.2f;
     private float cooldownBackdash = 0.5f;
     private bool quiereBackdash = true;
@@ -170,20 +170,35 @@ public class Movimiento : MonoBehaviour
         rb2d.gravityScale = 0f;
 
 
-        // Al rigidbody se le aplica la fuerza del backdash, se accionan la emisión y la animación
-        // Se espera a que pase el tiempo del backdash y se inhabilitan emisión y animación
+        Vector2 posicionInicial = transform.position;
+        Vector2 posicionFinal;
         if (!dir)
         {
-            rb2d.velocity = new Vector2(-transform.localScale.x * fuerzaBackdash, 0f);
+            posicionFinal = posicionInicial - new Vector2(transform.localScale.x * fuerzaBackdash, 0f);
         } else
         {
-            rb2d.velocity = new Vector2(transform.localScale.x * fuerzaBackdash, 0f);
+            posicionFinal = posicionInicial + new Vector2(transform.localScale.x * fuerzaBackdash, 0f);
         }
+        float tiempoTranscurrido = 0f;
 
-        
+
         tr.emitting = true;
         animator.SetBool("isBackdashing", true);
-        yield return new WaitForSeconds(tiempoBackdash);
+
+
+
+        while (tiempoTranscurrido < tiempoBackdash)
+        {
+            float t = tiempoTranscurrido / tiempoBackdash;
+            rb2d.MovePosition(Vector2.Lerp(posicionInicial, posicionFinal, t));
+            tiempoTranscurrido += Time.deltaTime;
+            yield return null;
+        }
+
+        rb2d.MovePosition(posicionFinal);
+
+
+
         tr.emitting = false;
         animator.SetBool("isBackdashing", false);
 
