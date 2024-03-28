@@ -1694,7 +1694,7 @@ MonoBehaviour:
   isGrounded: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   piesCollider: {fileID: 620959111}
 --- !u!1 &1043174234
 GameObject:

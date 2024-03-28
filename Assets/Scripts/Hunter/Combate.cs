@@ -8,7 +8,7 @@ public class Combate : MonoBehaviour
     public Animator animator;
 
     // Para detectar si se está saltando
-    public bool isGrounded = false;
+    public bool isGrounded;
     public LayerMask groundLayer;
     public Collider2D piesCollider;
 
@@ -16,6 +16,7 @@ public class Combate : MonoBehaviour
     private float movimientoH;
 
     // Para los cooldowns
+    private bool misilDesbloqueado = true; // VALOR EXTRAÍDO DEL GAME MANAGER, CAMBIARLO DESPUÉS
     private float tiempoTranscurridoDisparo = 0f;
     private float tiempoEsperaDisparo = 0.2f;
     private float tiempoTranscurridoMisil = 0f;
@@ -34,14 +35,18 @@ public class Combate : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && tiempoTranscurridoDisparo >= tiempoEsperaDisparo)
         {
+            isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
+            AnimarDisparo();
             Shoot();
             tiempoTranscurridoDisparo = 0f;
         }
         tiempoTranscurridoDisparo += Time.deltaTime;
 
 
-        if (Input.GetKeyDown(KeyCode.R) && tiempoTranscurridoMisil >= tiempoEsperaMisil)
+        if (Input.GetKeyDown(KeyCode.R) && tiempoTranscurridoMisil >= tiempoEsperaMisil && misilDesbloqueado)
         {
+            isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
+            AnimarDisparo();
             ShootMissile();
             tiempoTranscurridoMisil = 0f;
         }
@@ -51,20 +56,18 @@ public class Combate : MonoBehaviour
 
     private void Shoot()
     {
-        AnimarDisparo();
+
     }
 
 
     private void ShootMissile()
     {
-        AnimarDisparo();
+
     }
 
     private void AnimarDisparo()
     {
         movimientoH = Input.GetAxisRaw("Horizontal");
-        isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
-
 
         if (isGrounded)
         {
@@ -86,26 +89,26 @@ public class Combate : MonoBehaviour
 
     private IEnumerator ShootIdle()
     {
-        animator.SetBool("isShooting", true);
+        animator.SetBool("isShootingIdle", true);
         yield return new WaitForSeconds(0.2f);
-        animator.SetBool("isShooting", false);
+        animator.SetBool("isShootingIdle", false);
     }
 
     private IEnumerator ShootRunning()
     {
-        animator.SetBool("isShooting", true);
+        animator.SetBool("isShootingRunning", true);
         animator.SetBool("isRunning", false);
         yield return new WaitForSeconds(0.5f);
-        animator.SetBool("isShooting", false);
+        animator.SetBool("isShootingRunning", false);
         animator.SetBool("isRunning", true);
     }
 
     private IEnumerator ShootJumping()
     {
-        animator.SetBool("isShooting", true);
+        animator.SetBool("isShootingJumping", true);
         animator.SetBool("isJumping", false);
         yield return new WaitForSeconds(0.2f);
-        animator.SetBool("isShooting", false);
+        animator.SetBool("isShootingJumping", false);
         animator.SetBool("isJumping", true);
     }
 }
