@@ -23,8 +23,9 @@ public class Movimiento : MonoBehaviour
     private float gravedadPersonalizada = 100f;
 
     // Variables para el doble salto
-    private bool dobleSaltoDesbloqueado = true; // VARIABLE QUE DEPENDE DEL GAME MANAGER, CAMBIARLO PARA QUE LEA EL VALOR DE ÉL
-    private bool dobleSalto = true;
+
+    private bool dobleSaltoDesbloqueado = true; // VARIABLE QUE DEPENDE DEL GAME MANAGER
+    private bool dobleSalto = true;             // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
 
 
     //Para la utilizacion del Animator del jugador
@@ -36,7 +37,8 @@ public class Movimiento : MonoBehaviour
     private float movimientoH;
 
     // Para el backdash
-    private bool puedeBackdash = true;
+    private bool backDashDesbloqueado = true;   // VARIABLE QUE DEPENDE DEL GAME MANAGER
+    private bool puedeBackdash = true;          // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
     private bool isBackdashing;
     private float fuerzaBackdash = 1f;
     private float tiempoBackdash = 0.2f;
@@ -46,7 +48,7 @@ public class Movimiento : MonoBehaviour
     [SerializeField] private TrailRenderer tr;
 
 
-    // Para la emición de sonidos
+    // Para la emisión de sonidos
     public AudioSource sonidoCaminar;
     private float tiempoTranscurridoSonidoCaminar = 0f;
     private float tiempoEsperaSonidoCaminar = 0.3f;
@@ -175,7 +177,7 @@ public class Movimiento : MonoBehaviour
 
         if (quiereBackdash)
         {
-            if (puedeBackdash)
+            if (puedeBackdash && backDashDesbloqueado)
             {
                 StartCoroutine(Backdash());
             }

@@ -16,7 +16,12 @@ public class Combate : MonoBehaviour
     private float movimientoH;
 
     // Para los cooldowns
-    private bool misilDesbloqueado = true; // VALOR EXTRAÍDO DEL GAME MANAGER, CAMBIARLO DESPUÉS
+    private bool misilDesbloqueado = true;      // VALOR QUE DEPENDE DEL GAME MANAGER
+                                                // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
+
+    private int misilesRestantes = 5;           // VALOR QUE DEPENDE DEL GAME MANAGER
+                                                // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
+
     private float tiempoTranscurridoDisparo = 0f;
     private float tiempoEsperaDisparo = 0.2f;
     private float tiempoTranscurridoMisil = 0f;
@@ -52,7 +57,7 @@ public class Combate : MonoBehaviour
         tiempoTranscurridoDisparo += Time.deltaTime;
 
 
-        if (Input.GetKeyDown(KeyCode.R) && tiempoTranscurridoMisil >= tiempoEsperaMisil && misilDesbloqueado)
+        if (Input.GetKeyDown(KeyCode.R) && tiempoTranscurridoMisil >= tiempoEsperaMisil && misilDesbloqueado && misilesRestantes > 0)
         {
             sonidoMisil.Play();
             AnimarDisparo();
@@ -72,6 +77,8 @@ public class Combate : MonoBehaviour
     private void DispararMisil()
     {
         Instantiate(missilePrefab, firePoint.position, firePoint.rotation);
+        misilesRestantes -= 1;      // CAMBIAR ESTA LÍNEA PARA QUE REDUZCA LA
+                                    // CANTIDAD DE MISILES RESTANTES DEL GAME MANAGER
     }
 
     private void AnimarDisparo()
