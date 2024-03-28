@@ -18,9 +18,13 @@ public class Combate : MonoBehaviour
     // Para los cooldowns
     private bool misilDesbloqueado = true; // VALOR EXTRAÍDO DEL GAME MANAGER, CAMBIARLO DESPUÉS
     private float tiempoTranscurridoDisparo = 0f;
-    private float tiempoEsperaDisparo = 0.2f;
+    private float tiempoEsperaDisparo = 0.1f;
     private float tiempoTranscurridoMisil = 0f;
-    private float tiempoEsperaMisil = 0.2f;
+    private float tiempoEsperaMisil = 2f;
+
+    // Para los sonidos
+    public AudioSource sonidoDisparo;
+    public AudioSource sonidoMisil;
 
 
 
@@ -36,6 +40,7 @@ public class Combate : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && tiempoTranscurridoDisparo >= tiempoEsperaDisparo)
         {
             isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
+            sonidoDisparo.Play();
             AnimarDisparo();
             Shoot();
             tiempoTranscurridoDisparo = 0f;
@@ -46,6 +51,7 @@ public class Combate : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && tiempoTranscurridoMisil >= tiempoEsperaMisil && misilDesbloqueado)
         {
             isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
+            sonidoMisil.Play();
             AnimarDisparo();
             ShootMissile();
             tiempoTranscurridoMisil = 0f;
