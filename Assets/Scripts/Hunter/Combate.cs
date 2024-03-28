@@ -18,13 +18,18 @@ public class Combate : MonoBehaviour
     // Para los cooldowns
     private bool misilDesbloqueado = true; // VALOR EXTRAÍDO DEL GAME MANAGER, CAMBIARLO DESPUÉS
     private float tiempoTranscurridoDisparo = 0f;
-    private float tiempoEsperaDisparo = 0.1f;
+    private float tiempoEsperaDisparo = 0.2f;
     private float tiempoTranscurridoMisil = 0f;
     private float tiempoEsperaMisil = 2f;
 
     // Para los sonidos
     public AudioSource sonidoDisparo;
     public AudioSource sonidoMisil;
+
+    // Para los disparos
+    public Transform firePoint;
+    public GameObject bulletPrefab;
+    public GameObject missilePrefab;
 
 
 
@@ -39,10 +44,9 @@ public class Combate : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && tiempoTranscurridoDisparo >= tiempoEsperaDisparo)
         {
-            isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
             sonidoDisparo.Play();
             AnimarDisparo();
-            Shoot();
+            Disparar();
             tiempoTranscurridoDisparo = 0f;
         }
         tiempoTranscurridoDisparo += Time.deltaTime;
@@ -50,30 +54,30 @@ public class Combate : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R) && tiempoTranscurridoMisil >= tiempoEsperaMisil && misilDesbloqueado)
         {
-            isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
             sonidoMisil.Play();
             AnimarDisparo();
-            ShootMissile();
+            DispararMisil();
             tiempoTranscurridoMisil = 0f;
         }
         tiempoTranscurridoMisil += Time.deltaTime;
     }
 
 
-    private void Shoot()
+    private void Disparar()
     {
-
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 
 
-    private void ShootMissile()
+    private void DispararMisil()
     {
-
+        Instantiate(missilePrefab, firePoint.position, firePoint.rotation);
     }
 
     private void AnimarDisparo()
     {
         movimientoH = Input.GetAxisRaw("Horizontal");
+        isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
 
         if (isGrounded)
         {

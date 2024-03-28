@@ -29,7 +29,7 @@ public class Movimiento : MonoBehaviour
 
     //Para la utilizacion del Animator del jugador
     private Animator animator;
-    public bool dir;
+    [SerializeField] private bool mirandoDerecha = true;
 
 
     // Para el movimiento; izq-drch
@@ -70,15 +70,13 @@ public class Movimiento : MonoBehaviour
         rb2d.velocity = new Vector2(movimientoH * velocidad, rb2d.velocity.y);
 
 
-        if (movimientoH > 0)
+        if (movimientoH > 0 && !mirandoDerecha)
         {
-            dir = false;
-            spRd.flipX = false;
+            Girar();
         }
-        else if (movimientoH < 0)
+        else if (movimientoH < 0 && mirandoDerecha)
         {
-            dir = true;
-            spRd.flipX = true;
+            Girar();
         }
 
 
@@ -187,6 +185,16 @@ public class Movimiento : MonoBehaviour
     }
 
 
+    private void Girar()
+    {
+        // Cada vez que el jugador se gira, la variable de mirar a la derecha se invierte
+        mirandoDerecha = !mirandoDerecha;
+
+        // Y la componente X de la escala local se invierte
+        transform.Rotate(0f, 180f, 0f);
+    }
+
+
     private IEnumerator Backdash()
     {
         // Se preparan las variables; se ajustan los indicadores de backdash (si puede y si lo está haciendo) y se guarda el valor de gravedad
@@ -199,13 +207,15 @@ public class Movimiento : MonoBehaviour
         Vector2 posicionInicial = transform.position;
         Vector2 posicionFinal;
         sonidoBackdash.Play();
-        if (!dir)
+
+        if (mirandoDerecha)
         {
             posicionFinal = posicionInicial - new Vector2(transform.localScale.x * fuerzaBackdash, 0f);
         } else
         {
             posicionFinal = posicionInicial + new Vector2(transform.localScale.x * fuerzaBackdash, 0f);
         }
+
         float tiempoTranscurrido = 0f;
 
 
