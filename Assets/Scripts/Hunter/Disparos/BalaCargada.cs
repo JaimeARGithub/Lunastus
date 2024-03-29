@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Misil : MonoBehaviour
+public class BalaCargada : MonoBehaviour
 {
     [SerializeField] private float velocidad = 15f;
     private Rigidbody2D rb;
-    private int damageMissile = 150;
+    private int damageCharged = 80;
     public GameObject impactEffect;
+
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class Misil : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * velocidad;
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,7 +30,7 @@ public class Misil : MonoBehaviour
                     Crab crab = collision.GetComponent<Crab>();
                     if (crab != null)
                     {
-                        crab.TakeDamage(damageMissile);
+                        crab.TakeDamage(damageCharged);
                     }
                     break;
             }

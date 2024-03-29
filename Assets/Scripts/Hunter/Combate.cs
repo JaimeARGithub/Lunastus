@@ -30,11 +30,23 @@ public class Combate : MonoBehaviour
     // Para los sonidos
     public AudioSource sonidoDisparo;
     public AudioSource sonidoMisil;
+    public AudioSource sonidoDisparoCargado;
+    public AudioSource sonidoCargando;
 
     // Para los disparos
     public Transform firePoint;
     public GameObject bulletPrefab;
     public GameObject missilePrefab;
+    public GameObject chargedPrefab;
+
+    // Variables de tiempo para el disparo cargado
+    private float tiempoPresion = 0f;
+    private float tiempoRequeridoPresion = 0.2f;
+    private float tiempoRequeridoPresionDisparar = 2f;
+    private float tiempoTranscurridoSonidoCarga = 0f;
+    private float tiempoEsperaSonidoCarga = 0.7f;
+    private bool disparoCargadoDisponible = false;
+    private SpriteRenderer spRd;
 
 
 
@@ -42,6 +54,7 @@ public class Combate : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        spRd = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -53,6 +66,9 @@ public class Combate : MonoBehaviour
             AnimarDisparo();
             Disparar();
             tiempoTranscurridoDisparo = 0f;
+
+            // Para el inicio de la carga
+            tiempoPresion = Time.time;
         }
         tiempoTranscurridoDisparo += Time.deltaTime;
 
@@ -65,6 +81,48 @@ public class Combate : MonoBehaviour
             tiempoTranscurridoMisil = 0f;
         }
         tiempoTranscurridoMisil += Time.deltaTime;
+
+        
+        if (Input.GetKey(KeyCode.E))
+        {
+            if (Time.time - tiempoPresion >= tiempoRequeridoPresion)
+            {
+                if (!sonidoCargando.isPlaying && tiempoTranscurridoSonidoCarga >= tiempoEsperaSonidoCarga)
+                {
+                    sonidoCargando.Play();
+                    tiempoTranscurridoSonidoCarga = 0f;
+                }
+                tiempoTranscurridoSonidoCarga += Time.deltaTime;
+
+
+                if (Time.time - tiempoPresion >= tiempoRequeridoPresionDisparar)
+                {
+                    disparoCargadoDisponible = true;
+
+                    if (spRd.color == Color.white)
+                    {
+                        spRd.color = Color.cyan;
+                    } else
+                    {
+                        spRd.color = Color.white;
+                    }
+                }
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.E) && disparoCargadoDisponible)
+        {
+            sonidoCargando.Stop();
+
+            spRd.color = Color.white;
+            sonidoDisparoCargado.Play();
+            AnimarDisparo();
+            DispararCargado();
+
+            // Restablecer el tiempo de presión para poder ejecutar un nuevo disparo cargado
+            tiempoPresion = 0f;
+            disparoCargadoDisponible = false;
+        }
     }
 
 
@@ -79,6 +137,11 @@ public class Combate : MonoBehaviour
         Instantiate(missilePrefab, firePoint.position, firePoint.rotation);
         misilesRestantes -= 1;      // CAMBIAR ESTA LÍNEA PARA QUE REDUZCA LA
                                     // CANTIDAD DE MISILES RESTANTES DEL GAME MANAGER
+    }
+
+    private void DispararCargado()
+    {
+        Instantiate(chargedPrefab, firePoint.position, firePoint.rotation);
     }
 
     private void AnimarDisparo()

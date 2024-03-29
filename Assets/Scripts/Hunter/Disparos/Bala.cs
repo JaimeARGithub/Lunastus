@@ -20,18 +20,21 @@ public class Bala : MonoBehaviour
     {
         Debug.Log(collision.name);
 
-        switch (collision.name)
+        if (!collision.name.Equals("Bullet(Clone)") && !collision.name.Equals("ChargedBullet(Clone)") && !collision.name.Equals("Missile(Clone)"))
         {
-            case "Crab":
-                Crab crab = collision.GetComponent<Crab>();
-                if (crab != null)
-                {
-                    crab.TakeDamage(damageBullet);
-                }
-                break;
-        }
+            switch (collision.name)
+            {
+                case "Crab":
+                    Crab crab = collision.GetComponent<Crab>();
+                    if (crab != null)
+                    {
+                        crab.TakeDamage(damageBullet);
+                    }
+                    break;
+            }
 
-        Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(gameObject);
+            Instantiate(impactEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
 }
