@@ -75,9 +75,26 @@ public class Movimiento : MonoBehaviour
         if (isGrounded && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)))
         {
             movimientoH = 0f;
+
+
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                animator.SetBool("isCrouching", true);
+                animator.SetBool("isRunning", false);
+
+            } else if (Input.GetKey(KeyCode.UpArrow))
+            {
+                animator.SetBool("isLookingUp", true);
+                animator.SetBool("isRunning", false);
+
+            }
+
+
         } else
         {
             movimientoH = Input.GetAxisRaw("Horizontal");
+            animator.SetBool("isCrouching", false);
+            animator.SetBool("isLookingUp", false);
         }
 
 

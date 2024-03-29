@@ -5,11 +5,12 @@ using UnityEngine;
 public class Combate : MonoBehaviour
 {
     // Para la ejecución de animaciones
-    public Animator animator;
+    private Animator animator;
 
     // Para detectar si se está saltando
     public bool isGrounded;
     public LayerMask groundLayer;
+    public LayerMask enemiesLayer;
     public Collider2D piesCollider;
 
     // Para detectar si se está en movimiento
@@ -48,6 +49,10 @@ public class Combate : MonoBehaviour
     private bool disparoCargadoDisponible = false;
     private SpriteRenderer spRd;
 
+    // Para manipular el collider del jugador dependiendo de si se agacha o no
+    public Collider2D standingCollider;
+    public Collider2D crouchCollider;
+
 
 
     // Start is called before the first frame update
@@ -60,6 +65,20 @@ public class Combate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
+        if (isGrounded && (Input.GetKey(KeyCode.DownArrow)))
+        {
+            standingCollider.enabled = false;
+            crouchCollider.enabled = true;
+        }
+        else
+        {
+            standingCollider.enabled = true;
+            crouchCollider.enabled = false;
+        }
+
+
+
         if (Input.GetKeyDown(KeyCode.E) && tiempoTranscurridoDisparo >= tiempoEsperaDisparo)
         {
             sonidoDisparo.Play();
@@ -110,18 +129,22 @@ public class Combate : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.E) && disparoCargadoDisponible)
+        if (Input.GetKeyUp(KeyCode.E))
         {
             sonidoCargando.Stop();
 
             spRd.color = Color.white;
-            sonidoDisparoCargado.Play();
-            AnimarDisparo();
-            DispararCargado();
 
-            // Restablecer el tiempo de presión para poder ejecutar un nuevo disparo cargado
-            tiempoPresion = 0f;
-            disparoCargadoDisponible = false;
+            if (disparoCargadoDisponible)
+            {
+                sonidoDisparoCargado.Play();
+                AnimarDisparo();
+                DispararCargado();
+
+                // Restablecer el tiempo de presión para poder ejecutar un nuevo disparo cargado
+                tiempoPresion = 0f;
+                disparoCargadoDisponible = false;
+            }
         }
     }
 
