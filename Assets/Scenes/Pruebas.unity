@@ -1163,7 +1163,7 @@ Transform:
   m_GameObject: {fileID: 620959104}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.2, y: -1.68, z: 0}
+  m_LocalPosition: {x: 2.5, y: 0.43, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1188,6 +1188,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  enemiesLayer:
+    serializedVersion: 2
+    m_Bits: 128
   piesCollider: {fileID: 620959111}
   mirandoDerecha: 1
   tr: {fileID: 620959113}
@@ -1261,9 +1264,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.013794356, y: -0.25735518}
+  m_Offset: {x: -0.013794356, y: -0.22}
   serializedVersion: 2
-  m_Radius: 0.034150124
+  m_Radius: 0.03
 --- !u!95 &620959112
 Animator:
   serializedVersion: 5
@@ -2242,7 +2245,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.94, y: -1.39, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

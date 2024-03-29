@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class Movimiento : MonoBehaviour
 {
-    //Movimiento del jugador
+    // Movimiento del jugador
     private float velocidad = 4.5F;
     Rigidbody2D rb2d;
-    SpriteRenderer spRd;
 
 
-    //Salto de jugador
+    // Salto de jugador
     public bool isGrounded = false;
     private bool quiereSaltar = false;
     private float potenciaSalto = 150F;
     public LayerMask groundLayer;
+
+    // Para dar un pequeño impulso si pisa un enemigo
+    public LayerMask enemiesLayer;
+    private bool steppingEnemy;
 
     // Collider de los pies
     public Collider2D piesCollider;
@@ -23,7 +26,6 @@ public class Movimiento : MonoBehaviour
     private float gravedadPersonalizada = 100f;
 
     // Variables para el doble salto
-
     private bool dobleSaltoDesbloqueado = true; // VARIABLE QUE DEPENDE DEL GAME MANAGER
     private bool dobleSalto = true;             // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
 
@@ -43,7 +45,7 @@ public class Movimiento : MonoBehaviour
     private float fuerzaBackdash = 1f;
     private float tiempoBackdash = 0.2f;
     private float cooldownBackdash = 0.5f;
-    private bool quiereBackdash = true;
+    private bool quiereBackdash = false;
 
     [SerializeField] private TrailRenderer tr;
 
@@ -61,7 +63,6 @@ public class Movimiento : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        spRd = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
 
@@ -140,6 +141,8 @@ public class Movimiento : MonoBehaviour
         {
             quiereBackdash = true;
         }
+
+        steppingEnemy = Physics2D.IsTouchingLayers(piesCollider, enemiesLayer);
     }
 
     private void FixedUpdate()
@@ -210,6 +213,13 @@ public class Movimiento : MonoBehaviour
             }
 
             quiereBackdash = false;
+        }
+
+
+
+        if (steppingEnemy)
+        {
+            rb2d.AddForce(Vector2.up * potenciaSalto * 0.25f, ForceMode2D.Impulse);
         }
     }
 
