@@ -1168,6 +1168,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1748326539}
+  - {fileID: 1133626335}
+  - {fileID: 832658691}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &620959109
@@ -1708,7 +1710,9 @@ MonoBehaviour:
   sonidoMisil: {fileID: 620959118}
   sonidoDisparoCargado: {fileID: 620959120}
   sonidoCargando: {fileID: 620959121}
-  firePoint: {fileID: 1748326539}
+  firePointStanding: {fileID: 1748326539}
+  firePointCrouch: {fileID: 1133626335}
+  firePointUp: {fileID: 832658691}
   bulletPrefab: {fileID: 1253905307133477009, guid: a08d256f4897b6d4bb3f4fc327e83b6e, type: 3}
   missilePrefab: {fileID: 1886366217867401585, guid: 6876520adc6e882489e2f77d0ef7e867, type: 3}
   chargedPrefab: {fileID: 2301297023414474701, guid: e6f730529e491a945a309af45bc52a3b, type: 3}
@@ -2425,6 +2429,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathEffect: {fileID: 5377633069000733160, guid: fb9e277c9aa778d4facdec05b000ee22, type: 3}
   sonidoMuerte: {fileID: 768075249}
+--- !u!1 &832658690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 832658691}
+  m_Layer: 6
+  m_Name: FirePointUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &832658691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832658690}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.0399, y: 0.207, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 620959108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &1043174234
 GameObject:
   m_ObjectHideFlags: 0
@@ -3850,6 +3885,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1133626334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1133626335}
+  m_Layer: 6
+  m_Name: FirePointCrouch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1133626335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133626334}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1764, y: -0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 620959108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1340519658
 GameObject:
   m_ObjectHideFlags: 0
@@ -3906,7 +3972,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1748326539}
   m_Layer: 6
-  m_Name: FirePoint
+  m_Name: FirePointStanding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Combate : MonoBehaviour
@@ -35,7 +36,10 @@ public class Combate : MonoBehaviour
     public AudioSource sonidoCargando;
 
     // Para los disparos
-    public Transform firePoint;
+    public Transform firePointStanding;
+    public Transform firePointCrouch;
+    public Transform firePointUp;
+    private Transform firePoint;
     public GameObject bulletPrefab;
     public GameObject missilePrefab;
     public GameObject chargedPrefab;
@@ -66,15 +70,26 @@ public class Combate : MonoBehaviour
     void Update()
     {
         isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
-        if (isGrounded && (Input.GetKey(KeyCode.DownArrow)))
+        if (isGrounded && (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow)))
         {
-            standingCollider.enabled = false;
-            crouchCollider.enabled = true;
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                standingCollider.enabled = false;
+                crouchCollider.enabled = true;
+                firePoint = firePointCrouch;
+            } else if (Input.GetKey(KeyCode.UpArrow))
+            {
+                standingCollider.enabled = true;
+                crouchCollider.enabled = false;
+                firePoint = firePointUp;
+            } 
+            
         }
         else
         {
             standingCollider.enabled = true;
             crouchCollider.enabled = false;
+            firePoint = firePointStanding;
         }
 
 
