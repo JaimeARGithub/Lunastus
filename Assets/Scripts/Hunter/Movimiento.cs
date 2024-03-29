@@ -68,8 +68,18 @@ public class Movimiento : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movimientoH = Input.GetAxisRaw("Horizontal");
         rb2d.velocity = new Vector2(movimientoH * velocidad, rb2d.velocity.y);
+
+
+        isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
+        if (isGrounded && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)))
+        {
+            movimientoH = 0f;
+        } else
+        {
+            movimientoH = Input.GetAxisRaw("Horizontal");
+        }
+
 
 
         if (movimientoH > 0 && !mirandoDerecha)

@@ -41,7 +41,7 @@ public class Combate : MonoBehaviour
 
     // Variables de tiempo para el disparo cargado
     private float tiempoPresion = 0f;
-    private float tiempoRequeridoPresion = 0.2f;
+    private float tiempoRequeridoPresion = 0.1f;
     private float tiempoRequeridoPresionDisparar = 2f;
     private float tiempoTranscurridoSonidoCarga = 0f;
     private float tiempoEsperaSonidoCarga = 0.7f;
