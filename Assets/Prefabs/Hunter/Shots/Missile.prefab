@@ -185,3 +185,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 15
   impactEffect: {fileID: 6881717696874346505, guid: d389247f3e50186498abf7f30ba1a643, type: 3}
+  detectionLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64

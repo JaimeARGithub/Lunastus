@@ -9,6 +9,7 @@ public class Missile : MonoBehaviour
     private int damageMissile = 150;
     public GameObject impactEffect;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,20 @@ public class Missile : MonoBehaviour
                     if (crab != null)
                     {
                         crab.TakeDamage(damageMissile);
+                    }
+                    break;
+                case "Octopus":
+                    Octopus octopus = collision.GetComponent<Octopus>();
+                    if (octopus != null)
+                    {
+                        octopus.TakeDamage(damageMissile);
+                    }
+                    break;
+                case "Jumper":
+                    Jumper jumper = collision.GetComponent<Jumper>();
+                    if (jumper != null)
+                    {
+                        jumper.TakeDamage(damageMissile);
                     }
                     break;
             }

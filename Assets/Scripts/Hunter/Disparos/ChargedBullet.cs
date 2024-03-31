@@ -33,6 +33,20 @@ public class ChargedBullet : MonoBehaviour
                         crab.TakeDamage(damageCharged);
                     }
                     break;
+                case "Octopus":
+                    Octopus octopus = collision.GetComponent<Octopus>();
+                    if (octopus != null)
+                    {
+                        octopus.TakeDamage(damageCharged);
+                    }
+                    break;
+                case "Jumper":
+                    Jumper jumper = collision.GetComponent<Jumper>();
+                    if (jumper != null)
+                    {
+                        jumper.TakeDamage(damageCharged);
+                    }
+                    break;
             }
 
             Instantiate(impactEffect, transform.position, transform.rotation);

@@ -31,6 +31,20 @@ public class Bullet : MonoBehaviour
                         crab.TakeDamage(damageBullet);
                     }
                     break;
+                case "Octopus":
+                    Octopus octopus = collision.GetComponent<Octopus>();
+                    if (octopus != null)
+                    {
+                        octopus.TakeDamage(damageBullet);
+                    }
+                    break;
+                case "Jumper":
+                    Jumper jumper = collision.GetComponent<Jumper>();
+                    if (jumper != null)
+                    {
+                        jumper.TakeDamage(damageBullet);
+                    }
+                    break;
             }
 
             Instantiate(impactEffect, transform.position, transform.rotation);
