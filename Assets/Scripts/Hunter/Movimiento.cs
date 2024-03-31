@@ -56,6 +56,7 @@ public class Movimiento : MonoBehaviour
     private float tiempoEsperaSonidoCaminar = 0.3f;
     public AudioSource sonidoSalto;
     public AudioSource sonidoBackdash;
+    public AudioSource sonidoRebote;
 
 
 
@@ -219,6 +220,7 @@ public class Movimiento : MonoBehaviour
 
         if (steppingEnemy)
         {
+            sonidoRebote.Play();
             rb2d.AddForce(Vector2.up * potenciaSalto * 0.25f, ForceMode2D.Impulse);
         }
     }
