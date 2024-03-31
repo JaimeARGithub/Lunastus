@@ -1705,9 +1705,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  enemiesLayer:
-    serializedVersion: 2
-    m_Bits: 128
   piesCollider: {fileID: 620959111}
   sonidoDisparo: {fileID: 620959119}
   sonidoMisil: {fileID: 620959118}
@@ -1719,6 +1716,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1253905307133477009, guid: a08d256f4897b6d4bb3f4fc327e83b6e, type: 3}
   missilePrefab: {fileID: 1886366217867401585, guid: 6876520adc6e882489e2f77d0ef7e867, type: 3}
   chargedPrefab: {fileID: 2301297023414474701, guid: e6f730529e491a945a309af45bc52a3b, type: 3}
+  chargeReadyEffect: {fileID: 3968618909305339503, guid: 2b51b08b2d95e7f4ebf4c47f705bacfb, type: 3}
   standingCollider: {fileID: 620959110}
   crouchCollider: {fileID: 620959122}
 --- !u!82 &620959118

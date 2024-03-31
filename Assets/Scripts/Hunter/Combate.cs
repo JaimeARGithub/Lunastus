@@ -11,7 +11,6 @@ public class Combate : MonoBehaviour
     // Para detectar si se está saltando
     public bool isGrounded;
     public LayerMask groundLayer;
-    public LayerMask enemiesLayer;
     public Collider2D piesCollider;
 
     // Para detectar si se está en movimiento
@@ -43,15 +42,23 @@ public class Combate : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject missilePrefab;
     public GameObject chargedPrefab;
+    public GameObject chargeReadyEffect;
+    private GameObject currentChargeEffect;
 
     // Variables de tiempo para el disparo cargado
-    private float tiempoPresion = 0f;
-    private float tiempoRequeridoPresion = 0.1f;
-    private float tiempoRequeridoPresionDisparar = 2f;
+    private float instantePresionBoton = 0f;
+    private float tiempoRequeridoInicioCarga = 0.3f;
+    private float tiempoRequeridoPresionDisparoCargado = 2f;
     private float tiempoTranscurridoSonidoCarga = 0f;
     private float tiempoEsperaSonidoCarga = 0.7f;
     private bool disparoCargadoDisponible = false;
+
+    // Variables para el parpadeo de color durante la carga y el efecto de
+    // brillo cuando la carga se completa
     private SpriteRenderer spRd;
+    private bool colorCambiado = false;
+    private float intervaloCambioColor = 0.1f;
+    private float instanteUltimoCambioColor = 0f;
 
     // Para manipular el collider del jugador dependiendo de si se agacha o no
     public Collider2D standingCollider;
@@ -102,7 +109,7 @@ public class Combate : MonoBehaviour
             tiempoTranscurridoDisparo = 0f;
 
             // Para el inicio de la carga
-            tiempoPresion = Time.time;
+            instantePresionBoton = Time.time;
         }
         tiempoTranscurridoDisparo += Time.deltaTime;
 
@@ -119,8 +126,19 @@ public class Combate : MonoBehaviour
         
         if (Input.GetKey(KeyCode.E))
         {
-            if (Time.time - tiempoPresion >= tiempoRequeridoPresion)
+            // Código a ejecutar mientras se mantenga presionada la tecla E
+
+            if (Time.time - instantePresionBoton >= tiempoRequeridoInicioCarga)
             {
+                // Si se ha mantenido presionada durante el tiempo requerido para comenzar la carga (0.1f):
+                // empieza a reproducirse el sonido de carga y a parpadear en azul el sprite
+                if (Time.time - instanteUltimoCambioColor >= intervaloCambioColor)
+                {
+                    ChangeColor();
+                    instanteUltimoCambioColor = Time.time;
+                }
+
+
                 if (!sonidoCargando.isPlaying && tiempoTranscurridoSonidoCarga >= tiempoEsperaSonidoCarga)
                 {
                     sonidoCargando.Play();
@@ -129,38 +147,62 @@ public class Combate : MonoBehaviour
                 tiempoTranscurridoSonidoCarga += Time.deltaTime;
 
 
-                if (Time.time - tiempoPresion >= tiempoRequeridoPresionDisparar)
+                if (Time.time - instantePresionBoton >= tiempoRequeridoPresionDisparoCargado)
                 {
+                    // Disparo cargado disponible: ajustamos booleana de la que dependen el disparo y el objeto hijo que brilla
                     disparoCargadoDisponible = true;
-
-                    if (spRd.color == Color.white)
-                    {
-                        spRd.color = Color.cyan;
-                    } else
-                    {
-                        spRd.color = Color.white;
-                    }
                 }
             }
         }
+
+
+        if (disparoCargadoDisponible && currentChargeEffect == null)
+        {
+            currentChargeEffect = Instantiate(chargeReadyEffect, firePoint.position, firePoint.rotation);
+            currentChargeEffect.transform.parent = transform;
+        }
+        if (disparoCargadoDisponible && currentChargeEffect != null)
+        {
+            currentChargeEffect.transform.position = firePoint.position;
+        }
+
 
         if (Input.GetKeyUp(KeyCode.E))
         {
             sonidoCargando.Stop();
 
             spRd.color = Color.white;
+            colorCambiado = false;
 
             if (disparoCargadoDisponible)
             {
+                if (currentChargeEffect != null)
+                {
+                    Destroy(currentChargeEffect);
+                }
+
                 sonidoDisparoCargado.Play();
                 AnimarDisparo();
                 DispararCargado();
 
                 // Restablecer el tiempo de presión para poder ejecutar un nuevo disparo cargado
-                tiempoPresion = 0f;
+                instantePresionBoton = 0f;
                 disparoCargadoDisponible = false;
             }
         }
+    }
+
+    private void ChangeColor()
+    {
+        if (!colorCambiado)
+        {
+            spRd.color = Color.cyan;
+        } else
+        {
+            spRd.color = Color.white;
+        }
+
+        colorCambiado = !colorCambiado;
     }
 
 
