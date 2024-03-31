@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BalaCargada : MonoBehaviour
+public class ChargedBullet : MonoBehaviour
 {
     [SerializeField] private float velocidad = 15f;
     private Rigidbody2D rb;

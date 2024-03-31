@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class Combate : MonoBehaviour
+public class Combat : MonoBehaviour
 {
     // Para la ejecución de animaciones
     private Animator animator;

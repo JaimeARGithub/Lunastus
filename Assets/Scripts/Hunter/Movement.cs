@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movimiento : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     // Movimiento del jugador
     private float velocidad = 4.5F;
