@@ -235,10 +235,6 @@ public class Combate : MonoBehaviour
             {
                 StartCoroutine(ShootIdle());
             }
-            else
-            {
-                StartCoroutine(ShootRunning());
-            }
         }
         else
         {
@@ -254,14 +250,6 @@ public class Combate : MonoBehaviour
         animator.SetBool("isShootingIdle", false);
     }
 
-    private IEnumerator ShootRunning()
-    {
-        animator.SetBool("isShootingRunning", true);
-        animator.SetBool("isRunning", false);
-        yield return new WaitForSeconds(0.5f);
-        animator.SetBool("isShootingRunning", false);
-        animator.SetBool("isRunning", true);
-    }
 
     private IEnumerator ShootJumping()
     {
