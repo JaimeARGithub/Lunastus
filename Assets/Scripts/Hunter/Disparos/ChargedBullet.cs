@@ -77,6 +77,13 @@ public class ChargedBullet : MonoBehaviour
                             tentacles.TakeDamage(damageCharged);
                         }
                         break;
+                    case "Shell":
+                        Shell shell = collision.GetComponent<Shell>();
+                        if (shell != null)
+                        {
+                            shell.TakeDamage(damageCharged);
+                        }
+                        break;
                 }
 
                 Instantiate(impactEffect, transform.position, transform.rotation);

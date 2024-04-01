@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Crab : MonoBehaviour
 {
-    private int health = 100;
+    private int health = 80;
     public GameObject deathEffect;
     public AudioSource sonidoMuerte;
     private SpriteRenderer spRd;

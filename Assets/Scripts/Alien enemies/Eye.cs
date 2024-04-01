@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Eye : MonoBehaviour
 {
-    private int health = 100;
+    private int health = 80;
     public GameObject deathEffect;
     public AudioSource deathSound;
     private SpriteRenderer spRd;

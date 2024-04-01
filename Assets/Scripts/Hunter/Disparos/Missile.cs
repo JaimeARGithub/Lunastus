@@ -76,6 +76,13 @@ public class Missile : MonoBehaviour
                             tentacles.TakeDamage(damageMissile);
                         }
                         break;
+                    case "Shell":
+                        Shell shell = collision.GetComponent<Shell>();
+                        if (shell != null)
+                        {
+                            shell.TakeDamage(damageMissile);
+                        }
+                        break;
                 }
 
                 Instantiate(impactEffect, transform.position, transform.rotation);

@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jumper : MonoBehaviour
+public class Shell : MonoBehaviour
 {
-    private int health = 40;
+    private int health = 20;
     public GameObject deathEffect;
-    public AudioSource deathSound;
+    public AudioSource sonidoMuerte;
     private SpriteRenderer spRd;
 
 
-    void Start()
+    public void Start()
     {
         spRd = GetComponent<SpriteRenderer>();
     }
+
 
     public void TakeDamage(int damage)
     {
@@ -26,8 +27,11 @@ public class Jumper : MonoBehaviour
         }
     }
 
+
     private void Die()
     {
+        // Al morir, al mismo tiempo se hacen invisible el objeto, se instancia la animación de muerte
+        // y se reproduce el sonido de muerte; se eliminan el rigidbody y el collider
         Color colorSprite = spRd.material.color;
         colorSprite.a = 0f;
         spRd.material.color = colorSprite;
@@ -36,14 +40,16 @@ public class Jumper : MonoBehaviour
         Destroy(GetComponent<Rigidbody2D>());
 
         Instantiate(deathEffect, transform.position, Quaternion.identity);
-        deathSound.Play();
+        sonidoMuerte.Play();
 
+        // Tras emitirse el sonido de muerte con el objeto ya invisible y la animación de muerte
+        // reproduciéndose, se destruye el objeto
         Destroy(gameObject, 0.7f);
     }
 
     public IEnumerator ChangeColor()
     {
-        spRd.color = Color.magenta;
+        spRd.color = Color.green;
         yield return new WaitForSeconds(0.1f);
         spRd.color = Color.white;
         yield return new WaitForSeconds(0.1f);
