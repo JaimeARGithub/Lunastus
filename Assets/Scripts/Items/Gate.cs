@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Gate : MonoBehaviour
 {
-    public AudioSource openSound;
-    public AudioSource closeSound;
-    private int health = 20;
     private Animator animator;
     private Rigidbody2D rb;
+    private float originalGravity = 0f;
+    private Collider2D gatecollider;
+
+    public AudioSource openSound;
+    public AudioSource closeSound;
+
+    private int maxHealth = 20;
+    private int health = 20;
+    private bool isOpen = false;
+    private float openingMoment;
+    
 
 
     // Start is called before the first frame update
@@ -16,6 +24,8 @@ public class Gate : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        originalGravity = rb.gravityScale;
+        gatecollider = GetComponent<Collider2D>();
     }
 
     public void TakeDamage(int damage)
@@ -28,11 +38,45 @@ public class Gate : MonoBehaviour
         }
     }
 
+
+    private void Update()
+    {
+        if (isOpen && Time.time - openingMoment >= 3f)
+        {
+            StartCoroutine(Close());
+        }
+    }
+
+
     private void Open()
     {
         rb.gravityScale = 0f;
+        gatecollider.enabled = false;
+
+        isOpen = true;
         animator.SetBool("isOpen", true);
+        animator.SetBool("isIdle", false);
         openSound.Play();
-        Destroy(GetComponent<Collider2D>());
+
+        openingMoment = Time.time;
+    }
+
+
+    private IEnumerator Close()
+    {
+        isOpen = false;
+        gatecollider.enabled = true;
+
+        rb.gravityScale = originalGravity;
+        health = maxHealth;
+
+        animator.SetBool("isClosed", true);
+        animator.SetBool("isOpen", false);
+        closeSound.Play();
+
+        yield return new WaitForSeconds(0.05f);
+
+        animator.SetBool("isIdle", true);
+        animator.SetBool("isClosed", false);
     }
 }

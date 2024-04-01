@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class MissileGate : MonoBehaviour
 {
-    public AudioSource openSound;
-    public AudioSource closeSound;
-    private int maxHealth = 150;
-    private int health = 150;
     private Animator animator;
     private Rigidbody2D rb;
+    private float originalGravity = 0f;
+    private Collider2D gatecollider;
+
+    public AudioSource openSound;
+    public AudioSource closeSound;
+
+    private int maxHealth = 150;
+    private int health = 150;
+    private bool isOpen = false;
+    private float openingMoment;
+
 
 
     // Start is called before the first frame update
@@ -17,14 +24,22 @@ public class MissileGate : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        originalGravity = rb.gravityScale;
+        gatecollider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (health > 0)
+        if (health > 0 && health < maxHealth)
         {
             health = maxHealth;
+        }
+
+
+        if (isOpen && Time.time - openingMoment >= 3f)
+        {
+            StartCoroutine(Close());
         }
     }
 
@@ -41,8 +56,32 @@ public class MissileGate : MonoBehaviour
     private void Open()
     {
         rb.gravityScale = 0f;
+        gatecollider.enabled = false;
+
+        isOpen = true;
         animator.SetBool("isOpen", true);
+        animator.SetBool("isIdle", false);
         openSound.Play();
-        Destroy(GetComponent<Collider2D>());
+
+        openingMoment = Time.time;
+    }
+
+
+    private IEnumerator Close()
+    {
+        isOpen = false;
+        gatecollider.enabled = true;
+
+        rb.gravityScale = originalGravity;
+        health = maxHealth;
+
+        animator.SetBool("isClosed", true);
+        animator.SetBool("isOpen", false);
+        closeSound.Play();
+
+        yield return new WaitForSeconds(0.05f);
+
+        animator.SetBool("isIdle", true);
+        animator.SetBool("isClosed", false);
     }
 }
