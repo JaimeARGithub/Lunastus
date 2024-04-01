@@ -89,6 +89,13 @@ public class Bullet : MonoBehaviour
                             biceraptor.TakeDamage(damageBullet);
                         }
                         break;
+                    case "Sentinel":
+                        Sentinel sentinel = collision.GetComponent<Sentinel>();
+                        if (sentinel != null)
+                        {
+                            sentinel.TakeDamage(damageBullet);
+                        }
+                        break;
                 }
 
                 Instantiate(impactEffect, transform.position, transform.rotation);
