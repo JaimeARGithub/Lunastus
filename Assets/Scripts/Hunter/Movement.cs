@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour
     private float gravedadPersonalizada = 100f;
 
     // Variables para el doble salto
-    private bool dobleSaltoDesbloqueado = true; // VARIABLE QUE DEPENDE DEL GAME MANAGER
+    private bool dobleSaltoDesbloqueado = false; // VARIABLE QUE DEPENDE DEL GAME MANAGER
     private bool dobleSalto = true;             // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
 
 
@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
     private float movimientoH;
 
     // Para el backdash
-    private bool backDashDesbloqueado = true;   // VARIABLE QUE DEPENDE DEL GAME MANAGER
+    private bool backDashDesbloqueado = false;   // VARIABLE QUE DEPENDE DEL GAME MANAGER
     private bool puedeBackdash = true;          // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
     private bool isBackdashing;
     private float fuerzaBackdash = 1f;
@@ -70,6 +70,9 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // LEER SI EL BACKDASH ESTÁ DESBLOQUEADO
+        // LEER SI EL DOBLE SALTO ESTÁ DESBLOQUEADO
+
         rb2d.velocity = new Vector2(movimientoH * velocidad, rb2d.velocity.y);
 
 
@@ -144,6 +147,18 @@ public class Movement : MonoBehaviour
         }
 
         steppingEnemy = Physics2D.IsTouchingLayers(piesCollider, enemiesLayer);
+    }
+
+    public void activarBackdash()
+    {
+        // USAR EL SETTER DEL GAME MANAGER
+        backDashDesbloqueado = true;
+    }
+
+    public void activarDobleSalto()
+    {
+        // USAR EL SETTER DEL GAME MANAGER
+        dobleSaltoDesbloqueado = true;
     }
 
     private void FixedUpdate()

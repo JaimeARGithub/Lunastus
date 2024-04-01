@@ -17,10 +17,10 @@ public class Combat : MonoBehaviour
     private float movimientoH;
 
     // Para los cooldowns
-    private bool misilDesbloqueado = true;      // VALOR QUE DEPENDE DEL GAME MANAGER
+    private bool misilDesbloqueado = false;      // VALOR QUE DEPENDE DEL GAME MANAGER
                                                 // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
 
-    private int misilesRestantes = 5;           // VALOR QUE DEPENDE DEL GAME MANAGER
+    private int misilesRestantes = 0;           // VALOR QUE DEPENDE DEL GAME MANAGER
                                                 // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
 
     private float tiempoTranscurridoDisparo = 0f;
@@ -76,6 +76,9 @@ public class Combat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // LEER DEL GAME MANAGER SI LOS MISILES ESTÁN DESBLOQUEADOS
+        // LEER DEL GAME MANAGER LA MUNICIÓN RESTANTE DE MISILES
+
         isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
         if (isGrounded && (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow)))
         {
@@ -190,6 +193,18 @@ public class Combat : MonoBehaviour
                 disparoCargadoDisponible = false;
             }
         }
+    }
+
+    public void activarMisiles()
+    {
+        // USAR LOS SETTERS DEL GAME MANAGER
+        misilDesbloqueado = true;
+        misilesRestantes += 5;
+    }
+
+    public void recargarMisiles()
+    {
+        misilesRestantes += 5;
     }
 
     private void ChangeColor()
