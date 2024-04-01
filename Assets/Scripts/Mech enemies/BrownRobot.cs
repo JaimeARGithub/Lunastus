@@ -49,7 +49,7 @@ public class BrownRobot : MonoBehaviour
 
     public IEnumerator ChangeColor()
     {
-        spRd.color = Color.yellow;
+        spRd.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         spRd.color = Color.white;
         yield return new WaitForSeconds(0.1f);
