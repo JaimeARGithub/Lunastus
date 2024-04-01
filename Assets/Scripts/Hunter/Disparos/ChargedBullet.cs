@@ -47,6 +47,20 @@ public class ChargedBullet : MonoBehaviour
                         jumper.TakeDamage(damageCharged);
                     }
                     break;
+                case "Fly":
+                    Fly fly = collision.GetComponent<Fly>();
+                    if (fly != null)
+                    {
+                        fly.TakeDamage(damageCharged);
+                    }
+                    break;
+                case "Eye":
+                    Eye eye = collision.GetComponent<Eye>();
+                    if (eye != null)
+                    {
+                        eye.TakeDamage(damageCharged);
+                    }
+                    break;
             }
 
             Instantiate(impactEffect, transform.position, transform.rotation);

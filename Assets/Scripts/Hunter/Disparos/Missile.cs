@@ -46,6 +46,20 @@ public class Missile : MonoBehaviour
                         jumper.TakeDamage(damageMissile);
                     }
                     break;
+                case "Fly":
+                    Fly fly = collision.GetComponent<Fly>();
+                    if (fly != null)
+                    {
+                        fly.TakeDamage(damageMissile);
+                    }
+                    break;
+                case "Eye":
+                    Eye eye = collision.GetComponent<Eye>();
+                    if (eye != null)
+                    {
+                        eye.TakeDamage(damageMissile);
+                    }
+                    break;
             }
 
             Instantiate(impactEffect, transform.position, transform.rotation);

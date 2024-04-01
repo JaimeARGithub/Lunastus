@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crab : MonoBehaviour
+public class Fly : MonoBehaviour
 {
-    private int health = 100;
+    private int health = 40;
     public GameObject deathEffect;
-    public AudioSource sonidoMuerte;
+    public AudioSource idleSound;
+    public AudioSource deathSound;
     private SpriteRenderer spRd;
 
-
-    public void Start()
+    void Start()
     {
         spRd = GetComponent<SpriteRenderer>();
+        idleSound.Play();
     }
-
 
     public void TakeDamage(int damage)
     {
@@ -30,8 +30,6 @@ public class Crab : MonoBehaviour
 
     private void Die()
     {
-        // Al morir, al mismo tiempo se hacen invisible el objeto, se instancia la animación de muerte
-        // y se reproduce el sonido de muerte; se eliminan el rigidbody y el collider
         Color colorSprite = spRd.material.color;
         colorSprite.a = 0f;
         spRd.material.color = colorSprite;
@@ -40,10 +38,9 @@ public class Crab : MonoBehaviour
         Destroy(GetComponent<Rigidbody2D>());
 
         Instantiate(deathEffect, transform.position, Quaternion.identity);
-        sonidoMuerte.Play();
+        idleSound.Stop();
+        deathSound.Play();
 
-        // Tras emitirse el sonido de muerte con el objeto ya invisible y la animación de muerte
-        // reproduciéndose, se destruye el objeto
         Destroy(gameObject, 0.7f);
     }
 

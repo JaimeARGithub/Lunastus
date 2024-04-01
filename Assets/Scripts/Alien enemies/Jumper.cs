@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Jumper : MonoBehaviour
 {
-    private int health = 40;
+    private int health = 60;
     public GameObject deathEffect;
     public AudioSource deathSound;
     private SpriteRenderer spRd;
@@ -43,7 +43,7 @@ public class Jumper : MonoBehaviour
 
     public IEnumerator ChangeColor()
     {
-        spRd.color = Color.green;
+        spRd.color = Color.magenta;
         yield return new WaitForSeconds(0.1f);
         spRd.color = Color.white;
         yield return new WaitForSeconds(0.1f);

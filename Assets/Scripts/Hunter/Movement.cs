@@ -182,6 +182,8 @@ public class Movement : MonoBehaviour
 
         if (!isGrounded)
         {
+            animator.SetBool("isRunning", false);
+
             if (isBackdashing)
             {
                 animator.SetBool("isBackdashing", true);
