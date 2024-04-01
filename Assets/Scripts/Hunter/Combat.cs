@@ -204,7 +204,10 @@ public class Combat : MonoBehaviour
 
     public void recargarMisiles()
     {
-        misilesRestantes += 5;
+        if (misilDesbloqueado)
+        {
+            misilesRestantes += 5;
+        }
     }
 
     private void ChangeColor()
