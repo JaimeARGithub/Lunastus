@@ -97,6 +97,34 @@ public class Missile : MonoBehaviour
                             sentinel.TakeDamage(damageMissile);
                         }
                         break;
+                    case "YellowRobot":
+                        YellowRobot yellowRobot = collision.GetComponent<YellowRobot>();
+                        if (yellowRobot != null)
+                        {
+                            yellowRobot.TakeDamage(damageMissile);
+                        }
+                        break;
+                    case "GreyRobot":
+                        GreyRobot greyRobot = collision.GetComponent<GreyRobot>();
+                        if (greyRobot != null)
+                        {
+                            greyRobot.TakeDamage(damageMissile);
+                        }
+                        break;
+                    case "BrownRobot":
+                        BrownRobot brownRobot = collision.GetComponent<BrownRobot>();
+                        if (brownRobot != null)
+                        {
+                            brownRobot.TakeDamage(damageMissile);
+                        }
+                        break;
+                    case "RedRobot":
+                        RedRobot redRobot = collision.GetComponent<RedRobot>();
+                        if (redRobot != null)
+                        {
+                            redRobot.TakeDamage(damageMissile);
+                        }
+                        break;
                 }
 
                 Instantiate(impactEffect, transform.position, transform.rotation);

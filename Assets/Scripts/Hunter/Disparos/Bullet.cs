@@ -96,6 +96,34 @@ public class Bullet : MonoBehaviour
                             sentinel.TakeDamage(damageBullet);
                         }
                         break;
+                    case "YellowRobot":
+                        YellowRobot yellowRobot = collision.GetComponent<YellowRobot>();
+                        if (yellowRobot != null)
+                        {
+                            yellowRobot.TakeDamage(damageBullet);
+                        }
+                        break;
+                    case "GreyRobot":
+                        GreyRobot greyRobot = collision.GetComponent<GreyRobot>();
+                        if (greyRobot != null)
+                        {
+                            greyRobot.TakeDamage(damageBullet);
+                        }
+                        break;
+                    case "BrownRobot":
+                        BrownRobot brownRobot = collision.GetComponent<BrownRobot>();
+                        if (brownRobot != null)
+                        {
+                            brownRobot.TakeDamage(damageBullet);
+                        }
+                        break;
+                    case "RedRobot":
+                        RedRobot redRobot = collision.GetComponent<RedRobot>();
+                        if (redRobot != null)
+                        {
+                            redRobot.TakeDamage(damageBullet);
+                        }
+                        break;
                 }
 
                 Instantiate(impactEffect, transform.position, transform.rotation);

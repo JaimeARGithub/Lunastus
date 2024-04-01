@@ -98,6 +98,34 @@ public class ChargedBullet : MonoBehaviour
                             sentinel.TakeDamage(damageCharged);
                         }
                         break;
+                    case "YellowRobot":
+                        YellowRobot yellowRobot = collision.GetComponent<YellowRobot>();
+                        if (yellowRobot != null)
+                        {
+                            yellowRobot.TakeDamage(damageCharged);
+                        }
+                        break;
+                    case "GreyRobot":
+                        GreyRobot greyRobot = collision.GetComponent<GreyRobot>();
+                        if (greyRobot != null)
+                        {
+                            greyRobot.TakeDamage(damageCharged);
+                        }
+                        break;
+                    case "BrownRobot":
+                        BrownRobot brownRobot = collision.GetComponent<BrownRobot>();
+                        if (brownRobot != null)
+                        {
+                            brownRobot.TakeDamage(damageCharged);
+                        }
+                        break;
+                    case "RedRobot":
+                        RedRobot redRobot = collision.GetComponent<RedRobot>();
+                        if (redRobot != null)
+                        {
+                            redRobot.TakeDamage(damageCharged);
+                        }
+                        break;
                 }
 
                 Instantiate(impactEffect, transform.position, transform.rotation);
