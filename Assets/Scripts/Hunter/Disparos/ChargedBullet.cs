@@ -126,6 +126,20 @@ public class ChargedBullet : MonoBehaviour
                             redRobot.TakeDamage(damageCharged);
                         }
                         break;
+                    case "Gate":
+                        Gate gate = collision.GetComponent<Gate>();
+                        if (gate != null)
+                        {
+                            gate.TakeDamage(damageCharged);
+                        }
+                        break;
+                    case "MissileGate":
+                        MissileGate missileGate = collision.GetComponent<MissileGate>();
+                        if (missileGate != null)
+                        {
+                            missileGate.TakeDamage(damageCharged);
+                        }
+                        break;
                 }
 
                 Instantiate(impactEffect, transform.position, transform.rotation);
