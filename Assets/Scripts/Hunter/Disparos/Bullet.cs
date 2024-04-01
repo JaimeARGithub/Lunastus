@@ -20,49 +20,66 @@ public class Bullet : MonoBehaviour
     {
         Debug.Log(collision.name);
 
-        if (!collision.name.Equals("Bullet(Clone)") && !collision.name.Equals("ChargedBullet(Clone)") && !collision.name.Equals("Missile(Clone)"))
+        if (!collision.name.Equals("Hunter"))
         {
-            switch (collision.name)
+            if (!collision.name.Equals("Bullet(Clone)") && !collision.name.Equals("ChargedBullet(Clone)") && !collision.name.Equals("Missile(Clone)"))
             {
-                case "Crab":
-                    Crab crab = collision.GetComponent<Crab>();
-                    if (crab != null)
-                    {
-                        crab.TakeDamage(damageBullet);
-                    }
-                    break;
-                case "Octopus":
-                    Octopus octopus = collision.GetComponent<Octopus>();
-                    if (octopus != null)
-                    {
-                        octopus.TakeDamage(damageBullet);
-                    }
-                    break;
-                case "Jumper":
-                    Jumper jumper = collision.GetComponent<Jumper>();
-                    if (jumper != null)
-                    {
-                        jumper.TakeDamage(damageBullet);
-                    }
-                    break;
-                case "Fly":
-                    Fly fly = collision.GetComponent<Fly>();
-                    if (fly != null)
-                    {
-                        fly.TakeDamage(damageBullet);
-                    }
-                    break;
-                case "Eye":
-                    Eye eye = collision.GetComponent<Eye>();
-                    if (eye != null)
-                    {
-                        eye.TakeDamage(damageBullet);
-                    }
-                    break;
-            }
+                switch (collision.name)
+                {
+                    case "Crab":
+                        Crab crab = collision.GetComponent<Crab>();
+                        if (crab != null)
+                        {
+                            crab.TakeDamage(damageBullet);
+                        }
+                        break;
+                    case "Octopus":
+                        Octopus octopus = collision.GetComponent<Octopus>();
+                        if (octopus != null)
+                        {
+                            octopus.TakeDamage(damageBullet);
+                        }
+                        break;
+                    case "Jumper":
+                        Jumper jumper = collision.GetComponent<Jumper>();
+                        if (jumper != null)
+                        {
+                            jumper.TakeDamage(damageBullet);
+                        }
+                        break;
+                    case "Fly":
+                        Fly fly = collision.GetComponent<Fly>();
+                        if (fly != null)
+                        {
+                            fly.TakeDamage(damageBullet);
+                        }
+                        break;
+                    case "Eye":
+                        Eye eye = collision.GetComponent<Eye>();
+                        if (eye != null)
+                        {
+                            eye.TakeDamage(damageBullet);
+                        }
+                        break;
+                    case "Rinofish":
+                        Rinofish rinofish = collision.GetComponent<Rinofish>();
+                        if (rinofish != null)
+                        {
+                            rinofish.TakeDamage(damageBullet);
+                        }
+                        break;
+                    case "Tentacles":
+                        Tentacles tentacles = collision.GetComponent<Tentacles>();
+                        if (tentacles != null)
+                        {
+                            tentacles.TakeDamage(damageBullet);
+                        }
+                        break;
+                }
 
-            Instantiate(impactEffect, transform.position, transform.rotation);
-            Destroy(gameObject);
+                Instantiate(impactEffect, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
         }
     }
 }
