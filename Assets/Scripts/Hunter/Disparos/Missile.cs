@@ -83,6 +83,13 @@ public class Missile : MonoBehaviour
                             shell.TakeDamage(damageMissile);
                         }
                         break;
+                    case "Biceraptor":
+                        Biceraptor biceraptor = collision.GetComponent<Biceraptor>();
+                        if (biceraptor != null)
+                        {
+                            biceraptor.TakeDamage(damageMissile);
+                        }
+                        break;
                 }
 
                 Instantiate(impactEffect, transform.position, transform.rotation);

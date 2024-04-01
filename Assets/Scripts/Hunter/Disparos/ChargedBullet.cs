@@ -84,6 +84,13 @@ public class ChargedBullet : MonoBehaviour
                             shell.TakeDamage(damageCharged);
                         }
                         break;
+                    case "Biceraptor":
+                        Biceraptor biceraptor = collision.GetComponent<Biceraptor>();
+                        if (biceraptor != null)
+                        {
+                            biceraptor.TakeDamage(damageCharged);
+                        }
+                        break;
                 }
 
                 Instantiate(impactEffect, transform.position, transform.rotation);
