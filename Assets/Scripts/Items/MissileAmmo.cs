@@ -7,6 +7,8 @@ public class MissileAmmo : MonoBehaviour
     public AudioSource sound;
     private SpriteRenderer spRd;
     public GameObject effect;
+    public AudioSource errorSound;
+    public GameObject errorEffect;
 
 
     // Start is called before the first frame update
@@ -19,17 +21,25 @@ public class MissileAmmo : MonoBehaviour
     {
         if (collision.name.Equals("Hunter"))
         {
-            Color colorSprite = spRd.material.color;
-            colorSprite.a = 0f;
-            spRd.material.color = colorSprite;
-            Destroy(GetComponent<Collider2D>());
-
-            Instantiate(effect, transform.position, Quaternion.identity);
-            sound.Play();
             Combat c = collision.GetComponent<Combat>();
-            c.recargarMisiles();
 
-            Destroy(gameObject, 2f);
+            if (c.getMisilesDesbloqueados())
+            {
+                Color colorSprite = spRd.material.color;
+                colorSprite.a = 0f;
+                spRd.material.color = colorSprite;
+                Destroy(GetComponent<Collider2D>());
+
+                Instantiate(effect, transform.position, Quaternion.identity);
+                sound.Play();
+                c.recargarMisiles();
+
+                Destroy(gameObject, 2f);
+            } else
+            {
+                Instantiate(errorEffect, transform.position, Quaternion.identity);
+                errorSound.Play();
+            }
         }
     }
 }

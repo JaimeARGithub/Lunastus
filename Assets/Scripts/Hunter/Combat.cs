@@ -18,10 +18,13 @@ public class Combat : MonoBehaviour
 
     // Para los cooldowns
     private bool misilDesbloqueado = false;      // VALOR QUE DEPENDE DEL GAME MANAGER
+                                                 // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
+
+    private int limiteMisiles = 0;              // VALOR QUE DEPENDE DEL GAME MANAGER
                                                 // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
 
-    private int misilesRestantes = 0;           // VALOR QUE DEPENDE DEL GAME MANAGER
-                                                // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
+    private int municionMisiles = 0;           // VALOR QUE DEPENDE DEL GAME MANAGER
+                                               // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
 
     private float tiempoTranscurridoDisparo = 0f;
     private float tiempoEsperaDisparo = 0.2f;
@@ -77,6 +80,7 @@ public class Combat : MonoBehaviour
     void Update()
     {
         // LEER DEL GAME MANAGER SI LOS MISILES ESTÁN DESBLOQUEADOS
+        // LEER DEL GAME MANAGER EL LÍMITE DE MISILES
         // LEER DEL GAME MANAGER LA MUNICIÓN RESTANTE DE MISILES
 
         isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
@@ -117,7 +121,7 @@ public class Combat : MonoBehaviour
         tiempoTranscurridoDisparo += Time.deltaTime;
 
 
-        if (Input.GetKeyDown(KeyCode.R) && tiempoTranscurridoMisil >= tiempoEsperaMisil && misilDesbloqueado && misilesRestantes > 0)
+        if (Input.GetKeyDown(KeyCode.R) && tiempoTranscurridoMisil >= tiempoEsperaMisil && misilDesbloqueado && municionMisiles > 0)
         {
             sonidoMisil.Play();
             AnimarDisparo();
@@ -195,18 +199,48 @@ public class Combat : MonoBehaviour
         }
     }
 
+    public bool getMisilesDesbloqueados()
+    {
+        // USAR EL GETTER DEL GAME MANAGER
+        return this.misilDesbloqueado;
+    }
+
     public void activarMisiles()
     {
         // USAR LOS SETTERS DEL GAME MANAGER
         misilDesbloqueado = true;
-        misilesRestantes += 5;
+        limiteMisiles += 5;
+        municionMisiles = limiteMisiles;
+        Debug.Log("LÍMITE DE MISILES: " + limiteMisiles);
+        Debug.Log("MUNICIÓN ACTUAL: " + municionMisiles);
+    }
+
+    public void ampliarMisiles()
+    {
+        // USAR LOS SETTERS DEL GAME MANAGER
+        if (misilDesbloqueado)
+        {
+            limiteMisiles += 5;
+            municionMisiles = limiteMisiles;
+            Debug.Log("LÍMITE DE MISILES: " + limiteMisiles);
+            Debug.Log("MUNICIÓN ACTUAL: " + municionMisiles);
+        }
     }
 
     public void recargarMisiles()
     {
+        // USAR LOS SETTERS DEL GAME MANAGER
         if (misilDesbloqueado)
         {
-            misilesRestantes += 5;
+            if (municionMisiles + 5 <= limiteMisiles)
+            {
+                municionMisiles += 5;
+            } else
+            {
+                municionMisiles = limiteMisiles;
+            }
+            Debug.Log("LÍMITE DE MISILES: " + limiteMisiles);
+            Debug.Log("MUNICIÓN ACTUAL: " + municionMisiles);
         }
     }
 
@@ -233,7 +267,7 @@ public class Combat : MonoBehaviour
     private void DispararMisil()
     {
         Instantiate(missilePrefab, firePoint.position, firePoint.rotation);
-        misilesRestantes -= 1;      // CAMBIAR ESTA LÍNEA PARA QUE REDUZCA LA
+        municionMisiles -= 1;       // CAMBIAR ESTA LÍNEA PARA QUE REDUZCA LA
                                     // CANTIDAD DE MISILES RESTANTES DEL GAME MANAGER
     }
 
