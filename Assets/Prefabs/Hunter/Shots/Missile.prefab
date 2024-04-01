@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 2ab69d6857ea7b844a92f1ca8a5b7765, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 79c8d1e8eaa26da4faeaa19c1b5df0d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -185,9 +185,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 15
   impactEffect: {fileID: 6881717696874346505, guid: d389247f3e50186498abf7f30ba1a643, type: 3}
-  detectionLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
