@@ -141,7 +141,8 @@ public class Missile : MonoBehaviour
                         break;
                 }
 
-                Instantiate(impactEffect, transform.position, transform.rotation);
+                Vector3 impactPosition = transform.position + new Vector3(0.5f, 0f, 0f);
+                Instantiate(impactEffect, impactPosition, transform.rotation);
                 Destroy(gameObject);
             }
         }
