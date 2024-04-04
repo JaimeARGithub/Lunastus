@@ -22,7 +22,8 @@ public class Bullet : MonoBehaviour
 
         if (!collision.name.Equals("Hunter"))
         {
-            if (!collision.name.Equals("Bullet(Clone)") && !collision.name.Equals("ChargedBullet(Clone)") && !collision.name.Equals("Missile(Clone)"))
+            if (!collision.name.Equals("Bullet(Clone)") && !collision.name.Equals("ChargedBullet(Clone)") && !collision.name.Equals("Missile(Clone)")
+                && !collision.name.Equals("SentinelBullet(Clone)"))
             {
                 switch (collision.name)
                 {

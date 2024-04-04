@@ -10,6 +10,8 @@ public class Sentinel : MonoBehaviour
     public AudioSource deathSound;
     private SpriteRenderer spRd;
 
+    private bool dead = false;
+
     void Start()
     {
         spRd = GetComponent<SpriteRenderer>();
@@ -23,6 +25,7 @@ public class Sentinel : MonoBehaviour
 
         if (health <= 0)
         {
+            dead = true;
             Die();
         }
     }
@@ -50,5 +53,11 @@ public class Sentinel : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         spRd.color = Color.white;
         yield return new WaitForSeconds(0.1f);
+    }
+
+
+    public bool isDead()
+    {
+        return this.dead;
     }
 }
