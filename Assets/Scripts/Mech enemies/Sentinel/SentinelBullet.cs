@@ -30,7 +30,8 @@ public class SentinelBullet : MonoBehaviour
     {
         Debug.Log(collision.name);
 
-        if (!collision.name.Contains("Sentinel"))
+        if (!collision.name.Contains("Sentinel") && 
+            !collision.name.Equals("Bullet(Clone)") && !collision.name.Equals("ChargedBullet(Clone)") && !collision.name.Equals("Missile(Clone)"))
         {
             if (collision.name.Equals("Hunter"))
             {

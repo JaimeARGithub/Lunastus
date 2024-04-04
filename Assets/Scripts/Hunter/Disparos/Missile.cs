@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Missile : MonoBehaviour
@@ -28,112 +29,112 @@ public class Missile : MonoBehaviour
             {
                 switch (collision.name)
                 {
-                    case "Crab":
+                    case string name when name.StartsWith("Crab"):
                         Crab crab = collision.GetComponent<Crab>();
                         if (crab != null)
                         {
                             crab.TakeDamage(damageMissile);
                         }
                         break;
-                    case "Octopus":
+                    case string name when name.StartsWith("Octopus"):
                         Octopus octopus = collision.GetComponent<Octopus>();
                         if (octopus != null)
                         {
                             octopus.TakeDamage(damageMissile);
                         }
                         break;
-                    case "Jumper":
+                    case string name when name.StartsWith("Jumper"):
                         Jumper jumper = collision.GetComponent<Jumper>();
                         if (jumper != null)
                         {
                             jumper.TakeDamage(damageMissile);
                         }
                         break;
-                    case "Fly":
+                    case string name when name.StartsWith("Fly"):
                         Fly fly = collision.GetComponent<Fly>();
                         if (fly != null)
                         {
                             fly.TakeDamage(damageMissile);
                         }
                         break;
-                    case "Eye":
+                    case string name when name.StartsWith("Eye"):
                         Eye eye = collision.GetComponent<Eye>();
                         if (eye != null)
                         {
                             eye.TakeDamage(damageMissile);
                         }
                         break;
-                    case "Rinofish":
+                    case string name when name.StartsWith("Rinofish"):
                         Rinofish rinofish = collision.GetComponent<Rinofish>();
                         if (rinofish != null)
                         {
                             rinofish.TakeDamage(damageMissile);
                         }
                         break;
-                    case "Tentacles":
+                    case string name when name.StartsWith("Tentacles"):
                         Tentacles tentacles = collision.GetComponent<Tentacles>();
                         if (tentacles != null)
                         {
                             tentacles.TakeDamage(damageMissile);
                         }
                         break;
-                    case "Shell":
+                    case string name when name.StartsWith("Shell"):
                         Shell shell = collision.GetComponent<Shell>();
                         if (shell != null)
                         {
                             shell.TakeDamage(damageMissile);
                         }
                         break;
-                    case "Biceraptor":
+                    case string name when name.StartsWith("Biceraptor"):
                         Biceraptor biceraptor = collision.GetComponent<Biceraptor>();
                         if (biceraptor != null)
                         {
                             biceraptor.TakeDamage(damageMissile);
                         }
                         break;
-                    case "Sentinel":
+                    case string name when name.StartsWith("Sentinel"):
                         Sentinel sentinel = collision.GetComponent<Sentinel>();
                         if (sentinel != null)
                         {
                             sentinel.TakeDamage(damageMissile);
                         }
                         break;
-                    case "YellowRobot":
+                    case string name when name.StartsWith("YellowRobot"):
                         YellowRobot yellowRobot = collision.GetComponent<YellowRobot>();
                         if (yellowRobot != null)
                         {
                             yellowRobot.TakeDamage(damageMissile);
                         }
                         break;
-                    case "GreyRobot":
+                    case string name when name.StartsWith("GreyRobot"):
                         GreyRobot greyRobot = collision.GetComponent<GreyRobot>();
                         if (greyRobot != null)
                         {
                             greyRobot.TakeDamage(damageMissile);
                         }
                         break;
-                    case "BrownRobot":
+                    case string name when name.StartsWith("BrownRobot"):
                         BrownRobot brownRobot = collision.GetComponent<BrownRobot>();
                         if (brownRobot != null)
                         {
                             brownRobot.TakeDamage(damageMissile);
                         }
                         break;
-                    case "RedRobot":
+                    case string name when name.StartsWith("RedRobot"):
                         RedRobot redRobot = collision.GetComponent<RedRobot>();
                         if (redRobot != null)
                         {
                             redRobot.TakeDamage(damageMissile);
                         }
                         break;
-                    case "Gate":
+                    case string name when name.StartsWith("Gate"):
                         Gate gate = collision.GetComponent<Gate>();
                         if (gate != null)
                         {
                             gate.TakeDamage(damageMissile);
                         }
                         break;
-                    case "MissileGate":
+                    case string name when name.StartsWith("MissileGate"):
                         MissileGate missileGate = collision.GetComponent<MissileGate>();
                         if (missileGate != null)
                         {
