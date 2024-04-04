@@ -143,7 +143,10 @@ public class Missile : MonoBehaviour
                         break;
                 }
 
-                Vector3 impactPosition = transform.position + new Vector3(0.5f, 0f, 0f);
+                Vector3 impactPosition = transform.position;
+                Vector3 bulletDirection = rb.velocity.normalized;
+                impactPosition += bulletDirection * 0.5f;
+
                 Instantiate(impactEffect, impactPosition, transform.rotation);
                 Destroy(gameObject);
             }

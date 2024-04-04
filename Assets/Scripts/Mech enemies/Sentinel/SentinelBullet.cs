@@ -33,9 +33,11 @@ public class SentinelBullet : MonoBehaviour
         if (!collision.name.Contains("Sentinel") && 
             !collision.name.Equals("Bullet(Clone)") && !collision.name.Equals("ChargedBullet(Clone)") && !collision.name.Equals("Missile(Clone)"))
         {
-            if (collision.name.Equals("Hunter"))
-            {
 
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                Debug.Log("DAÑO");
+                // Lógica para recibir daño
             }
 
 

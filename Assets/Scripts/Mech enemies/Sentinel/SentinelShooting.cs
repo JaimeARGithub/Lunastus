@@ -34,7 +34,6 @@ public class SentinelShooting : MonoBehaviour
         {
 
             float distance = Vector2.Distance(transform.position, hunter.transform.position);
-            Debug.Log(distance);
 
             if (distance < 10)
             {
