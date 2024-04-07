@@ -64,9 +64,9 @@ public class Gate : MonoBehaviour
 
     private IEnumerator Close()
     {
+        closeSound.Play();
         animator.SetBool("isClosed", true);
         animator.SetBool("isOpen", false);
-        closeSound.Play();
 
         yield return new WaitForSeconds(0.5f);
 
