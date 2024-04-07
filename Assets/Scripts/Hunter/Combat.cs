@@ -248,7 +248,7 @@ public class Combat : MonoBehaviour
     {
         if (!colorCambiado)
         {
-            spRd.color = Color.cyan;
+            spRd.color = Color.yellow;
         } else
         {
             spRd.color = Color.white;
