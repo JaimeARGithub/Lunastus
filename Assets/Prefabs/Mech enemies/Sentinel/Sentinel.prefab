@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 8205027656600403498}
   - component: {fileID: 1537820933792953423}
   - component: {fileID: 2996669276708394998}
+  - component: {fileID: 8500822096289110422}
   m_Layer: 7
   m_Name: Sentinel
   m_TagString: Untagged
@@ -558,3 +559,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8500822096289110422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7314545788461997032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a416781946724244b6adb3ef12ef927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mirandoDerecha: 1

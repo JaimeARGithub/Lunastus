@@ -32,10 +32,9 @@ public class SentinelShooting : MonoBehaviour
 
         if (!s.isDead())
         {
-
             float distance = Vector2.Distance(transform.position, hunter.transform.position);
 
-            if (distance < 10)
+            if (distance <= 10)
             {
                 bulletTimer += Time.deltaTime;
 
@@ -47,7 +46,6 @@ public class SentinelShooting : MonoBehaviour
             }
         }
     }
-
 
     private void Shoot()
     {
