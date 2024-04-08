@@ -1285,6 +1285,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hunter
       objectReference: {fileID: 0}
+    - target: {fileID: 8090516650883797995, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
+      propertyPath: healSound
+      value: 
+      objectReference: {fileID: 1916156416}
+    - target: {fileID: 8090516650883797995, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 1916156414}
+    - target: {fileID: 8090516650883797995, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
+      propertyPath: takeDamageSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090516650883797995, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
+      propertyPath: healthUpgradeSound
+      value: 
+      objectReference: {fileID: 1916156417}
     - target: {fileID: 8358208779118669595, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -3199,6 +3215,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1916156414 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4955021080314165875, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
+  m_PrefabInstance: {fileID: 205117406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1916156416 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3186840752018071584, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
+  m_PrefabInstance: {fileID: 205117406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1916156417 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5450955297313294190, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
+  m_PrefabInstance: {fileID: 205117406}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2143399608
 GameObject:
   m_ObjectHideFlags: 0

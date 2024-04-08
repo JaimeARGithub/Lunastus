@@ -7,20 +7,21 @@ public class Health : MonoBehaviour
     private int maxHealth;
     private int currentHealth;
     private HealthBar healthBar;
-    // public AudioSource healthUpgradeSound;
-    // public AudioSource healSound;
-    // public AudioSource takeDamageSound;
-    // public AudioSource deathSound;
-    private Animator animator;
+    public AudioSource healthUpgradeSound;
+    public AudioSource healSound;
+    public AudioSource deathSound;
+    public GameObject deathAnimation;
+
+    private SpriteRenderer spRd;
 
     void Start()
     {
-        maxHealth = 20; // CAMBIARLO PARA QUE EN EL START LEA DEL GAME MANAGER
+        maxHealth = 100; // CAMBIARLO PARA QUE EN EL START LEA DEL GAME MANAGER
         currentHealth = maxHealth; // CAMBIARLO PARA QUE EN EL START LEA DEL GAME MANAGER
         healthBar = FindObjectOfType<HealthBar>();
         healthBar.SetMaxHealth(maxHealth);
 
-        animator = GetComponent<Animator>();
+        spRd = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -31,7 +32,7 @@ public class Health : MonoBehaviour
 
     public void upgradeHealth()
     {
-        //healthUpgradeSound.Play();
+        healthUpgradeSound.Play();
 
         maxHealth += 25; // USAR SETTER DEL GAME MANAGER
         currentHealth = maxHealth; // USAR SETTER DEL GAME MANAGER (meter en el mismo método ampliar vida máxima e iguala valor de actual)
@@ -40,7 +41,7 @@ public class Health : MonoBehaviour
 
     public void receiveHeal()
     {
-        // healSound.Play();
+        healSound.Play();
 
         // USAR LOS SETTERS DEL GAME MANAGER
         if (currentHealth + 25 <= maxHealth)
@@ -55,8 +56,6 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        //takeDamageSound.Play();
-
         // USAR LOS SETTERS DEL GAME MANAGER
         if (currentHealth - damage >= 0)
         {
@@ -69,11 +68,18 @@ public class Health : MonoBehaviour
         }
 
 
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
-            animator.Play("HunterDeath");
-            // deathSound.Play();
-            Destroy(gameObject, 0.417f);
+            Die();
         }
+    }
+
+
+    private void Die()
+    {
+        deathSound.Play();
+        //Instantiate(deathAnimation, transform.position, Quaternion.identity);
+
+        Destroy(gameObject, 2f);
     }
 }
