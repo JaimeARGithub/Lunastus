@@ -37,7 +37,8 @@ public class SentinelBullet : MonoBehaviour
             if (collision.gameObject.CompareTag("Player"))
             {
                 Debug.Log("DAÑO");
-                // Lógica para recibir daño
+                Health health = collision.GetComponent<Health>();
+                health.TakeDamage(5);
             }
 
 
