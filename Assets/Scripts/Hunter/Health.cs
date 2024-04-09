@@ -9,9 +9,13 @@ public class Health : MonoBehaviour
     private HealthBar healthBar;
     public AudioSource healthUpgradeSound;
     public AudioSource healSound;
+    public AudioSource damageSound;
     public GameObject deathAnimation;
 
     private SpriteRenderer spRd;
+    private bool vulnerable = true;
+    private float invulnerableInstant = 0f;
+    private float invulnerabilityTime = 1.5f;
 
     void Start()
     {
@@ -27,6 +31,15 @@ public class Health : MonoBehaviour
     void Update()
     {
         // LEER TODO EL RATO VIDA ACTUAL Y VIDA MÁXIMA CON GETTERS DEL GAME MANAGER
+
+        if (!vulnerable && Time.time - invulnerableInstant >= invulnerabilityTime)
+        {
+            vulnerable = true;
+
+            Color colorSprite = spRd.material.color;
+            colorSprite.a = 1f;
+            spRd.material.color = colorSprite;
+        }
     }
 
     public void upgradeHealth()
@@ -55,6 +68,10 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        damageSound.Play();
+        makeInvulnerable();
+
+
         // USAR LOS SETTERS DEL GAME MANAGER
         if (currentHealth - damage >= 0)
         {
@@ -78,5 +95,22 @@ public class Health : MonoBehaviour
     {
         Instantiate(deathAnimation, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+
+    public bool isVulnerable()
+    {
+        return this.vulnerable;
+    }
+
+
+    private void makeInvulnerable()
+    {
+        vulnerable = false;
+        invulnerableInstant = Time.time;
+
+        Color colorSprite = spRd.material.color;
+        colorSprite.a = 0.75f;
+        spRd.material.color = colorSprite;
     }
 }

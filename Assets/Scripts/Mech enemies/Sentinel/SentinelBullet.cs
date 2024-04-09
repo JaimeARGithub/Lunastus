@@ -36,9 +36,12 @@ public class SentinelBullet : MonoBehaviour
 
             if (collision.gameObject.CompareTag("Player"))
             {
-                Debug.Log("DAÑO");
                 Health health = collision.GetComponent<Health>();
-                health.TakeDamage(5);
+                if (health.isVulnerable())
+                {
+                    Debug.Log("DAÑO");
+                    health.TakeDamage(5);
+                }
             }
 
 
