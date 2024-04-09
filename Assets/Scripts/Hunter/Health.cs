@@ -9,7 +9,6 @@ public class Health : MonoBehaviour
     private HealthBar healthBar;
     public AudioSource healthUpgradeSound;
     public AudioSource healSound;
-    public AudioSource deathSound;
     public GameObject deathAnimation;
 
     private SpriteRenderer spRd;
@@ -77,9 +76,7 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        deathSound.Play();
-        //Instantiate(deathAnimation, transform.position, Quaternion.identity);
-
-        Destroy(gameObject, 2f);
+        Instantiate(deathAnimation, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

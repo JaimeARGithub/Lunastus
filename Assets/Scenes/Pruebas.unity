@@ -1292,7 +1292,11 @@ PrefabInstance:
     - target: {fileID: 8090516650883797995, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
       propertyPath: deathSound
       value: 
-      objectReference: {fileID: 1916156414}
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090516650883797995, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
+      propertyPath: deathAnimation
+      value: 
+      objectReference: {fileID: 6437666010095642784, guid: 1eca65fb26316284fb3570d83de9856f, type: 3}
     - target: {fileID: 8090516650883797995, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
       propertyPath: takeDamageSound
       value: 
@@ -3215,11 +3219,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1916156414 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4955021080314165875, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
-  m_PrefabInstance: {fileID: 205117406}
-  m_PrefabAsset: {fileID: 0}
 --- !u!82 &1916156416 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 3186840752018071584, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
