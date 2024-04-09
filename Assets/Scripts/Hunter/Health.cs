@@ -7,8 +7,6 @@ public class Health : MonoBehaviour
     private int maxHealth;
     private int currentHealth;
     private HealthBar healthBar;
-    public AudioSource healthUpgradeSound;
-    public AudioSource healSound;
     public AudioSource damageSound;
     public GameObject deathAnimation;
 
@@ -44,17 +42,16 @@ public class Health : MonoBehaviour
 
     public void upgradeHealth()
     {
-        healthUpgradeSound.Play();
-
         maxHealth += 25; // USAR SETTER DEL GAME MANAGER
         currentHealth = maxHealth; // USAR SETTER DEL GAME MANAGER (meter en el mismo método ampliar vida máxima e iguala valor de actual)
         healthBar.SetMaxHealth(maxHealth);
+
+        Debug.Log("LÍMITE DE VIDA: " + maxHealth);
+        Debug.Log("VIDA ACTUAL: " + currentHealth);
     }
 
     public void receiveHeal()
     {
-        healSound.Play();
-
         // USAR LOS SETTERS DEL GAME MANAGER
         if (currentHealth + 25 <= maxHealth)
         {
@@ -64,6 +61,9 @@ public class Health : MonoBehaviour
             currentHealth = maxHealth;
         }
         healthBar.SetHealth(currentHealth);
+
+        Debug.Log("LÍMITE DE VIDA: " + maxHealth);
+        Debug.Log("VIDA ACTUAL: " + currentHealth);
     }
 
     public void TakeDamage(int damage)
