@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Combat : MonoBehaviour
 {
+    // PARA MOSTRAR COSAS EN IU
+    public UnityEngine.UI.Image ammoImage;
+    public TextMeshProUGUI ammoText;
+
     // Para la ejecución de animaciones
     private Animator animator;
 
@@ -74,6 +79,14 @@ public class Combat : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         spRd = GetComponent<SpriteRenderer>();
+
+
+        // De inicio, la imagen y el texto de la munición son invisibles
+        // En el update se lee si los misiles se han desbloqueado y entonces se muestran
+        ammoImage.enabled = false;
+        Color textColor = ammoText.color;
+        textColor.a = 0f;
+        ammoText.color = textColor;
     }
 
     // Update is called once per frame
@@ -82,6 +95,17 @@ public class Combat : MonoBehaviour
         // LEER DEL GAME MANAGER SI LOS MISILES ESTÁN DESBLOQUEADOS
         // LEER DEL GAME MANAGER EL LÍMITE DE MISILES
         // LEER DEL GAME MANAGER LA MUNICIÓN RESTANTE DE MISILES
+        if (misilDesbloqueado)
+        {
+            ammoImage.enabled = true;
+            Color textColor = ammoText.color;
+            textColor.a = 1f;
+            ammoText.color = textColor;
+
+            ammoText.text = "x " + municionMisiles.ToString("00") + "/" + limiteMisiles.ToString("00");
+        }
+
+        
 
         isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
         if (isGrounded && (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow)))

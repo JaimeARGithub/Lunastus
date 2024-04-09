@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    // PARA MOSTRAR COSAS EN IU
+    public TextMeshProUGUI healthText;
+
     private int maxHealth;
     private int currentHealth;
     private HealthBar healthBar;
@@ -29,6 +33,8 @@ public class Health : MonoBehaviour
     void Update()
     {
         // LEER TODO EL RATO VIDA ACTUAL Y VIDA MÁXIMA CON GETTERS DEL GAME MANAGER
+        // Y AJUSTARLA EN EL TEXT
+        healthText.text = currentHealth.ToString() + "/" + maxHealth.ToString();
 
         if (!vulnerable && Time.time - invulnerableInstant >= invulnerabilityTime)
         {
