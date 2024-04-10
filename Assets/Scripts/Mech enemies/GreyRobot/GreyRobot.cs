@@ -2,26 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sentinel : MonoBehaviour
+public class GreyRobot : MonoBehaviour
 {
-    private int health = 60;
+    private int health = 100;
     public GameObject deathEffect;
-    public AudioSource idleSound;
-    public AudioSource deathSound;
+    public AudioSource sonidoMuerte;
     private SpriteRenderer spRd;
-
-    private bool dead = false;
 
     // Para el spawn de objetos al morir
     public GameObject healItem;
     public GameObject ammoItem;
 
 
-    void Start()
+    public void Start()
     {
         spRd = GetComponent<SpriteRenderer>();
-        idleSound.Play();
     }
+
 
     public void TakeDamage(int damage)
     {
@@ -30,7 +27,6 @@ public class Sentinel : MonoBehaviour
 
         if (health <= 0)
         {
-            dead = true;
             Die();
         }
     }
@@ -38,6 +34,8 @@ public class Sentinel : MonoBehaviour
 
     private void Die()
     {
+        // Al morir, al mismo tiempo se hacen invisible el objeto, se instancia la animación de muerte
+        // y se reproduce el sonido de muerte; se eliminan el rigidbody y el collider
         Color colorSprite = spRd.material.color;
         colorSprite.a = 0f;
         spRd.material.color = colorSprite;
@@ -47,9 +45,10 @@ public class Sentinel : MonoBehaviour
 
         SpawnItem();
         Instantiate(deathEffect, transform.position, Quaternion.identity);
-        idleSound.Stop();
-        deathSound.Play();
+        sonidoMuerte.Play();
 
+        // Tras emitirse el sonido de muerte con el objeto ya invisible y la animación de muerte
+        // reproduciéndose, se destruye el objeto
         Destroy(gameObject, 0.7f);
     }
 
@@ -60,13 +59,6 @@ public class Sentinel : MonoBehaviour
         spRd.color = Color.white;
         yield return new WaitForSeconds(0.1f);
     }
-
-
-    public bool isDead()
-    {
-        return this.dead;
-    }
-
 
     private void SpawnItem()
     {
@@ -88,7 +80,7 @@ public class Sentinel : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {

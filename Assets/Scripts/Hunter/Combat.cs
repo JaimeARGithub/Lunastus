@@ -32,7 +32,7 @@ public class Combat : MonoBehaviour
                                                // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
 
     private float tiempoTranscurridoDisparo = 0f;
-    private float tiempoEsperaDisparo = 0.2f;
+    private float tiempoEsperaDisparo = 0.15f;
     private float tiempoTranscurridoMisil = 0f;
     private float tiempoEsperaMisil = 2f;
 
