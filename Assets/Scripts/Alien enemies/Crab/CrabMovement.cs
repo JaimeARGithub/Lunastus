@@ -8,6 +8,7 @@ public class CrabMovement : MonoBehaviour
     private GameObject hunter;
     private Animator animator;
     private Rigidbody2D rb;
+    private Crab c;
     private float speed = 3.75f;
 
 
@@ -17,47 +18,56 @@ public class CrabMovement : MonoBehaviour
         hunter = GameObject.FindGameObjectWithTag("Player");
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        c = GetComponent<Crab>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Se mira la distancia entre ambos
-        float distance = Vector2.Distance(transform.position, hunter.transform.position);
-
-        // Si es menor que 5: huida
-        if (distance < 8)
+        if (!c.isDead())
         {
-            animator.SetBool("isWalking", true);
 
-            // Girar el sprite según posición del cazador respecto al cangrejo
-            if (hunter.transform.position.x < transform.position.x && !mirandoDerecha)
+            // Se mira la distancia entre ambos
+            float distance = Vector2.Distance(transform.position, hunter.transform.position);
+
+            // Si es menor que 8: huida
+            if (distance < 4)
             {
-                Girar();
-            } else if (hunter.transform.position.x > transform.position.x && mirandoDerecha)
+                animator.SetBool("isWalking", true);
+
+                // Girar el sprite según posición del cazador respecto al cangrejo
+                if (hunter.transform.position.x < transform.position.x && !mirandoDerecha)
+                {
+                    Girar();
+                }
+                else if (hunter.transform.position.x > transform.position.x && mirandoDerecha)
+                {
+                    Girar();
+                }
+
+                // Dar movimiento según posición del cazador respecto al cangrejo
+                if (hunter.transform.position.x < transform.position.x)
+                {
+                    rb.velocity = new Vector2(1 * speed, rb.velocity.y);
+                }
+                else if (hunter.transform.position.x > transform.position.x)
+                {
+                    rb.velocity = new Vector2(-1 * speed, rb.velocity.y);
+                }
+
+            }
+            else
             {
-                Girar();
+                // Si es mayor que 5: retorno a la estaticidad, deja de correr, cesa el movimiento y el sprite queda mirando a izquierda
+
+                animator.SetBool("isWalking", false);
+                rb.velocity = new Vector2(0, rb.velocity.y);
+                if (mirandoDerecha)
+                {
+                    Girar();
+                }
             }
 
-            // Dar movimiento según posición del cazador respecto al cangrejo
-            if (hunter.transform.position.x < transform.position.x)
-            {
-                rb.velocity = new Vector2(1*speed, rb.velocity.y);
-            } else if (hunter.transform.position.x > transform.position.x)
-            {
-                rb.velocity = new Vector2(-1*speed, rb.velocity.y);
-            }
-
-        } else
-        {
-            // Si es mayor que 5: retorno a la estaticidad, deja de correr, cesa el movimiento y el sprite queda mirando a izquierda
-
-            animator.SetBool("isWalking", false);
-            rb.velocity = new Vector2(0, rb.velocity.y);
-            if (mirandoDerecha)
-            {
-                Girar();
-            }
         }
     }
 
