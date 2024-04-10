@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8212459673137403330}
   - component: {fileID: 6092473485748743332}
   - component: {fileID: 1469027687982527213}
+  - component: {fileID: 4770653580833270455}
   m_Layer: 7
   m_Name: Crab
   m_TagString: Untagged
@@ -284,3 +285,16 @@ MonoBehaviour:
   sonidoMuerte: {fileID: 6092473485748743332}
   healItem: {fileID: 1551533154056458065, guid: f34ca24c770b94e48a95c5b620b37ed4, type: 3}
   ammoItem: {fileID: 7698488383156841157, guid: a71941db37d09c948bc2f790cfdd6d73, type: 3}
+--- !u!114 &4770653580833270455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7166946813540284126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d51b804a1589048b3a1e6fd4940124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mirandoDerecha: 0
