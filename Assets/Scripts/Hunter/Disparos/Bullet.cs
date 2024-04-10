@@ -23,8 +23,7 @@ public class Bullet : MonoBehaviour
 
         if (!collision.name.Equals("Hunter"))
         {
-            if (!collision.name.Equals("Bullet(Clone)") && !collision.name.Equals("ChargedBullet(Clone)") && !collision.name.Equals("Missile(Clone)")
-                && !collision.name.Equals("SentinelBullet(Clone)"))
+            if (!collision.name.Contains("Bullet") && !collision.name.Equals("Missile(Clone)"))
             {
                 switch (collision.name)
                 {
@@ -91,7 +90,7 @@ public class Bullet : MonoBehaviour
                             biceraptor.TakeDamage(damageBullet);
                         }
                         break;
-                    case string name when name.StartsWith("Sentinel"):
+                    case string name when name.StartsWith("SentinelRobot"):
                         Sentinel sentinel = collision.GetComponent<Sentinel>();
                         if (sentinel != null)
                         {

@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 2996669276708394998}
   - component: {fileID: 8500822096289110422}
   m_Layer: 7
-  m_Name: Sentinel
+  m_Name: SentinelRobot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
