@@ -282,3 +282,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathEffect: {fileID: 7713950137366066003, guid: c4d55894a53ad224ea1907eaa59ea9c8, type: 3}
   sonidoMuerte: {fileID: 1034660319876394049}
+  healItem: {fileID: 1551533154056458065, guid: f34ca24c770b94e48a95c5b620b37ed4, type: 3}
+  ammoItem: {fileID: 7698488383156841157, guid: a71941db37d09c948bc2f790cfdd6d73, type: 3}

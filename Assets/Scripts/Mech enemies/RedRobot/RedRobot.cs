@@ -62,18 +62,17 @@ public class RedRobot : MonoBehaviour
 
     private void SpawnItem()
     {
-        int random = Random.Range(1, 11); // Límite inferior incluido, límite superior excluido
+        int random = Random.Range(1, 21); // Límite inferior incluido, límite superior excluido
         Debug.Log("ALEATORIO GENERADO: " + random);
 
         switch (random)
         {
-            case 10:
-                Instantiate(healItem, transform.position, Quaternion.identity);
-                break;
-            case 9:
+            case 5:
                 Instantiate(ammoItem, transform.position, Quaternion.identity);
                 break;
-            case 8:
+            case 10:
+            case 15:
+            case 20:
                 Instantiate(healItem, transform.position, Quaternion.identity);
                 break;
         }

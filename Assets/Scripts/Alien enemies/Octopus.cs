@@ -9,6 +9,10 @@ public class Octopus : MonoBehaviour
     public AudioSource deathSound;
     private SpriteRenderer spRd;
 
+    // Para el spawn de objetos al morir
+    public GameObject healItem;
+    public GameObject ammoItem;
+
 
     void Start()
     {
@@ -36,6 +40,7 @@ public class Octopus : MonoBehaviour
         Destroy(GetComponent<Collider2D>());
         Destroy(GetComponent<Rigidbody2D>());
 
+        SpawnItem();
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         deathSound.Play();
 
@@ -48,5 +53,37 @@ public class Octopus : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         spRd.color = Color.white;
         yield return new WaitForSeconds(0.1f);
+    }
+
+    private void SpawnItem()
+    {
+        int random = Random.Range(1, 21); // Límite inferior incluido, límite superior excluido
+        Debug.Log("ALEATORIO GENERADO: " + random);
+
+        switch (random)
+        {
+            case 5:
+                Instantiate(ammoItem, transform.position, Quaternion.identity);
+                break;
+            case 10:
+            case 15:
+            case 20:
+                Instantiate(healItem, transform.position, Quaternion.identity);
+                break;
+        }
+    }
+
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Health health = collision.gameObject.GetComponent<Health>();
+            if (health.isVulnerable())
+            {
+                Debug.Log("DAÑO");
+                health.TakeDamage(5);
+            }
+        }
     }
 }
