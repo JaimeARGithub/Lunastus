@@ -12,6 +12,11 @@ public class Sentinel : MonoBehaviour
 
     private bool dead = false;
 
+    // Para el spawn de objetos al morir
+    public GameObject healItem;
+    public GameObject ammoItem;
+
+
     void Start()
     {
         spRd = GetComponent<SpriteRenderer>();
@@ -40,6 +45,7 @@ public class Sentinel : MonoBehaviour
         Destroy(GetComponent<Collider2D>());
         Destroy(GetComponent<Rigidbody2D>());
 
+        SpawnItem();
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         idleSound.Stop();
         deathSound.Play();
@@ -59,5 +65,39 @@ public class Sentinel : MonoBehaviour
     public bool isDead()
     {
         return this.dead;
+    }
+
+
+    private void SpawnItem()
+    {
+        int random = Random.Range(1, 11); // Límite inferior incluido, límite superior excluido
+        Debug.Log("ALEATORIO GENERADO: " + random);
+
+        switch (random)
+        {
+            case 10:
+                Instantiate(healItem, transform.position, Quaternion.identity);
+                break;
+            case 9:
+                Instantiate(ammoItem, transform.position, Quaternion.identity);
+                break;
+            case 8:
+                Instantiate(healItem, transform.position, Quaternion.identity);
+                break;
+        }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Health health = collision.gameObject.GetComponent<Health>();
+            if (health.isVulnerable())
+            {
+                Debug.Log("DAÑO");
+                health.TakeDamage(5);
+            }
+        }
     }
 }

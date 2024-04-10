@@ -447,6 +447,8 @@ MonoBehaviour:
   deathEffect: {fileID: 7488181034205053785, guid: 37f593bb9eb8d654d8cb0d582118bd4f, type: 3}
   idleSound: {fileID: 5306610323004151226}
   deathSound: {fileID: 5153228833154547725}
+  healItem: {fileID: 1551533154056458065, guid: f34ca24c770b94e48a95c5b620b37ed4, type: 3}
+  ammoItem: {fileID: 7698488383156841157, guid: a71941db37d09c948bc2f790cfdd6d73, type: 3}
 --- !u!114 &1537820933792953423
 MonoBehaviour:
   m_ObjectHideFlags: 0
