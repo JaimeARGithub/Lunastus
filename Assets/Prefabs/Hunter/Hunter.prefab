@@ -76,7 +76,6 @@ GameObject:
   - component: {fileID: 5737461479691694990}
   - component: {fileID: 2476713624387633835}
   - component: {fileID: 8945314905602324042}
-  - component: {fileID: 8251886414712994200}
   - component: {fileID: 1624616791626527840}
   - component: {fileID: 2300724672578969786}
   - component: {fileID: 3146364269995309827}
@@ -213,7 +212,7 @@ MonoBehaviour:
   enemiesLayer:
     serializedVersion: 2
     m_Bits: 128
-  piesCollider: {fileID: 8251886414712994200}
+  piesCollider: {fileID: 0}
   mirandoDerecha: 1
   tr: {fileID: 2300724672578969786}
   sonidoCaminar: {fileID: 3146364269995309827}
@@ -290,41 +289,6 @@ CircleCollider2D:
   m_Offset: {x: 0.035, y: -0.127}
   serializedVersion: 2
   m_Radius: 0.115
---- !u!58 &8251886414712994200
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7882004918783211757}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.035, y: -0.22}
-  serializedVersion: 2
-  m_Radius: 0.03
 --- !u!95 &1624616791626527840
 Animator:
   serializedVersion: 5
@@ -861,7 +825,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  piesCollider: {fileID: 8251886414712994200}
+  piesCollider: {fileID: 0}
   sonidoDisparo: {fileID: 2160673492936959802}
   sonidoMisil: {fileID: 6265459533982539499}
   sonidoDisparoCargado: {fileID: 7644413697804514894}

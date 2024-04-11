@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Combat : MonoBehaviour
 {
@@ -14,9 +15,11 @@ public class Combat : MonoBehaviour
     private Animator animator;
 
     // Para detectar si se está saltando
-    public bool isGrounded;
+    public bool grounded;
     public LayerMask groundLayer;
-    public Collider2D piesCollider;
+    private Vector2 boxSize = new Vector2(0.25f, 0.125f);
+    private float castDistance = 0.83f;
+
 
     // Para detectar si se está en movimiento
     private float movimientoH;
@@ -107,8 +110,7 @@ public class Combat : MonoBehaviour
 
         
 
-        isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
-        if (isGrounded && (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow)))
+        if (isGrounded() && (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow)))
         {
             if (Input.GetKey(KeyCode.DownArrow))
             {
@@ -303,9 +305,8 @@ public class Combat : MonoBehaviour
     private void AnimarDisparo()
     {
         movimientoH = Input.GetAxisRaw("Horizontal");
-        isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
 
-        if (isGrounded)
+        if (isGrounded())
         {
             if (movimientoH == 0)
             {
@@ -316,6 +317,22 @@ public class Combat : MonoBehaviour
         {
             StartCoroutine(ShootJumping());
         }
+    }
+
+
+    private bool isGrounded()
+    {
+        // Castear una caja en mi posición, del tamaño indicado, giro de 0 grados,
+        // hacia abajo, a la distancia indicada y contra la layer del suelo
+        if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
+        {
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+        }
+        return grounded;
     }
 
 

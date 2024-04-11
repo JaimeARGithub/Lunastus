@@ -9,18 +9,18 @@ public class Movement : MonoBehaviour
     Rigidbody2D rb2d;
 
 
-    // Salto de jugador
-    public bool isGrounded = false;
+    // Salto de jugador y movilidad aérea
+    public bool grounded;
     private bool quiereSaltar = false;
     private float potenciaSalto = 150F;
     public LayerMask groundLayer;
+    private Vector2 boxSize = new Vector2(0.25f, 0.125f);
+    private float castDistance = 0.83f;
+
 
     // Para dar un pequeño impulso si pisa un enemigo
     public LayerMask enemiesLayer;
     private bool steppingEnemy;
-
-    // Collider de los pies
-    public Collider2D piesCollider;
 
     // Gravedad personalizada
     private float gravedadPersonalizada = 100f;
@@ -76,8 +76,7 @@ public class Movement : MonoBehaviour
         rb2d.velocity = new Vector2(movimientoH * velocidad, rb2d.velocity.y);
 
 
-        isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
-        if (isGrounded && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)))
+        if (isGrounded() && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)))
         {
             movimientoH = 0f;
 
@@ -118,8 +117,7 @@ public class Movement : MonoBehaviour
         {
             animator.SetBool("isRunning", true);
 
-            isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
-            if (!sonidoCaminar.isPlaying && isGrounded && tiempoTranscurridoSonidoCaminar >= tiempoEsperaSonidoCaminar)
+            if (!sonidoCaminar.isPlaying && isGrounded() && tiempoTranscurridoSonidoCaminar >= tiempoEsperaSonidoCaminar)
             {
                 sonidoCaminar.Play();
                 tiempoTranscurridoSonidoCaminar = 0f;
@@ -146,7 +144,8 @@ public class Movement : MonoBehaviour
             quiereBackdash = true;
         }
 
-        steppingEnemy = Physics2D.IsTouchingLayers(piesCollider, enemiesLayer);
+
+        steppingEnemy = Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, enemiesLayer);
     }
 
     public void activarBackdash()
@@ -163,16 +162,13 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        isGrounded = Physics2D.IsTouchingLayers(piesCollider, groundLayer);
-
-
         if (quiereSaltar)
         {
-            if (isGrounded || (dobleSalto && dobleSaltoDesbloqueado))
+            if (isGrounded() || (dobleSalto && dobleSaltoDesbloqueado))
             {
                 sonidoSalto.Play();
 
-                if (!isGrounded)
+                if (!isGrounded())
                 {
                     rb2d.AddForce(Vector2.up * potenciaSalto, ForceMode2D.Impulse);
                 }
@@ -183,7 +179,7 @@ public class Movement : MonoBehaviour
 
 
 
-                if (!isGrounded && dobleSalto)
+                if (!isGrounded() && dobleSalto)
                 {
 
                     dobleSalto = false;
@@ -195,7 +191,7 @@ public class Movement : MonoBehaviour
         }
 
 
-        if (!isGrounded)
+        if (!isGrounded())
         {
             animator.SetBool("isRunning", false);
 
@@ -253,6 +249,23 @@ public class Movement : MonoBehaviour
     }
 
 
+
+    private bool isGrounded()
+    {
+        // Castear una caja en mi posición, del tamaño indicado, giro de 0 grados,
+        // hacia abajo, a la distancia indicada y contra la layer del suelo
+        if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
+        {
+            grounded = true;
+        } else
+        {
+            grounded = false;
+        }
+        return grounded;
+    }
+
+
+
     private IEnumerator Backdash()
     {
         // Se preparan las variables; se ajustan los indicadores de backdash (si puede y si lo está haciendo) y se guarda el valor de gravedad
@@ -304,5 +317,11 @@ public class Movement : MonoBehaviour
         // Tras ello, dentro de la corrutina se indica el tiempo de enfriamiento del backdash
         yield return new WaitForSeconds(cooldownBackdash);
         puedeBackdash = true;
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position - transform.up * castDistance, boxSize);
     }
 }
