@@ -287,9 +287,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.035, y: -0.154}
+  m_Offset: {x: 0.035, y: -0.127}
   serializedVersion: 2
-  m_Radius: 0.08903425
+  m_Radius: 0.115
 --- !u!58 &8251886414712994200
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -855,6 +855,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a631b94a1d3fe8a4b8df8d069d960f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ammoImage: {fileID: 0}
+  ammoText: {fileID: 0}
   isGrounded: 0
   groundLayer:
     serializedVersion: 2
@@ -1269,6 +1271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe06cb2fa973e24ab678f1e984beb18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthText: {fileID: 0}
   damageSound: {fileID: 3455690208223657557}
   deathAnimation: {fileID: 6437666010095642784, guid: 1eca65fb26316284fb3570d83de9856f, type: 3}
 --- !u!82 &3455690208223657557

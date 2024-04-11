@@ -9,6 +9,7 @@ public class MissileAmpliation : MonoBehaviour
     public GameObject effect;
     public AudioSource errorSound;
     public GameObject errorEffect;
+    public Collider2D col;
 
 
     // Start is called before the first frame update
@@ -25,10 +26,12 @@ public class MissileAmpliation : MonoBehaviour
 
             if (c.getMisilesDesbloqueados())
             {
+                //deshabilitar collider
+                col.enabled = false;
+
                 Color colorSprite = spRd.material.color;
                 colorSprite.a = 0f;
                 spRd.material.color = colorSprite;
-                Destroy(GetComponent<Collider2D>());
 
                 Instantiate(effect, transform.position, Quaternion.identity);
                 sound.Play();

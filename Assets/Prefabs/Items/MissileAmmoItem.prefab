@@ -235,6 +235,7 @@ MonoBehaviour:
   effect: {fileID: 2622465177226950088, guid: f95fa87efdaac264bafd5e53bb87b62b, type: 3}
   errorSound: {fileID: -7004682335712365989}
   errorEffect: {fileID: 1086406818497699786, guid: 555529883fee20b4fbdc14a034e4ec92, type: 3}
+  col: {fileID: 5261634944082565938}
 --- !u!82 &-7004682335712365989
 AudioSource:
   m_ObjectHideFlags: 0
