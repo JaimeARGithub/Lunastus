@@ -46,7 +46,7 @@ public class CrabMovement : MonoBehaviour
                 }
 
                 // Dar movimiento según posición del cazador respecto al cangrejo
-                if (hunter.transform.position.x < transform.position.x)
+                if (hunter.transform.position.x <= transform.position.x)
                 {
                     rb.velocity = new Vector2(1 * speed, rb.velocity.y);
                 }

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Jumper : MonoBehaviour
 {
-    private int health = 40;
+    private int health = 60;
     public GameObject deathEffect;
     public AudioSource deathSound;
     private SpriteRenderer spRd;
+    private bool dead = false;
 
     // Para el spawn de objetos al morir
     public GameObject healItem;
@@ -30,8 +31,15 @@ public class Jumper : MonoBehaviour
         }
     }
 
+    public bool isDead()
+    {
+        return this.dead;
+    }
+
     private void Die()
     {
+        dead = true;
+
         Color colorSprite = spRd.material.color;
         colorSprite.a = 0f;
         spRd.material.color = colorSprite;

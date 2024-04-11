@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 3157094956869630410}
   - component: {fileID: 9115655082823297301}
   - component: {fileID: 7771569406684166123}
+  - component: {fileID: 2064182098023830998}
+  - component: {fileID: 3516472815157112384}
   m_Layer: 7
   m_Name: Jumper
   m_TagString: Untagged
@@ -294,3 +296,55 @@ MonoBehaviour:
   deathSound: {fileID: 9115655082823297301}
   healItem: {fileID: 1551533154056458065, guid: f34ca24c770b94e48a95c5b620b37ed4, type: 3}
   ammoItem: {fileID: 7698488383156841157, guid: a71941db37d09c948bc2f790cfdd6d73, type: 3}
+--- !u!114 &2064182098023830998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7876178407456274267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d9df2bd7a686144a19a9e9e4f2332a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  col: {fileID: 3516472815157112384}
+  isGrounded: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!58 &3516472815157112384
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7876178407456274267}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.16}
+  serializedVersion: 2
+  m_Radius: 0.025
