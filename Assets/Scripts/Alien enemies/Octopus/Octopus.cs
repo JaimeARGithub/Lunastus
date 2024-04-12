@@ -8,6 +8,7 @@ public class Octopus : MonoBehaviour
     public GameObject deathEffect;
     public AudioSource deathSound;
     private SpriteRenderer spRd;
+    private bool dead = false;
 
     // Para el spawn de objetos al morir
     public GameObject healItem;
@@ -31,8 +32,15 @@ public class Octopus : MonoBehaviour
         }
     }
 
+    public bool isDead()
+    {
+        return this.dead;
+    }
+
     private void Die()
     {
+        dead = true;
+
         Color colorSprite = spRd.material.color;
         colorSprite.a = 0f;
         spRd.material.color = colorSprite;
