@@ -298,6 +298,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mirandoDerecha: 0
-  initialPosition: {x: 9.42, y: -2.41}
-  finalPosition: {x: 3.57, y: -2.41}
+  rightX: 3.5
+  leftX: -0.5
   movingToEnd: 0

@@ -11,8 +11,8 @@ public class ShellMovement : MonoBehaviour
     private Shell s;
 
     // Variables para el movimiento de patrulla
-    public Vector2 initialPosition;
-    public Vector2 finalPosition;
+    public float rightX;
+    public float leftX;
     [SerializeField] private bool movingToEnd;
     private float speed = 1f;
 
@@ -43,6 +43,7 @@ public class ShellMovement : MonoBehaviour
             {
                 animator.SetBool("isCovering", false);
 
+                // Dependiendo de la dirección, se aplica fuerza en una dirección u otra.
                 if (movingToEnd)
                 {
                     rb.velocity = new Vector2(-1*speed, rb.velocity.y);
@@ -52,24 +53,21 @@ public class ShellMovement : MonoBehaviour
                 }
 
 
-                // Para poder usar Vector2 en lugar de Vector3, se mira que coincida la coordenada
-                // x de la position del transform con la coordenada x de las posiciones designadas
-                // como inicial y final
-                if (Vector2.Distance(transform.position, finalPosition) < 0.1f)
+
+                // Para poder usar únicamente coordenadas X en lugar de vectores completos,
+                // se van a utilizar la posición del transform y los puntos de referencia izquierda
+                // y derecha.
+                // En el instante en que el shell supere (xShell < xIzq) la X izquierda, gira y marcha en sentido contrario.
+                // En el instante en que el shell supere (xShell > xDrch) la X derecha, gira y marcha en sentido contrario.
+                if (transform.position.x < leftX && !mirandoDerecha)
                 {
                     movingToEnd = false;
-                    if (!mirandoDerecha)
-                    {
-                        Girar();
-                    }
+                    Girar();
                 }
-                if (Vector2.Distance(transform.position, initialPosition) < 0.1f)
+                if (transform.position.x > rightX && mirandoDerecha)
                 {
                     movingToEnd = true;
-                    if (mirandoDerecha)
-                    {
-                        Girar();
-                    }
+                    Girar();
                 }
 
 
