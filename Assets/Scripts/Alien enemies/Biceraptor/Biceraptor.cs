@@ -17,7 +17,7 @@ public class Biceraptor : MonoBehaviour
     // Para la interacción con el movimiento, incluyendo marcarlo como dañado durante un tiempo
     private bool damaged = false;
     private float damageInstant = 0f;
-    private float fleeTime = 1.75f; // Tiempo que se marca como dañado para que huya
+    private float fleeTime = 2f; // Tiempo que se marca como dañado para que huya
 
 
     public void Start()
