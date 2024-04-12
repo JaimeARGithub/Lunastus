@@ -8,10 +8,16 @@ public class Biceraptor : MonoBehaviour
     public GameObject deathEffect;
     public AudioSource sonidoMuerte;
     private SpriteRenderer spRd;
+    private bool dead = false;
 
     // Para el spawn de objetos al morir
     public GameObject healItem;
     public GameObject ammoItem;
+
+    // Para la interacción con el movimiento, incluyendo marcarlo como dañado durante un tiempo
+    private bool damaged = false;
+    private float damageInstant = 0f;
+    private float fleeTime = 1.75f; // Tiempo que se marca como dañado para que huya
 
 
     public void Start()
@@ -19,9 +25,32 @@ public class Biceraptor : MonoBehaviour
         spRd = GetComponent<SpriteRenderer>();
     }
 
+    private void Update()
+    {
+        if (damaged && Time.time - damageInstant >= fleeTime)
+        {
+            damaged = false;
+        }
+    }
+
+
+    public bool isDead()
+    {
+        return this.dead;
+    }
+
 
     public void TakeDamage(int damage)
     {
+        // El método de marcar como dañado se utiliza para que el script de movimiento lea sobre
+        // la variable "dañado", para que el biceraptor sepa cuánto debe huir
+
+        // En el script de movimiento, la variable "dañado" se lee en el update, con lo que la ejecución
+        // es cada frame; para que la HUIDA se MANTENGA DURANTE UN TIEMPO, en el script de vida se va a
+        // mantener marcado como DAÑADO durante UN TIEMPO
+        damageInstant = Time.time;
+        damaged = true;
+
         StartCoroutine(ChangeColor());
         health -= damage;
 
@@ -32,8 +61,15 @@ public class Biceraptor : MonoBehaviour
     }
 
 
+    public bool isDamaged()
+    {
+        return this.damaged;
+    }
+
+
     private void Die()
     {
+        dead = true;
         // Al morir, al mismo tiempo se hacen invisible el objeto, se instancia la animación de muerte
         // y se reproduce el sonido de muerte; se eliminan el rigidbody y el collider
         Color colorSprite = spRd.material.color;
