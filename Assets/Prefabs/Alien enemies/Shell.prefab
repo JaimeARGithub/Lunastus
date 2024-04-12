@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1468253562086621250}
   - component: {fileID: 7152753039365154148}
   - component: {fileID: 1964804188886930373}
+  - component: {fileID: 4586950210132243057}
   m_Layer: 7
   m_Name: Shell
   m_TagString: Untagged
@@ -284,3 +285,19 @@ MonoBehaviour:
   sonidoMuerte: {fileID: 7152753039365154148}
   healItem: {fileID: 1551533154056458065, guid: f34ca24c770b94e48a95c5b620b37ed4, type: 3}
   ammoItem: {fileID: 7698488383156841157, guid: a71941db37d09c948bc2f790cfdd6d73, type: 3}
+--- !u!114 &4586950210132243057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497194921751146745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 821e8366f2c30084ca9f56d0fde78730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mirandoDerecha: 0
+  initialPosition: {x: 9.42, y: -2.41}
+  finalPosition: {x: 3.57, y: -2.41}
+  movingToEnd: 0
