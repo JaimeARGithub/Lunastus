@@ -40,6 +40,8 @@ public class EyeMovement : MonoBehaviour
 
             if (playerDetected)
             {
+                // Si el jugador ha sido detectado, aparte de perseguirlo, giramos el sprite
+                // dependiendo de dónde esté el jugador y hacia dónde mire el enemigo
                 if (hunter.transform.position.x <= transform.position.x && mirandoDerecha)
                 {
                     Girar();
@@ -49,6 +51,9 @@ public class EyeMovement : MonoBehaviour
                     Girar();
                 }
 
+
+                // El eye se mueve hacia el jugador hasta que la distancia sea de 1.5
+                // Si la distancia alcanza 1.5, el eye se detiene
                 if (distance > 1.5)
                 {
                     Vector2 direction = (hunter.transform.position - transform.position);

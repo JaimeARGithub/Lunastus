@@ -8,6 +8,7 @@ public class Tentacles : MonoBehaviour
     public GameObject deathEffect;
     public AudioSource deathSound;
     private SpriteRenderer spRd;
+    private bool dead = false;
 
     // Para el spawn de objetos al morir
     public GameObject healItem;
@@ -30,9 +31,16 @@ public class Tentacles : MonoBehaviour
         }
     }
 
+    public bool isDead()
+    {
+        return this.dead;
+    }
+
 
     private void Die()
     {
+        dead = true;
+
         Color colorSprite = spRd.material.color;
         colorSprite.a = 0f;
         spRd.material.color = colorSprite;

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6473542993670665857}
   - component: {fileID: 2572126927138605533}
   - component: {fileID: 7872989478078863456}
+  - component: {fileID: 1381814829881438474}
   m_Layer: 7
   m_Name: Tentacles
   m_TagString: Untagged
@@ -136,7 +137,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &6473542993670665857
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -284,3 +285,18 @@ MonoBehaviour:
   deathSound: {fileID: 2572126927138605533}
   healItem: {fileID: 1551533154056458065, guid: f34ca24c770b94e48a95c5b620b37ed4, type: 3}
   ammoItem: {fileID: 7698488383156841157, guid: a71941db37d09c948bc2f790cfdd6d73, type: 3}
+--- !u!114 &1381814829881438474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132561652221680075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397370dbbd8674345b35af123d38edbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightX: 0
+  leftX: 0
+  movingToEnd: 0
