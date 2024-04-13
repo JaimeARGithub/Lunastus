@@ -6,6 +6,7 @@ public class SentinelMovement : MonoBehaviour
 {
     private GameObject hunter;
     [SerializeField] private bool mirandoDerecha = true;
+    private float distance;
 
 
     // Start is called before the first frame update
@@ -17,7 +18,7 @@ public class SentinelMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector2.Distance(transform.position, hunter.transform.position);
+        distance = Vector2.Distance(transform.position, hunter.transform.position);
 
         if (distance <= 10)
         {

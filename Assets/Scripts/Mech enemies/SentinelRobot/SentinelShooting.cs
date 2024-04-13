@@ -14,6 +14,7 @@ public class SentinelShooting : MonoBehaviour
 
     private Sentinel s;
     private GameObject hunter;
+    private float distance;
 
 
     // Start is called before the first frame update
@@ -32,7 +33,7 @@ public class SentinelShooting : MonoBehaviour
 
         if (!s.isDead())
         {
-            float distance = Vector2.Distance(transform.position, hunter.transform.position);
+            distance = Vector2.Distance(transform.position, hunter.transform.position);
 
             if (distance <= 10)
             {
