@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3280732914566493298}
   - component: {fileID: 5306987086492533262}
   - component: {fileID: 2659001354439086638}
+  - component: {fileID: 1897361846877631844}
   m_Layer: 7
   m_Name: Eye
   m_TagString: Untagged
@@ -284,3 +285,16 @@ MonoBehaviour:
   deathSound: {fileID: 5306987086492533262}
   healItem: {fileID: 1551533154056458065, guid: f34ca24c770b94e48a95c5b620b37ed4, type: 3}
   ammoItem: {fileID: 7698488383156841157, guid: a71941db37d09c948bc2f790cfdd6d73, type: 3}
+--- !u!114 &1897361846877631844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30002082019459800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b52927018a03a40b8eab160bc0f7bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mirandoDerecha: 0
