@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 176531409657051218}
   - component: {fileID: 7363407806193658010}
   m_Layer: 7
-  m_Name: Fly
+  m_Name: FlyPatrol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
