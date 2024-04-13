@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2644189638534918603}
   - component: {fileID: 2728162157862483361}
   - component: {fileID: 102200446962697484}
+  - component: {fileID: 7325838576891456252}
   m_Layer: 7
   m_Name: Rinofish
   m_TagString: Untagged
@@ -284,3 +285,16 @@ MonoBehaviour:
   deathSound: {fileID: 2728162157862483361}
   healItem: {fileID: 1551533154056458065, guid: f34ca24c770b94e48a95c5b620b37ed4, type: 3}
   ammoItem: {fileID: 7698488383156841157, guid: a71941db37d09c948bc2f790cfdd6d73, type: 3}
+--- !u!114 &7325838576891456252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7424387281355503676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c7886d3903f7d4fb50640e72f97933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mirandoDerecha: 1
