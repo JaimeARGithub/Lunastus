@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8351543163941052924}
   - component: {fileID: 2955965286470210073}
   - component: {fileID: 176531409657051218}
+  - component: {fileID: 7363407806193658010}
   m_Layer: 7
   m_Name: Fly
   m_TagString: Untagged
@@ -123,7 +124,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 500000
+  m_Mass: 5000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -382,3 +383,19 @@ MonoBehaviour:
   deathSound: {fileID: 2955965286470210073}
   healItem: {fileID: 1551533154056458065, guid: f34ca24c770b94e48a95c5b620b37ed4, type: 3}
   ammoItem: {fileID: 7698488383156841157, guid: a71941db37d09c948bc2f790cfdd6d73, type: 3}
+--- !u!114 &7363407806193658010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4637110865101780804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d08d016a86c80743a18f366c569e58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightX: 0
+  leftX: 0
+  movingToEnd: 0
+  mirandoDerecha: 0

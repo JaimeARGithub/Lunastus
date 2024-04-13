@@ -15,6 +15,7 @@ public class JumperMovement : MonoBehaviour
     public LayerMask groundLayer;
 
     // Para movimiento en general
+    private float distance;
     private float horizontalSpeed = 3.75f;
     private float verticalSpeed = 15f;
 
@@ -35,7 +36,7 @@ public class JumperMovement : MonoBehaviour
         if (!j.isDead())
         {
             // Cada instante se evalúan la distancia entre jumper y cazador y si el jumper está tocando el suelo
-            float distance = Vector2.Distance(transform.position, hunter.transform.position);
+            distance = Vector2.Distance(transform.position, hunter.transform.position);
             isGrounded = Physics2D.IsTouchingLayers(col, groundLayer);
 
 

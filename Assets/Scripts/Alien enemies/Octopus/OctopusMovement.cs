@@ -9,6 +9,7 @@ public class OctopusMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Octopus o;
     private float speed = 2.5f;
+    private float distance;
 
 
     // Start is called before the first frame update
@@ -24,7 +25,7 @@ public class OctopusMovement : MonoBehaviour
     {
         if (!o.isDead())
         {
-            float distance = Vector2.Distance(transform.position, hunter.transform.position);
+            distance = Vector2.Distance(transform.position, hunter.transform.position);
 
             if (distance < 4)
             {

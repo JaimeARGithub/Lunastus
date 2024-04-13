@@ -10,6 +10,7 @@ public class CrabMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Crab c;
     private float speed = 3.75f;
+    private float distance;
 
 
     // Start is called before the first frame update
@@ -28,7 +29,7 @@ public class CrabMovement : MonoBehaviour
         {
 
             // Se mira la distancia entre ambos
-            float distance = Vector2.Distance(transform.position, hunter.transform.position);
+            distance = Vector2.Distance(transform.position, hunter.transform.position);
 
             // Si es menor que 8: huida
             if (distance < 4)

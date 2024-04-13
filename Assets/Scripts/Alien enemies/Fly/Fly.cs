@@ -9,6 +9,7 @@ public class Fly : MonoBehaviour
     public AudioSource idleSound;
     public AudioSource deathSound;
     private SpriteRenderer spRd;
+    private bool dead = false;
 
     // Para el spawn de objetos al morir
     public GameObject healItem;
@@ -32,8 +33,16 @@ public class Fly : MonoBehaviour
     }
 
 
+    public bool isDead()
+    {
+        return this.dead;
+    }
+
+
     private void Die()
     {
+        dead = true;
+
         Color colorSprite = spRd.material.color;
         colorSprite.a = 0f;
         spRd.material.color = colorSprite;

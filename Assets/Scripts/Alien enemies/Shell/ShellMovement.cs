@@ -15,6 +15,7 @@ public class ShellMovement : MonoBehaviour
     public float leftX;
     [SerializeField] private bool movingToEnd;
     private float speed = 1f;
+    private float distance;
 
 
     // Start is called before the first frame update
@@ -37,7 +38,7 @@ public class ShellMovement : MonoBehaviour
             // Mientras el shell no esté muerto, se evalúa la distancia con el hunter.
             // Si es mayor que X, realiza la patrol.
             // Si no, se detiene y se esconde.
-            float distance = Vector2.Distance(transform.position, hunter.transform.position);
+            distance = Vector2.Distance(transform.position, hunter.transform.position);
 
             if (distance > 5)
             {
