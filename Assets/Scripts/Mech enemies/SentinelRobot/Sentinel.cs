@@ -9,7 +9,6 @@ public class Sentinel : MonoBehaviour
     public AudioSource idleSound;
     public AudioSource deathSound;
     private SpriteRenderer spRd;
-
     private bool dead = false;
 
     // Para el spawn de objetos al morir
@@ -30,7 +29,6 @@ public class Sentinel : MonoBehaviour
 
         if (health <= 0)
         {
-            dead = true;
             Die();
         }
     }
@@ -38,6 +36,8 @@ public class Sentinel : MonoBehaviour
 
     private void Die()
     {
+        dead = true;
+
         Color colorSprite = spRd.material.color;
         colorSprite.a = 0f;
         spRd.material.color = colorSprite;

@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SentinelBullet : MonoBehaviour
+public class RedRobotBullet : MonoBehaviour
 {
-    // Referencia al jugador, para que las balas sepan a dónde dirigirse
-    private GameObject hunter;
+    private float speed = 10f;
+    private int damage = 20;
     private Rigidbody2D rb;
-    private float speed = 5f;
-    private int damage = 10;
     public GameObject impactEffect;
 
 
@@ -16,14 +14,7 @@ public class SentinelBullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        hunter = GameObject.FindGameObjectWithTag("Player");
-
-        Vector3 direction = hunter.transform.position - transform.position;
-        // El .normalized es para asegurar que la dirección se mantenga siendo la misma
-        rb.velocity = new Vector2(direction.x, direction.y).normalized * speed;
-
-        float rotation = Mathf.Atan2(-direction.x, -direction.y) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rotation + 180);
+        rb.velocity = transform.right * speed;
     }
 
 

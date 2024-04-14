@@ -8,6 +8,7 @@ public class BrownRobot : MonoBehaviour
     public GameObject deathEffect;
     public AudioSource sonidoMuerte;
     private SpriteRenderer spRd;
+    private bool dead = false;
 
     // Para el spawn de objetos al morir
     public GameObject healItem;
@@ -31,9 +32,15 @@ public class BrownRobot : MonoBehaviour
         }
     }
 
+    public bool isDead()
+    {
+        return this.dead;
+    }
+
 
     private void Die()
     {
+        dead = true;
         // Al morir, al mismo tiempo se hacen invisible el objeto, se instancia la animación de muerte
         // y se reproduce el sonido de muerte; se eliminan el rigidbody y el collider
         Color colorSprite = spRd.material.color;

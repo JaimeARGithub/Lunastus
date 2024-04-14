@@ -1,15 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
-public class SentinelBullet : MonoBehaviour
+public class GreyRobotBullet : MonoBehaviour
 {
-    // Referencia al jugador, para que las balas sepan a dónde dirigirse
-    private GameObject hunter;
+    private float speed = 0.5f;
+    private float distance;
+    private int damage = 35;
     private Rigidbody2D rb;
-    private float speed = 5f;
-    private int damage = 10;
     public GameObject impactEffect;
+
+    // Para la persecución
+    private GameObject hunter;
+    private Vector2 direction;
+
+    // Punto de empuje en el extremo derecho del misil
+    public Transform pushPoint;
+
 
 
     // Start is called before the first frame update
@@ -17,15 +25,20 @@ public class SentinelBullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         hunter = GameObject.FindGameObjectWithTag("Player");
-
-        Vector3 direction = hunter.transform.position - transform.position;
-        // El .normalized es para asegurar que la dirección se mantenga siendo la misma
-        rb.velocity = new Vector2(direction.x, direction.y).normalized * speed;
-
-        float rotation = Mathf.Atan2(-direction.x, -direction.y) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rotation + 180);
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        // Lógica del misil perseguidor: continuamente se conoce la posición del jugador
+        // y se lo persigue despacio
+
+        // Calcula la dirección hacia el jugador y la distancia con él
+        direction = (hunter.transform.position - transform.position).normalized;
+
+        // Aplica una fuerza en el punto de empuje
+        rb.AddForceAtPosition(direction * speed, pushPoint.position);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

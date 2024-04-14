@@ -87,7 +87,7 @@ public class GreyRobot : MonoBehaviour
             if (health.isVulnerable())
             {
                 Debug.Log("DAÑO");
-                health.TakeDamage(20);
+                health.TakeDamage(35);
             }
         }
     }
