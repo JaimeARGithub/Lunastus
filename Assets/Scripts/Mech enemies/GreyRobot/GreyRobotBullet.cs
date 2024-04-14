@@ -7,7 +7,7 @@ public class GreyRobotBullet : MonoBehaviour
 {
     private float speed = 0.5f;
     private float distance;
-    private int damage = 35;
+    private int damage = 45;
     private Rigidbody2D rb;
     public GameObject impactEffect;
 

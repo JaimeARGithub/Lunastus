@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class GreyRobot : MonoBehaviour
 {
-    private int health = 500;
+    private int health = 600;
     public GameObject deathEffect;
     public AudioSource sonidoMuerte;
     private SpriteRenderer spRd;
+    private bool dead = false;
 
     // Para el spawn de objetos al morir
     public GameObject healItem;
@@ -31,9 +32,15 @@ public class GreyRobot : MonoBehaviour
         }
     }
 
+    public bool isDead()
+    {
+        return this.dead;
+    }
+
 
     private void Die()
     {
+        dead = true;
         // Al morir, al mismo tiempo se hacen invisible el objeto, se instancia la animación de muerte
         // y se reproduce el sonido de muerte; se eliminan el rigidbody y el collider
         Color colorSprite = spRd.material.color;
@@ -87,7 +94,7 @@ public class GreyRobot : MonoBehaviour
             if (health.isVulnerable())
             {
                 Debug.Log("DAÑO");
-                health.TakeDamage(35);
+                health.TakeDamage(50);
             }
         }
     }

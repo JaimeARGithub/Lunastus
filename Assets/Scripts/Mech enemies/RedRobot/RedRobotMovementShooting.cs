@@ -12,6 +12,7 @@ public class RedRobotMovementShooting : MonoBehaviour
     // Variables para la persecusión
     [SerializeField] private bool mirandoDerecha = true;
     private float chaseSpeed = 1f;
+    private bool hunterSeen = false;
 
     // Variables para el disparo
     private float distance;
@@ -59,8 +60,15 @@ public class RedRobotMovementShooting : MonoBehaviour
 
             // Parte de disparos
             distance = Vector2.Distance(transform.position, hunter.transform.position);
-            if (distance <= 10)
+            if (distance <= 12.5)
             {
+                if (!hunterSeen)
+                {
+                    hunterSeen = true;
+                    ShootBullet();
+                }
+
+
                 if (Time.time - bulletShotInstant >= bulletCooldown)
                 {
                     ShootBullet();

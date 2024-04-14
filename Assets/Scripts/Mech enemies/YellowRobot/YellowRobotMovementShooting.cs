@@ -12,6 +12,7 @@ public class YellowRobotMovementShooting : MonoBehaviour
     // Variables para la persecusión
     [SerializeField] private bool mirandoDerecha = true;
     private float chaseSpeed = 3.5f;
+    private bool hunterSeen = false;
 
     // Variables para el disparo
     private float distance;
@@ -61,6 +62,13 @@ public class YellowRobotMovementShooting : MonoBehaviour
             distance = Vector2.Distance(transform.position, hunter.transform.position);
             if (distance <= 10)
             {
+                if (!hunterSeen)
+                {
+                    hunterSeen = true;
+                    ShootBullet();
+                }
+
+
                 if (Time.time - burstShotInstant >= burstCooldown)
                 {
                     StartCoroutine(ShootBurst());
