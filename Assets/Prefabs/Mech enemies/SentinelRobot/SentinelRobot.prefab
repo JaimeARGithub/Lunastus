@@ -78,9 +78,8 @@ GameObject:
   - component: {fileID: 5306610323004151226}
   - component: {fileID: 5153228833154547725}
   - component: {fileID: 8205027656600403498}
-  - component: {fileID: 1537820933792953423}
   - component: {fileID: 2996669276708394998}
-  - component: {fileID: 8500822096289110422}
+  - component: {fileID: 1170144139635678608}
   m_Layer: 7
   m_Name: SentinelRobot
   m_TagString: Untagged
@@ -449,22 +448,6 @@ MonoBehaviour:
   deathSound: {fileID: 5153228833154547725}
   healItem: {fileID: 1551533154056458065, guid: f34ca24c770b94e48a95c5b620b37ed4, type: 3}
   ammoItem: {fileID: 7698488383156841157, guid: a71941db37d09c948bc2f790cfdd6d73, type: 3}
---- !u!114 &1537820933792953423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7314545788461997032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 415eaccd506e977469991eb2fc492112, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 4211775682882512540, guid: 7280798e3f342b941b690285d31ba10f, type: 3}
-  bulletPosition1: {fileID: 6817191936875020642}
-  bulletPosition2: {fileID: 473460391383649494}
-  bulletSound: {fileID: 2996669276708394998}
 --- !u!82 &2996669276708394998
 AudioSource:
   m_ObjectHideFlags: 0
@@ -561,7 +544,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8500822096289110422
+--- !u!114 &1170144139635678608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -570,7 +553,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7314545788461997032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a416781946724244b6adb3ef12ef927, type: 3}
+  m_Script: {fileID: 11500000, guid: 02af4bf819583f84f96eb200d58ffe09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mirandoDerecha: 1
+  bullet: {fileID: 4211775682882512540, guid: 7280798e3f342b941b690285d31ba10f, type: 3}
+  bulletPosition1: {fileID: 6817191936875020642}
+  bulletPosition2: {fileID: 473460391383649494}
+  bulletSound: {fileID: 2996669276708394998}
