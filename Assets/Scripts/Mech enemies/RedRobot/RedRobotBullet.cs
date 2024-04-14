@@ -5,7 +5,7 @@ using UnityEngine;
 public class RedRobotBullet : MonoBehaviour
 {
     private float speed = 10f;
-    private int damage = 20;
+    private int damage = 30;
     private Rigidbody2D rb;
     public GameObject impactEffect;
 

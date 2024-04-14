@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
     private SpriteRenderer spRd;
     private bool vulnerable = true;
     private float invulnerableInstant = 0f;
-    private float invulnerabilityTime = 1.5f;
+    private float invulnerabilityTime = 1f;
 
     void Start()
     {
