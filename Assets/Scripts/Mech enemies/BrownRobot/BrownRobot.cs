@@ -94,7 +94,7 @@ public class BrownRobot : MonoBehaviour
             if (health.isVulnerable())
             {
                 Debug.Log("DAÑO");
-                health.TakeDamage(10);
+                health.TakeDamage(20);
             }
         }
     }
