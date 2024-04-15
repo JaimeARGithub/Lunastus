@@ -72,6 +72,16 @@ public class Health : MonoBehaviour
         Debug.Log("VIDA ACTUAL: " + currentHealth);
     }
 
+    public IEnumerator fullRestoration()
+    {
+        while (currentHealth < maxHealth)
+        {
+            currentHealth++;
+            healthBar.SetHealth(currentHealth);
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         damageSound.Play();
