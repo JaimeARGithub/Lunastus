@@ -7,7 +7,7 @@ public class Missile : MonoBehaviour
 {
     [SerializeField] private float velocidad = 15f;
     private Rigidbody2D rb;
-    private int damageMissile = 150;
+    private int damageMissile = 100;
     public GameObject impactEffect;
 
 

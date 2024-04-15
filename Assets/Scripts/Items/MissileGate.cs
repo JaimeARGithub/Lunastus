@@ -12,8 +12,8 @@ public class MissileGate : MonoBehaviour
     public AudioSource openSound;
     public AudioSource closeSound;
 
-    private int maxHealth = 150;
-    private int health = 150;
+    private int maxHealth = 100;
+    private int health = 100;
     private bool isOpen = false;
     private float openingMoment;
 
@@ -69,9 +69,9 @@ public class MissileGate : MonoBehaviour
 
     private IEnumerator Close()
     {
-        closeSound.Play();
         animator.SetBool("isClosed", true);
         animator.SetBool("isOpen", false);
+        closeSound.Play();
 
         yield return new WaitForSeconds(0.5f);
 

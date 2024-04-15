@@ -37,7 +37,7 @@ public class Combat : MonoBehaviour
     private float tiempoTranscurridoDisparo = 0f;
     private float tiempoEsperaDisparo = 0.15f;
     private float tiempoTranscurridoMisil = 0f;
-    private float tiempoEsperaMisil = 2f;
+    private float tiempoEsperaMisil = 1f;
 
     // Para los sonidos
     public AudioSource sonidoDisparo;
