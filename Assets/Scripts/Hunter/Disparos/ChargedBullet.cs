@@ -142,6 +142,13 @@ public class ChargedBullet : MonoBehaviour
                             missileGate.TakeDamage(damageCharged);
                         }
                         break;
+                    case string name when name.StartsWith("EnemyPC"):
+                        EnemyPC enemyPC = collision.GetComponent<EnemyPC>();
+                        if (enemyPC != null)
+                        {
+                            enemyPC.TakeDamage(damageCharged);
+                        }
+                        break;
                 }
 
 

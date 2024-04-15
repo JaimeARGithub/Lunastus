@@ -141,6 +141,13 @@ public class Missile : MonoBehaviour
                             missileGate.TakeDamage(damageMissile);
                         }
                         break;
+                    case string name when name.StartsWith("EnemyPC"):
+                        EnemyPC enemyPC = collision.GetComponent<EnemyPC>();
+                        if (enemyPC != null)
+                        {
+                            enemyPC.TakeDamage(damageMissile);
+                        }
+                        break;
                 }
 
                 Vector3 impactPosition = transform.position;

@@ -140,6 +140,13 @@ public class Bullet : MonoBehaviour
                             missileGate.TakeDamage(damageBullet);
                         }
                         break;
+                    case string name when name.StartsWith("EnemyPC"):
+                        EnemyPC enemyPC = collision.GetComponent<EnemyPC>();
+                        if (enemyPC != null)
+                        {
+                            enemyPC.TakeDamage(damageBullet);
+                        }
+                        break;
                 }
 
                 Instantiate(impactEffect, transform.position, transform.rotation);
