@@ -91,7 +91,7 @@ public class Rinofish : MonoBehaviour
             if (health.isVulnerable())
             {
                 Debug.Log("DAÑO");
-                health.TakeDamage(20);
+                health.TakeDamage(30);
             }
         }
     }
