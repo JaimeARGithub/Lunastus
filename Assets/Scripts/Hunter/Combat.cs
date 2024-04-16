@@ -7,6 +7,8 @@ using UnityEngine.UIElements;
 
 public class Combat : MonoBehaviour
 {
+    private GameManager gameManager;
+
     // PARA MOSTRAR COSAS EN IU
     public UnityEngine.UI.Image ammoImage;
     public TextMeshProUGUI ammoText;
@@ -25,13 +27,13 @@ public class Combat : MonoBehaviour
     private float movimientoH;
 
     // Para los cooldowns
-    private bool misilDesbloqueado = false;      // VALOR QUE DEPENDE DEL GAME MANAGER
+    //private bool misilDesbloqueado = false;      // VALOR QUE DEPENDE DEL GAME MANAGER
                                                  // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
 
-    private int limiteMisiles = 0;              // VALOR QUE DEPENDE DEL GAME MANAGER
+    //private int limiteMisiles = 0;              // VALOR QUE DEPENDE DEL GAME MANAGER
                                                 // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
 
-    private int municionMisiles = 0;           // VALOR QUE DEPENDE DEL GAME MANAGER
+    //private int municionMisiles = 0;           // VALOR QUE DEPENDE DEL GAME MANAGER
                                                // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
 
     private float tiempoTranscurridoDisparo = 0f;
@@ -80,6 +82,8 @@ public class Combat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
+
         animator = GetComponent<Animator>();
         spRd = GetComponent<SpriteRenderer>();
 
@@ -98,14 +102,14 @@ public class Combat : MonoBehaviour
         // LEER DEL GAME MANAGER SI LOS MISILES ESTÁN DESBLOQUEADOS
         // LEER DEL GAME MANAGER EL LÍMITE DE MISILES
         // LEER DEL GAME MANAGER LA MUNICIÓN RESTANTE DE MISILES
-        if (misilDesbloqueado)
+        if (gameManager.GetMissileUnlocked())
         {
             ammoImage.enabled = true;
             Color textColor = ammoText.color;
             textColor.a = 1f;
             ammoText.color = textColor;
 
-            ammoText.text = "x " + municionMisiles.ToString("00") + "/" + limiteMisiles.ToString("00");
+            ammoText.text = "x " + gameManager.GetCurrentMissiles().ToString("00") + "/" + gameManager.GetMaxMissiles().ToString("00");
         }
 
         
@@ -147,7 +151,7 @@ public class Combat : MonoBehaviour
         tiempoTranscurridoDisparo += Time.deltaTime;
 
 
-        if (Input.GetKeyDown(KeyCode.R) && tiempoTranscurridoMisil >= tiempoEsperaMisil && misilDesbloqueado && municionMisiles > 0)
+        if (Input.GetKeyDown(KeyCode.R) && tiempoTranscurridoMisil >= tiempoEsperaMisil && gameManager.GetMissileUnlocked() && gameManager.GetCurrentMissiles() > 0)
         {
             sonidoMisil.Play();
             AnimarDisparo();
@@ -227,47 +231,22 @@ public class Combat : MonoBehaviour
 
     public bool getMisilesDesbloqueados()
     {
-        // USAR EL GETTER DEL GAME MANAGER
-        return this.misilDesbloqueado;
+        return gameManager.GetMissileUnlocked();
     }
 
     public void activarMisiles()
     {
-        // USAR LOS SETTERS DEL GAME MANAGER
-        misilDesbloqueado = true;
-        limiteMisiles += 5;
-        municionMisiles = limiteMisiles;
-        Debug.Log("LÍMITE DE MISILES: " + limiteMisiles);
-        Debug.Log("MUNICIÓN ACTUAL: " + municionMisiles);
+        gameManager.SetMissileUnlocked();
     }
 
     public void ampliarMisiles()
     {
-        // USAR LOS SETTERS DEL GAME MANAGER
-        if (misilDesbloqueado)
-        {
-            limiteMisiles += 5;
-            municionMisiles = limiteMisiles;
-            Debug.Log("LÍMITE DE MISILES: " + limiteMisiles);
-            Debug.Log("MUNICIÓN ACTUAL: " + municionMisiles);
-        }
+        gameManager.AugmentMissiles();
     }
 
     public void recargarMisiles()
     {
-        // USAR LOS SETTERS DEL GAME MANAGER
-        if (misilDesbloqueado)
-        {
-            if (municionMisiles + 5 <= limiteMisiles)
-            {
-                municionMisiles += 5;
-            } else
-            {
-                municionMisiles = limiteMisiles;
-            }
-            Debug.Log("LÍMITE DE MISILES: " + limiteMisiles);
-            Debug.Log("MUNICIÓN ACTUAL: " + municionMisiles);
-        }
+        gameManager.RechargeMissiles();
     }
 
     private void ChangeColor()
@@ -293,8 +272,8 @@ public class Combat : MonoBehaviour
     private void DispararMisil()
     {
         Instantiate(missilePrefab, firePoint.position, firePoint.rotation);
-        municionMisiles -= 1;       // CAMBIAR ESTA LÍNEA PARA QUE REDUZCA LA
-                                    // CANTIDAD DE MISILES RESTANTES DEL GAME MANAGER
+        gameManager.ExpendMissile();         // CAMBIAR ESTA LÍNEA PARA QUE REDUZCA LA
+                                            // CANTIDAD DE MISILES RESTANTES DEL GAME MANAGER
     }
 
     private void DispararCargado()

@@ -85,8 +85,8 @@ public class GameManager : MonoBehaviour
         backdashUnlocked = false;
         missileUnlocked = false;
         doublejumpUnlocked = false;
-        currentMissiles = 0;
         maxMissiles = 0;
+        currentMissiles = maxMissiles;
 
         braptor1killed = false;
         braptor2killed = false;
@@ -136,11 +136,59 @@ public class GameManager : MonoBehaviour
     public void SetMissileUnlocked()
     {
         this.missileUnlocked = true;
+
+        maxMissiles += 5;
+        currentMissiles = maxMissiles;
+        Debug.Log("LÍMITE DE MISILES: " + maxMissiles);
+        Debug.Log("MUNICIÓN ACTUAL: " + currentMissiles);
+    }
+
+    public void AugmentMissiles()
+    {
+        if (missileUnlocked)
+        {
+            maxMissiles += 5;
+            currentMissiles = maxMissiles;
+            Debug.Log("LÍMITE DE MISILES: " + maxMissiles);
+            Debug.Log("MUNICIÓN ACTUAL: " + currentMissiles);
+        }
+    }
+
+    public void RechargeMissiles()
+    {
+        if (missileUnlocked)
+        {
+            if (currentMissiles + 5 <= maxMissiles)
+            {
+                currentMissiles += 5;
+            }
+            else
+            {
+                currentMissiles = maxMissiles;
+            }
+            Debug.Log("LÍMITE DE MISILES: " + maxMissiles);
+            Debug.Log("MUNICIÓN ACTUAL: " + currentMissiles);
+        }
     }
 
     public bool GetMissileUnlocked()
     {
         return this.missileUnlocked;
+    }
+
+    public int GetCurrentMissiles()
+    {
+        return this.currentMissiles;
+    }
+
+    public int GetMaxMissiles()
+    {
+        return this.maxMissiles;
+    }
+
+    public void ExpendMissile()
+    {
+        this.currentMissiles--;
     }
 
     public void SetDoublejumpUnlocked()
