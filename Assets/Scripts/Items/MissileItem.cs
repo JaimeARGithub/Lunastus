@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MissileItem : MonoBehaviour
 {
+    private GameManager gameManager;
+
     public AudioSource sound;
     private SpriteRenderer spRd;
     public GameObject effect;
@@ -13,6 +15,12 @@ public class MissileItem : MonoBehaviour
     void Start()
     {
         spRd = GetComponent<SpriteRenderer>();
+        gameManager = FindObjectOfType<GameManager>();
+
+        if (gameManager.GetMissileUnlocked())
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BackdashItem : MonoBehaviour
 {
+    private GameManager gameManager;
+
     public AudioSource sound;
     private SpriteRenderer spRd;
     public GameObject effect;
@@ -13,6 +15,12 @@ public class BackdashItem : MonoBehaviour
     void Start()
     {
         spRd = GetComponent<SpriteRenderer>();
+        gameManager = FindObjectOfType<GameManager>();
+
+        if (gameManager.GetBackdashUnlocked())
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
