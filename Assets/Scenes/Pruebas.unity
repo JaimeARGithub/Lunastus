@@ -1535,7 +1535,7 @@ GameObject:
   - component: {fileID: 557039810}
   - component: {fileID: 557039813}
   - component: {fileID: 557039814}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: SavePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
