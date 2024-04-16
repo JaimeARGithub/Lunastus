@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    private GameManager gameManager;
+
     // PARA MOSTRAR COSAS EN IU
     public TextMeshProUGUI healthText;
 
-    private int maxHealth;
-    private int currentHealth;
+    //private int maxHealth;
+    //private int currentHealth;
     private HealthBar healthBar;
     public AudioSource damageSound;
     public GameObject deathAnimation;
@@ -21,10 +23,12 @@ public class Health : MonoBehaviour
 
     void Start()
     {
-        maxHealth = 100; // CAMBIARLO PARA QUE EN EL START LEA DEL GAME MANAGER
-        currentHealth = maxHealth; // CAMBIARLO PARA QUE EN EL START LEA DEL GAME MANAGER
+        gameManager = FindObjectOfType<GameManager>();
+
+        //maxHealth = gameManager.GetMaxHealth(); // CAMBIARLO PARA QUE EN EL START LEA DEL GAME MANAGER
+        //currentHealth = gameManager.GetCurrentHealth(); // CAMBIARLO PARA QUE EN EL START LEA DEL GAME MANAGER
         healthBar = FindObjectOfType<HealthBar>();
-        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetMaxHealth(gameManager.GetMaxHealth());
 
         spRd = GetComponent<SpriteRenderer>();
     }
@@ -34,7 +38,7 @@ public class Health : MonoBehaviour
     {
         // LEER TODO EL RATO VIDA ACTUAL Y VIDA MÁXIMA CON GETTERS DEL GAME MANAGER
         // Y AJUSTARLA EN EL TEXT
-        healthText.text = currentHealth.ToString() + "/" + maxHealth.ToString();
+        healthText.text = gameManager.GetCurrentHealth().ToString() + "/" + gameManager.GetMaxHealth().ToString();
 
         if (!vulnerable && Time.time - invulnerableInstant >= invulnerabilityTime)
         {
@@ -48,36 +52,22 @@ public class Health : MonoBehaviour
 
     public void upgradeHealth()
     {
-        maxHealth += 25; // USAR SETTER DEL GAME MANAGER
-        currentHealth = maxHealth; // USAR SETTER DEL GAME MANAGER (meter en el mismo método ampliar vida máxima e iguala valor de actual)
-        healthBar.SetMaxHealth(maxHealth);
-
-        Debug.Log("LÍMITE DE VIDA: " + maxHealth);
-        Debug.Log("VIDA ACTUAL: " + currentHealth);
+        gameManager.UpgradeHealth();
+        healthBar.SetMaxHealth(gameManager.GetMaxHealth());
     }
 
     public void receiveHeal()
     {
-        // USAR LOS SETTERS DEL GAME MANAGER
-        if (currentHealth + 25 <= maxHealth)
-        {
-            currentHealth += 25;
-        } else
-        {
-            currentHealth = maxHealth;
-        }
-        healthBar.SetHealth(currentHealth);
-
-        Debug.Log("LÍMITE DE VIDA: " + maxHealth);
-        Debug.Log("VIDA ACTUAL: " + currentHealth);
+        gameManager.ReceiveHeal();
+        healthBar.SetHealth(gameManager.GetCurrentHealth());
     }
 
     public IEnumerator fullRestoration()
     {
-        while (currentHealth < maxHealth)
+        while (gameManager.GetCurrentHealth() < gameManager.GetMaxHealth())
         {
-            currentHealth++;
-            healthBar.SetHealth(currentHealth);
+            gameManager.PlusOneHealth();
+            healthBar.SetHealth(gameManager.GetCurrentHealth());
             yield return new WaitForSeconds(0.01f);
         }
     }
@@ -89,18 +79,18 @@ public class Health : MonoBehaviour
 
 
         // USAR LOS SETTERS DEL GAME MANAGER
-        if (currentHealth - damage >= 0)
+        if (gameManager.GetCurrentHealth() - damage >= 0)
         {
-            currentHealth -= damage;
-            healthBar.SetHealth(currentHealth);
+            gameManager.ReceiveDamage(damage);
+            healthBar.SetHealth(gameManager.GetCurrentHealth());
         } else
         {
-            currentHealth = 0;
+            gameManager.SetZeroHealth();
             healthBar.SetHealth(0);
         }
 
 
-        if (currentHealth <= 0)
+        if (gameManager.GetCurrentHealth() <= 0)
         {
             Die();
         }

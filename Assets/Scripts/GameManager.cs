@@ -71,7 +71,10 @@ public class GameManager : MonoBehaviour
 
         gameManager = GameObject.Find("GameManager");
         DontDestroyOnLoad(gameManager);
+
+
         SceneManager.LoadScene("Pruebas");
+        SetStartValues();
     }
 
 
@@ -114,6 +117,54 @@ public class GameManager : MonoBehaviour
         System.Random random = new System.Random();
         return new string(Enumerable.Repeat(chars, length)
           .Select(s => s[random.Next(s.Length)]).ToArray());
+    }
+
+    public int GetMaxHealth()
+    {
+        return this.maxHealth;
+    }
+
+    public int GetCurrentHealth()
+    {
+        return this.currentHealth;
+    }
+
+    public void UpgradeHealth()
+    {
+        maxHealth += 25; // USAR SETTER DEL GAME MANAGER
+        currentHealth = maxHealth; // USAR SETTER DEL GAME MANAGER (meter en el mismo método ampliar vida máxima e iguala valor de actual)
+        Debug.Log("LÍMITE DE VIDA: " + maxHealth);
+        Debug.Log("VIDA ACTUAL: " + currentHealth);
+    }
+
+    public void ReceiveHeal()
+    {
+        if (currentHealth + 25 <= maxHealth)
+        {
+            currentHealth += 25;
+        }
+        else
+        {
+            currentHealth = maxHealth;
+        }
+
+        Debug.Log("LÍMITE DE VIDA: " + maxHealth);
+        Debug.Log("VIDA ACTUAL: " + currentHealth);
+    }
+
+    public void PlusOneHealth()
+    {
+        this.currentHealth++;
+    }
+
+    public void ReceiveDamage(int damage)
+    {
+        this.currentHealth -= damage;
+    }
+
+    public void SetZeroHealth()
+    {
+        this.currentHealth = 0;
     }
 
     // Update is called once per frame
