@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    private GameManager gameManager;
+
     // Movimiento del jugador
     private float velocidad = 4.5F;
     Rigidbody2D rb2d;
@@ -26,7 +28,7 @@ public class Movement : MonoBehaviour
     private float gravedadPersonalizada = 100f;
 
     // Variables para el doble salto
-    private bool dobleSaltoDesbloqueado = false; // VARIABLE QUE DEPENDE DEL GAME MANAGER
+    //private bool dobleSaltoDesbloqueado = false; // VARIABLE QUE DEPENDE DEL GAME MANAGER
     private bool dobleSalto = true;             // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
 
 
@@ -39,7 +41,7 @@ public class Movement : MonoBehaviour
     private float movimientoH;
 
     // Para el backdash
-    private bool backDashDesbloqueado = false;   // VARIABLE QUE DEPENDE DEL GAME MANAGER
+    //private bool backDashDesbloqueado = false;   // VARIABLE QUE DEPENDE DEL GAME MANAGER
     private bool puedeBackdash = true;          // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
     private bool isBackdashing;
     private float fuerzaBackdash = 1f;
@@ -63,6 +65,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
@@ -150,21 +153,19 @@ public class Movement : MonoBehaviour
 
     public void activarBackdash()
     {
-        // USAR EL SETTER DEL GAME MANAGER
-        backDashDesbloqueado = true;
+        gameManager.SetBackdashUnlocked();
     }
 
     public void activarDobleSalto()
     {
-        // USAR EL SETTER DEL GAME MANAGER
-        dobleSaltoDesbloqueado = true;
+        gameManager.SetDoublejumpUnlocked();
     }
 
     private void FixedUpdate()
     {
         if (quiereSaltar)
         {
-            if (isGrounded() || (dobleSalto && dobleSaltoDesbloqueado))
+            if (isGrounded() || (dobleSalto && gameManager.GetDoublejumpUnlocked()))
             {
                 sonidoSalto.Play();
 
@@ -221,7 +222,7 @@ public class Movement : MonoBehaviour
 
         if (quiereBackdash)
         {
-            if (puedeBackdash && backDashDesbloqueado)
+            if (puedeBackdash && gameManager.GetBackdashUnlocked())
             {
                 StartCoroutine(Backdash());
             }
