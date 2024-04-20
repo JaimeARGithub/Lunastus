@@ -14,10 +14,11 @@ public class DatabaseAccess : MonoBehaviour
 
 
     // Para el acceso a MongoDB
-    private const string MONGO_URI = "mongodb+srv://hajithehunter:<tqh7sFSo23071995>@lunastus.xk1w74t.mongodb.net/?retryWrites=true&w=majority&appName=Lunastus";
+    private const string MONGO_URI = "mongodb+srv://hajithehunter:tqh7sFSo23071995@lunastus.xk1w74t.mongodb.net/?retryWrites=true&w=majority&appName=Lunastus";
     private const string DATABASE_NAME = "jaime";
     private MongoClient client;
     private IMongoDatabase db;
+    private IMongoCollection<BsonDocument> saveFilesCollection;
 
 
 
@@ -31,16 +32,10 @@ public class DatabaseAccess : MonoBehaviour
 
         client = new MongoClient(MONGO_URI);
         db = client.GetDatabase(DATABASE_NAME);
+        saveFilesCollection = db.GetCollection<BsonDocument>("SaveFiles");
 
-
-        IMongoCollection<Model_Player> col = db.GetCollection<Model_Player>("Players");
-        List<Model_Player> playersList = col.Find(_ => true).ToList();
-
-        foreach (var player in playersList)
-        {
-            Debug.Log("Player Name: " + player.playerName);
-            // Aquí puedes acceder a otros atributos del jugador si lo deseas
-        }
+        var document = new BsonDocument { { "playerName", "LUIS" }, { "nombreMascota", "THOR" } };
+        saveFilesCollection.InsertOne(document);
     }
 
     // Update is called once per frame
