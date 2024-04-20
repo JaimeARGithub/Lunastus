@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
     private bool braptor5killed;
     private bool braptor6killed;
 
+    // Variable para elegir el final del juego, en función de si se mataron o no los seis biceraptors
+    private bool badEnding;
+
     // Para verificar si se han recogido las mejoras de vida y capacidad de
     // misiles dispersas por el mapa
     private bool augmHealth1;
@@ -77,6 +80,17 @@ public class GameManager : MonoBehaviour
         SetStartValues();
     }
 
+    void Update()
+    {
+        currentScene = SceneManager.GetActiveScene().name;
+
+        if (braptor1killed && braptor2killed && braptor3killed && braptor4killed && braptor5killed && braptor6killed)
+        {
+            badEnding = true;
+            Debug.Log("ACTIVADO FINAL MALO");
+        }
+    }
+
 
     public void SetStartValues()
     {
@@ -97,6 +111,7 @@ public class GameManager : MonoBehaviour
         braptor4killed = false;
         braptor5killed = false;
         braptor6killed = false;
+        badEnding = false;
 
         augmHealth1 = false;
         augmHealth2 = false;
@@ -167,11 +182,6 @@ public class GameManager : MonoBehaviour
         this.currentHealth = 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        currentScene = SceneManager.GetActiveScene().name;
-    }
 
     public void SetBackdashUnlocked()
     {
