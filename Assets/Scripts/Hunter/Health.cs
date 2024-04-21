@@ -37,8 +37,10 @@ public class Health : MonoBehaviour
     void Update()
     {
         // LEER TODO EL RATO VIDA ACTUAL Y VIDA MÁXIMA CON GETTERS DEL GAME MANAGER
-        // Y AJUSTARLA EN EL TEXT
+        // Y AJUSTARLA EN EL TEXT Y LA BARRA
         healthText.text = gameManager.GetCurrentHealth().ToString() + "/" + gameManager.GetMaxHealth().ToString();
+        healthBar.SetHealth(gameManager.GetCurrentHealth());
+
 
         if (!vulnerable && Time.time - invulnerableInstant >= invulnerabilityTime)
         {
@@ -59,7 +61,6 @@ public class Health : MonoBehaviour
     public void receiveHeal()
     {
         gameManager.ReceiveHeal();
-        healthBar.SetHealth(gameManager.GetCurrentHealth());
     }
 
     public IEnumerator fullRestoration()
@@ -82,7 +83,6 @@ public class Health : MonoBehaviour
         if (gameManager.GetCurrentHealth() - damage >= 0)
         {
             gameManager.ReceiveDamage(damage);
-            healthBar.SetHealth(gameManager.GetCurrentHealth());
         } else
         {
             gameManager.SetZeroHealth();
@@ -100,7 +100,7 @@ public class Health : MonoBehaviour
     private void Die()
     {
         Instantiate(deathAnimation, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        Destroy(gameObject, 0.1f);
     }
 
 
