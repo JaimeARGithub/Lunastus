@@ -1,3 +1,4 @@
+using MongoDB.Bson;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private GameObject gameManager;
+    private DatabaseAccess databaseAccess;
 
     // Para el nombre de jugador que se grabará en la base de datos
     private const string playerNameKey = "PlayerName";
@@ -56,28 +58,69 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        databaseAccess = FindObjectOfType<DatabaseAccess>();
+
+
+
         // Lo primero que se hace al abrir el juego es intentar recuperar un nombre
-        // de usuario guardado en PlayerPrefs para almacenar datos en MongoDB; si no existe
-        // ninguno, se genera uno aleatorio de 6 caracteres usando números, mayúsculas y 
-        // minúsculas, y se guarda en las PlayerPrefs.
+        // de usuario guardado en PlayerPrefs
+
+        // Si no existe ninguno (es la primera vez que se abre el juego), se genera
+        // uno aleatorio de 6 caracteres usando números, mayúsculas y minúsculas.
+
+        // Durante la generación, se lee la lista de jugadores existentes en MongoDB;
+        // si se ha generado un nombre que YA EXISTE en la lista de jugadores, se
+        // genera otro aleatorio.
+
+        // Una vez se guarda el nombre en las PlayersPrefs, se crea también el archivo
+        // de guardado en MongoDB.
+
+
+        // El archivo de guardado se escribe en el preciso instante en que se elige un
+        // nombre para evitar problemas; si solamente se guarda al tocar una estación
+        // de guardado, al ser datos no almacenados en local, existe la posibilidad de que
+        // en dos partidas al mismo tiempo:
+        // 1.- Se lea de la lista de jugadores
+        // 2.- Se genere un nombre que NO exista en ella, pero que COINCIDA entre las dos partidas
+        // 3.- A la hora de guardar la partida, al identificarse el archivo mediante el nombre del
+        // jugador, que uno vaya sobreescribiendo al otro
         playerName = PlayerPrefs.GetString(playerNameKey);
+
+        // SI ES EL PRIMER ACCESO AL JUEGO:
         if (string.IsNullOrEmpty(playerName))
         {
             playerName = GenerateRandomPlayerName(6);
-            // Parte de consultar a MongoDB para ver si el nombre generado ya existe, y mientras exista, generar otro
+
+
+            while (databaseAccess.PlayerExists(playerName))
+            {
+                playerName = GenerateRandomPlayerName(6);
+            }
+
+
             PlayerPrefs.SetString(playerNameKey, playerName);
             PlayerPrefs.Save();
+            databaseAccess.FirstDataSave();
+        } else
+        {
+            // INTENTO DE DECUPERACIÓN DE DATOS SI EL PLAYERNAME YA EXISTE
+            Debug.Log("EL JUGADOR EXISTE");
+            Debug.Log("Nombre del jugador: " + playerName);
+            LoadData();
         }
 
-        Debug.Log("Nombre del jugador: " + playerName);
+        //PlayerPrefs.DeleteAll();
 
 
+        // Persistencia del GameManager durante el juego
         gameManager = GameObject.Find("GameManager");
         DontDestroyOnLoad(gameManager);
+        //----------------------------------------------
 
 
-        SceneManager.LoadScene("Pruebas");
-        SetStartValues();
+
+        //SceneManager.LoadScene("Pruebas");
+        //SetStartValues();
     }
 
     void Update()
@@ -92,6 +135,7 @@ public class GameManager : MonoBehaviour
     }
 
 
+    // MÉTODO PARA SITUAR LOS VALORES INICIALES EN UNA PARTIDA NUEVA
     public void SetStartValues()
     {
         currentScene = "InitialScene";
@@ -126,6 +170,7 @@ public class GameManager : MonoBehaviour
     }
 
 
+    // MÉTODO PARA GENERAR UN NOMBRE DE JUGADOR ALEATORIO
     private string GenerateRandomPlayerName(int length)
     {
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -134,6 +179,8 @@ public class GameManager : MonoBehaviour
           .Select(s => s[random.Next(s.Length)]).ToArray());
     }
 
+
+    // MÉTODOS PARA LA VIDA DEL JUGADOR
     public int GetMaxHealth()
     {
         return this.maxHealth;
@@ -183,6 +230,7 @@ public class GameManager : MonoBehaviour
     }
 
 
+    // MÉTODOS PARA EL BACKDASH
     public void SetBackdashUnlocked()
     {
         this.backdashUnlocked = true;
@@ -194,6 +242,8 @@ public class GameManager : MonoBehaviour
         return this.backdashUnlocked;
     }
 
+
+    // MÉTODOS PARA LOS MISILES Y SU MUNICIÓN
     public void SetMissileUnlocked()
     {
         this.missileUnlocked = true;
@@ -252,6 +302,8 @@ public class GameManager : MonoBehaviour
         this.currentMissiles--;
     }
 
+
+    // MÉTODOS PARA EL DOBLE SALTO
     public void SetDoublejumpUnlocked()
     {
         this.doublejumpUnlocked = true;
@@ -264,7 +316,7 @@ public class GameManager : MonoBehaviour
     }
 
     
-
+    // MÉTODOS PARA EL ASESINATO PERMANENTE DE LOS BICERAPTOR
     public void SetBraptor1Killed()
     {
         this.braptor1killed = true;
@@ -326,7 +378,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-
+    // MÉTODOS PARA LA RECOGIDA DE LOS AUMENTOS PERMANENTES DE SALUD
     public void SetAugmHealth1()
     {
         this.augmHealth1 = true;
@@ -387,6 +439,9 @@ public class GameManager : MonoBehaviour
         return this.augmHealth6;
     }
 
+
+
+    // MÉTODOS PARA LOS AUMENTOS PERMANENTES DE CAPACIDAD DE MISILES
     public void SetAugmMissiles1()
     {
         this.augmMissiles1 = true;
@@ -425,5 +480,44 @@ public class GameManager : MonoBehaviour
     public bool GetAugmMissiles4()
     {
         return this.augmMissiles4;
+    }
+
+
+    // MÉTODO PARA CARGAR DATOS DESDE MONGODB
+    // CUANDO EL NOMBRE DEL PLAYERPREFS EXISTE
+    public void LoadData()
+    {
+        BsonDocument playerdata = databaseAccess.GetPlayerData(PlayerPrefs.GetString(playerNameKey));
+
+        SceneManager.LoadScene(playerdata["currentScene"].AsString);
+
+        this.maxHealth = playerdata["maxHealth"].AsInt32;
+        this.currentHealth = this.maxHealth;
+
+        this.backdashUnlocked = playerdata["backdashUnlocked"].AsBoolean;
+        this.missileUnlocked = playerdata["missileUnlocked"].AsBoolean;
+        this.doublejumpUnlocked = playerdata["doublejumpUnlocked"].AsBoolean;
+
+        this.currentMissiles = playerdata["currentMissiles"].AsInt32;
+        this.maxMissiles = playerdata["maxMissiles"].AsInt32;
+
+        this.braptor1killed = playerdata["braptor1killed"].AsBoolean;
+        this.braptor2killed = playerdata["braptor2killed"].AsBoolean;
+        this.braptor3killed = playerdata["braptor3killed"].AsBoolean;
+        this.braptor4killed = playerdata["braptor4killed"].AsBoolean;
+        this.braptor5killed = playerdata["braptor5killed"].AsBoolean;
+        this.braptor6killed = playerdata["braptor6killed"].AsBoolean;
+
+        this.augmHealth1 = playerdata["augmHealth1"].AsBoolean;
+        this.augmHealth2 = playerdata["augmHealth2"].AsBoolean;
+        this.augmHealth3 = playerdata["augmHealth3"].AsBoolean;
+        this.augmHealth4 = playerdata["augmHealth4"].AsBoolean;
+        this.augmHealth5 = playerdata["augmHealth5"].AsBoolean;
+        this.augmHealth6 = playerdata["augmHealth6"].AsBoolean;
+
+        this.augmMissiles1 = playerdata["augmMissiles1"].AsBoolean;
+        this.augmMissiles2 = playerdata["augmMissiles2"].AsBoolean;
+        this.augmMissiles3 = playerdata["augmMissiles3"].AsBoolean;
+        this.augmMissiles4 = playerdata["augmMissiles4"].AsBoolean;
     }
 }

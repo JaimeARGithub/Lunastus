@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 981895377}
   - component: {fileID: 981895378}
   m_Layer: 0
-  m_Name: Database
+  m_Name: DatabaseAccess
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
