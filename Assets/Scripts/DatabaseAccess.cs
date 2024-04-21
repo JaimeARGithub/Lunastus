@@ -11,6 +11,7 @@ public class DatabaseAccess : MonoBehaviour
 {
     // Para que el objeto persista a lo largo del juego
     private GameObject databaseAccess;
+    private GameManager gameManager;
 
 
     // Para el acceso a MongoDB
@@ -29,6 +30,9 @@ public class DatabaseAccess : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
+
+
         // Para que el objeto persista a lo largo del juego
         databaseAccess = GameObject.Find("DatabaseAccess");
         DontDestroyOnLoad(databaseAccess);
@@ -100,20 +104,75 @@ public class DatabaseAccess : MonoBehaviour
                                             { "augmMissiles1", false },
                                             { "augmMissiles2", false },
                                             { "augmMissiles3", false },
-                                            { "augmMissiles4", false }};
+                                            { "augmMissiles4", false },
+                                            { "firstSave", false } };
 
         saveFilesCollection.InsertOne(saveFile);
     }
 
 
-    // Método para el cargado de datos; se pasa por parámetro una string con un nombre,
-    // que será el nombre de jugador almacenado en las PlayerPrefs
+    // Método para el cargado de datos; se utiliza como nombre-filtro el nombre de
+    // jugador almacenado en las PlayerPrefs
+    // Se recupera la colección de archivos de guardado
     // Se usa dicho nombre para buscar entre los archivos guardados y se devuelve el
     // documento Bson completo; luego en el GameManager se trabaja con sus valores
-    public BsonDocument GetPlayerData(string playerName)
+    public BsonDocument LoadPlayerData()
     {
         saveFilesCollection = db.GetCollection<BsonDocument>("SaveFiles");
-        var filter = Builders<BsonDocument>.Filter.Eq("playerName", playerName);
+        var filter = Builders<BsonDocument>.Filter.Eq("playerName", PlayerPrefs.GetString("PlayerName"));
         return saveFilesCollection.Find(filter).FirstOrDefault();
+    }
+
+
+    // Método para el guardado de datos durante la partda
+    // Se recupera toda la colección de archivos de guardado y se usa como nombre-filtro el
+    // nombre de jugador almacenado en las PlayerPrefs
+    // Se usa dicho nombre para buscar entre los archivos guardados y se ubica el que corresponda
+    // Tras ello, se ajustan sus valores según getters del GameManager y se reemplaza el documento en la colección
+    public void SavePlayerData()
+    {
+        saveFilesCollection = db.GetCollection<BsonDocument>("SaveFiles");
+        var filter = Builders<BsonDocument>.Filter.Eq("playerName", PlayerPrefs.GetString("PlayerName"));
+        var playerData = saveFilesCollection.Find(filter).FirstOrDefault();
+
+        if (playerData != null)
+        {
+            playerData["currentScene"] = gameManager.GetCurrentScene();
+
+            playerData["maxHealth"] = gameManager.GetMaxHealth();
+
+            playerData["backdashUnlocked"] = gameManager.GetBackdashUnlocked();
+            playerData["missileUnlocked"] = gameManager.GetMissileUnlocked();
+            playerData["doublejumpUnlocked"] = gameManager.GetDoublejumpUnlocked();
+
+            playerData["currentMissiles"] = gameManager.GetCurrentMissiles();
+            playerData["maxMissiles"] = gameManager.GetMaxMissiles();
+
+            playerData["braptor1killed"] = gameManager.GetBraptor1Killed();
+            playerData["braptor2killed"] = gameManager.GetBraptor2Killed();
+            playerData["braptor3killed"] = gameManager.GetBraptor3Killed();
+            playerData["braptor4killed"] = gameManager.GetBraptor4Killed();
+            playerData["braptor5killed"] = gameManager.GetBraptor5Killed();
+            playerData["braptor6killed"] = gameManager.GetBraptor6Killed();
+
+            playerData["augmHealth1"] = gameManager.GetAugmHealth1();
+            playerData["augmHealth2"] = gameManager.GetAugmHealth2();
+            playerData["augmHealth3"] = gameManager.GetAugmHealth3();
+            playerData["augmHealth4"] = gameManager.GetAugmHealth4();
+            playerData["augmHealth5"] = gameManager.GetAugmHealth5();
+            playerData["augmHealth6"] = gameManager.GetAugmHealth6();
+
+            playerData["augmMissiles1"] = gameManager.GetAugmMissiles1();
+            playerData["augmMissiles2"] = gameManager.GetAugmMissiles2();
+            playerData["augmMissiles3"] = gameManager.GetAugmMissiles3();
+            playerData["augmMissiles4"] = gameManager.GetAugmMissiles4();
+
+            playerData["firstSave"] = gameManager.GetFirstSave();
+
+
+            // Tras haberse ajustado todo lo necesario del Bson, se reemplaza
+            // el documento antiguo por el actualizado
+            saveFilesCollection.ReplaceOne(filter, playerData);
+        }
     }
 }

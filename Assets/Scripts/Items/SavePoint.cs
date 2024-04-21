@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SavePoint : MonoBehaviour
 {
+    private GameManager gameManager;
     private SpriteRenderer spRd;
     public AudioSource saveSound;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         spRd = GetComponent<SpriteRenderer>();
     }
 
@@ -27,7 +29,14 @@ public class SavePoint : MonoBehaviour
             Health h = collision.GetComponent<Health>();
             StartCoroutine(h.fullRestoration());
 
+
             // Finalmente, se guardan los datos de la partida
+            // Si el primer guardado estaba a false, se ajusta a true; y se guardan los datos
+            if (!gameManager.GetFirstSave())
+            {
+                gameManager.SetFirstSave();
+            }
+            gameManager.SaveData();
         }
     }
 

@@ -36,9 +36,6 @@ public class GameManager : MonoBehaviour
     private bool braptor5killed;
     private bool braptor6killed;
 
-    // Variable para elegir el final del juego, en función de si se mataron o no los seis biceraptors
-    private bool badEnding;
-
     // Para verificar si se han recogido las mejoras de vida y capacidad de
     // misiles dispersas por el mapa
     private bool augmHealth1;
@@ -51,6 +48,12 @@ public class GameManager : MonoBehaviour
     private bool augmMissiles2;
     private bool augmMissiles3;
     private bool augmMissiles4;
+
+    // Variable para elegir el final del juego, en función de si se mataron o no los seis biceraptors
+    private bool badEnding;
+
+    // Variable para verificar si se ha ejecutado el primer guardado ingame (y mostrar o no la opción continuar)
+    private bool firstSave;
 
 
 
@@ -100,16 +103,22 @@ public class GameManager : MonoBehaviour
 
             PlayerPrefs.SetString(playerNameKey, playerName);
             PlayerPrefs.Save();
+
+            SetStartValues();
             databaseAccess.FirstDataSave();
+            
         } else
         {
             // INTENTO DE DECUPERACIÓN DE DATOS SI EL PLAYERNAME YA EXISTE
             Debug.Log("EL JUGADOR EXISTE");
-            Debug.Log("Nombre del jugador: " + playerName);
-            LoadData();
         }
 
+        Debug.Log("Nombre del jugador: " + playerName);
+        LoadData();
+
         //PlayerPrefs.DeleteAll();
+
+
 
 
         // Persistencia del GameManager durante el juego
@@ -120,7 +129,6 @@ public class GameManager : MonoBehaviour
 
 
         //SceneManager.LoadScene("Pruebas");
-        //SetStartValues();
     }
 
     void Update()
@@ -134,11 +142,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public string GetCurrentScene()
+    {
+        return this.currentScene;
+    }
+
 
     // MÉTODO PARA SITUAR LOS VALORES INICIALES EN UNA PARTIDA NUEVA
     public void SetStartValues()
     {
         currentScene = "InitialScene";
+
+        firstSave = false;
 
         maxHealth = 100;
         currentHealth = maxHealth;
@@ -483,11 +498,23 @@ public class GameManager : MonoBehaviour
     }
 
 
+    // Métodos para leer y settear la variable del primer guardado
+    public void SetFirstSave()
+    {
+        this.firstSave = true;
+    }
+
+    public bool GetFirstSave()
+    {
+        return this.firstSave;
+    }
+
+
     // MÉTODO PARA CARGAR DATOS DESDE MONGODB
     // CUANDO EL NOMBRE DEL PLAYERPREFS EXISTE
     public void LoadData()
     {
-        BsonDocument playerdata = databaseAccess.GetPlayerData(PlayerPrefs.GetString(playerNameKey));
+        BsonDocument playerdata = databaseAccess.LoadPlayerData();
 
         SceneManager.LoadScene(playerdata["currentScene"].AsString);
 
@@ -519,5 +546,13 @@ public class GameManager : MonoBehaviour
         this.augmMissiles2 = playerdata["augmMissiles2"].AsBoolean;
         this.augmMissiles3 = playerdata["augmMissiles3"].AsBoolean;
         this.augmMissiles4 = playerdata["augmMissiles4"].AsBoolean;
+
+        this.firstSave = playerdata["firstSave"].AsBoolean;
+    }
+
+
+    public void SaveData()
+    {
+        databaseAccess.SavePlayerData();
     }
 }
