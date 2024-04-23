@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviour
     private const string playerNameKey = "PlayerName";
     private string playerName;
 
-    // Para el nombre de la escena actual
+    // Para el nombre de la escena actual (en el guardado)
+    // y de la escena a jugar (en el cargado)
     private string currentScene;
+    private string sceneToPlay;
 
     // Para la vida actual y la vida máxima actual
     private int currentHealth;
@@ -126,9 +128,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameManager);
         //----------------------------------------------
 
-
-
-        //SceneManager.LoadScene("Pruebas");
+        SceneManager.LoadScene("MainMenu");
     }
 
     void Update()
@@ -148,10 +148,16 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public string GetSceneToPlay()
+    {
+        return this.sceneToPlay;
+    }
+
+
     // MÉTODO PARA SITUAR LOS VALORES INICIALES EN UNA PARTIDA NUEVA
     public void SetStartValues()
     {
-        currentScene = "InitialScene";
+        sceneToPlay = "Pruebas";
 
         firstSave = false;
 
@@ -516,7 +522,7 @@ public class GameManager : MonoBehaviour
     {
         BsonDocument playerdata = databaseAccess.LoadPlayerData();
 
-        SceneManager.LoadScene(playerdata["currentScene"].AsString);
+        this.sceneToPlay = playerdata["currentScene"].AsString;
 
         this.maxHealth = playerdata["maxHealth"].AsInt32;
         this.currentHealth = this.maxHealth;

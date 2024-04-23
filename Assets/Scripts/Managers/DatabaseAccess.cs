@@ -23,9 +23,6 @@ public class DatabaseAccess : MonoBehaviour
     private IMongoCollection<BsonDocument> playersCollection;
 
 
-    private List<string> playersList;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -41,9 +38,6 @@ public class DatabaseAccess : MonoBehaviour
     
         client = new MongoClient(MONGO_URI);
         db = client.GetDatabase(DATABASE_NAME);
-
-
-        playersList = new List<string>();
     }
 
     public bool PlayerExists(string name)
