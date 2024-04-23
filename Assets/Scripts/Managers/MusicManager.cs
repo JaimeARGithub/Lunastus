@@ -15,7 +15,11 @@ public class MusicManager : MonoBehaviour
     public AudioClip corporationMusic;
     public AudioClip gameOverMusic;
 
-    private AudioSource audioSource;
+    // AudioSource para la reproducción de música por secciones
+    public AudioSource audioSource;
+    // AudioSource para la reproducción del sonido de click
+    public AudioSource clickSound;
+
 
 
     private void Awake()
@@ -27,7 +31,6 @@ public class MusicManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            audioSource = GetComponent<AudioSource>();
         }
         else
         {
@@ -153,5 +156,11 @@ public class MusicManager : MonoBehaviour
             audioSource.clip = gameOverMusic;
             audioSource.Play();
         }
+    }
+
+
+    public void ClickSound()
+    {
+        this.clickSound.Play();
     }
 }
