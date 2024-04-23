@@ -292,8 +292,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1850}
-  m_SizeDelta: {x: 1500, y: 3000}
+  m_AnchoredPosition: {x: 0, y: -1900}
+  m_SizeDelta: {x: 1500, y: 3200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1031594000
 MonoBehaviour:
@@ -315,7 +315,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ">> Plugins usados para poder establecer la conexion con MongoDB\r\nhttps://github.com/Julian23517/Unity-mongo-csharp-driver-dlls\r\n\n\n>>
+  m_text: ">>Musica empleada\r\n\u201DVerge to Infinity\u201D, orquestacion original
+    de Alex Moukala\n\n\n>> Plugins usados para poder establecer la conexion con
+    MongoDB\r\nhttps://github.com/Julian23517/Unity-mongo-csharp-driver-dlls\r\n\n\n>>
     Sprites de ansimuz en itch.io\r\nhttps://ansimuz.itch.io/warped-humanoid-enemies\r\nhttps://ansimuz.itch.io/warped-enemies-pack-1\r\nhttps://ansimuz.itch.io/warped-enemies-pack-2\r\nhttps://ansimuz.itch.io/warped-props\r\nhttps://ansimuz.itch.io/warped-shooting-fx\r\nhttps://ansimuz.itch.io/warped-caves\r\n\r\n\n>>
     Sonidos usados para los disparos del jugador\r\nhttps://opengameart.org/content/theremin-laser-sfx\r\nhttps://opengameart.org/content/4-projectile-launches\r\nhttps://opengameart.org/content/electricity-game-sound-pack\r\nhttps://opengameart.org/content/laser-weapon-burst-fire\r\n\n\r\n>>
     Sonidos usados para el movimiento del jugador\r\nhttps://opengameart.org/content/footsteps-on-different-surfaces\r\nhttps://opengameart.org/content/12-player-movement-sfx\r\nhttps://opengameart.org/content/thwack-sounds\r\nhttps://opengameart.org/content/50-cc0-sci-fi-sfx\r\n\n\r\n>>
@@ -853,6 +855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbdd02a274373cf47b2d93e95276b82a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continueButton: {fileID: 0}
 --- !u!1 &1974436935
 GameObject:
   m_ObjectHideFlags: 0
