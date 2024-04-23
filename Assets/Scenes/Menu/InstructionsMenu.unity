@@ -906,6 +906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbdd02a274373cf47b2d93e95276b82a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continueButton: {fileID: 0}
 --- !u!1 &1974436935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,20 +1056,20 @@ MonoBehaviour:
     arriba
 
 
-    >> E:
+    >> E (pulsar / mantener y soltar):
 
-    disparar
-
-
-    >> E (mantener y soltar):
-
-    disparo
-    cargado
+    disparar / disparo cargado
 
 
-    >> R:
+    >>
+    R:
 
-    misil'
+    misil
+
+
+    >> ESC:
+
+    menu de pausa'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8180bf564f429844fb12d932622a5ae6, type: 2}
   m_sharedMaterial: {fileID: -599139817903486450, guid: 8180bf564f429844fb12d932622a5ae6, type: 2}
