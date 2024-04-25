@@ -16,7 +16,9 @@ public class Movement : MonoBehaviour
     private bool quiereSaltar = false;
     private float potenciaSalto = 150F;
     public LayerMask groundLayer;
-    private Vector2 boxSize = new Vector2(0.25f, 0.125f);
+    // Para el box cast
+    private float boxOffsetX = 0.125f;
+    private Vector2 boxSize = new Vector2(0.5f, 0.25f);
     private float castDistance = 0.83f;
 
 
@@ -34,7 +36,7 @@ public class Movement : MonoBehaviour
 
     //Para la utilizacion del Animator del jugador
     private Animator animator;
-    [SerializeField] private bool mirandoDerecha = true;
+    public static bool mirandoDerecha = true;
 
 
     // Para el movimiento; izq-drch
@@ -153,7 +155,14 @@ public class Movement : MonoBehaviour
             }
 
 
-            steppingEnemy = Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, enemiesLayer);
+            if (mirandoDerecha)
+            {
+                steppingEnemy = Physics2D.BoxCast((transform.position + new Vector3(boxOffsetX, 0f, 0f)), boxSize, 0, -transform.up, castDistance, enemiesLayer);
+            } else
+            {
+                steppingEnemy = Physics2D.BoxCast((transform.position - new Vector3(boxOffsetX, 0f, 0f)), boxSize, 0, -transform.up, castDistance, enemiesLayer);
+            }
+            
         }
     }
 
@@ -261,7 +270,8 @@ public class Movement : MonoBehaviour
     {
         // Castear una caja en mi posición, del tamaño indicado, giro de 0 grados,
         // hacia abajo, a la distancia indicada y contra la layer del suelo
-        if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
+        if (mirandoDerecha && Physics2D.BoxCast((transform.position + new Vector3(boxOffsetX, 0f, 0f)), boxSize, 0, -transform.up, castDistance, groundLayer) ||
+            !mirandoDerecha && Physics2D.BoxCast((transform.position - new Vector3(boxOffsetX, 0f, 0f)), boxSize, 0, -transform.up, castDistance, groundLayer))
         {
             grounded = true;
         } else
@@ -329,6 +339,12 @@ public class Movement : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position - transform.up * castDistance, boxSize);
+        if (mirandoDerecha)
+        {
+            Gizmos.DrawWireCube((transform.position + new Vector3(boxOffsetX, 0f, 0f)) - transform.up * castDistance, boxSize);
+        } else
+        {
+            Gizmos.DrawWireCube((transform.position - new Vector3(boxOffsetX, 0f, 0f)) - transform.up * castDistance, boxSize);
+        }
     }
 }

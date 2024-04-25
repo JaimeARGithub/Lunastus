@@ -19,7 +19,9 @@ public class Combat : MonoBehaviour
     // Para detectar si se está saltando
     public bool grounded;
     public LayerMask groundLayer;
-    private Vector2 boxSize = new Vector2(0.25f, 0.125f);
+    // Para el box cast
+    private float boxOffsetX = 0.125f;
+    private Vector2 boxSize = new Vector2(0.5f, 0.25f);
     private float castDistance = 0.83f;
 
 
@@ -307,7 +309,8 @@ public class Combat : MonoBehaviour
     {
         // Castear una caja en mi posición, del tamaño indicado, giro de 0 grados,
         // hacia abajo, a la distancia indicada y contra la layer del suelo
-        if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
+        if (Movement.mirandoDerecha && Physics2D.BoxCast((transform.position + new Vector3(boxOffsetX, 0f, 0f)), boxSize, 0, -transform.up, castDistance, groundLayer) ||
+            !Movement.mirandoDerecha && Physics2D.BoxCast((transform.position - new Vector3(boxOffsetX, 0f, 0f)), boxSize, 0, -transform.up, castDistance, groundLayer))
         {
             grounded = true;
         }
