@@ -19,6 +19,9 @@ public class MusicManager : MonoBehaviour
     public AudioSource audioSource;
     // AudioSource para la reproducción del sonido de click
     public AudioSource clickSound;
+    // AudioSources para la reproducción de los sonidos de pausar y reanudar juego
+    public AudioSource pauseSound;
+    public AudioSource resumeSound;
 
 
 
@@ -162,5 +165,15 @@ public class MusicManager : MonoBehaviour
     public void ClickSound()
     {
         this.clickSound.Play();
+    }
+
+    public void PauseSound()
+    {
+        this.pauseSound.Play();
+    }
+
+    public void ResumeSound()
+    {
+        this.resumeSound.Play();
     }
 }

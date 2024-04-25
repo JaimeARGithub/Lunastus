@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pausePanel;
+    public GameObject pauseMenu;
     private bool gamePaused = false;
+    private MusicManager musicManager;
+
+
+    private void Start()
+    {
+        musicManager = FindObjectOfType<MusicManager>();
+    }
 
 
     // Update is called once per frame
@@ -16,24 +24,33 @@ public class PauseMenu : MonoBehaviour
             if (!gamePaused)
             {
                 Pause();
-                gamePaused = true;
             } else
             {
                 Resume();
-                gamePaused = false;
             }
         }
     }
 
     public void Pause()
     {
-        pausePanel.SetActive(true);
-        Time.timeScale = 0;
+        musicManager.PauseSound();
+        gamePaused = true;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void Resume()
     {
-        pausePanel.SetActive(false);
-        Time.timeScale = 1;
+        musicManager.ResumeSound();
+        gamePaused = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void LoadMenu()
+    {
+        musicManager.ClickSound();
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
     }
 }
