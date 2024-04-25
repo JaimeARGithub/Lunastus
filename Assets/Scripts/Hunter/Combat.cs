@@ -99,132 +99,136 @@ public class Combat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // LEER DEL GAME MANAGER SI LOS MISILES ESTÁN DESBLOQUEADOS
-        // LEER DEL GAME MANAGER EL LÍMITE DE MISILES
-        // LEER DEL GAME MANAGER LA MUNICIÓN RESTANTE DE MISILES
-        if (gameManager.GetMissileUnlocked())
+        if (!PauseMenu.gamePaused)
         {
-            ammoImage.enabled = true;
-            Color textColor = ammoText.color;
-            textColor.a = 1f;
-            ammoText.color = textColor;
-
-            ammoText.text = "x " + gameManager.GetCurrentMissiles().ToString("00") + "/" + gameManager.GetMaxMissiles().ToString("00");
-        }
-
-        
-
-        if (isGrounded() && (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow)))
-        {
-            if (Input.GetKey(KeyCode.DownArrow))
+            // LEER DEL GAME MANAGER SI LOS MISILES ESTÁN DESBLOQUEADOS
+            // LEER DEL GAME MANAGER EL LÍMITE DE MISILES
+            // LEER DEL GAME MANAGER LA MUNICIÓN RESTANTE DE MISILES
+            if (gameManager.GetMissileUnlocked())
             {
-                standingCollider.enabled = false;
-                crouchCollider.enabled = true;
-                firePoint = firePointCrouch;
-            } else if (Input.GetKey(KeyCode.UpArrow))
+                ammoImage.enabled = true;
+                Color textColor = ammoText.color;
+                textColor.a = 1f;
+                ammoText.color = textColor;
+
+                ammoText.text = "x " + gameManager.GetCurrentMissiles().ToString("00") + "/" + gameManager.GetMaxMissiles().ToString("00");
+            }
+
+
+
+            if (isGrounded() && (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow)))
+            {
+                if (Input.GetKey(KeyCode.DownArrow))
+                {
+                    standingCollider.enabled = false;
+                    crouchCollider.enabled = true;
+                    firePoint = firePointCrouch;
+                }
+                else if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    standingCollider.enabled = true;
+                    crouchCollider.enabled = false;
+                    firePoint = firePointUp;
+                }
+
+            }
+            else
             {
                 standingCollider.enabled = true;
                 crouchCollider.enabled = false;
-                firePoint = firePointUp;
-            } 
-            
-        }
-        else
-        {
-            standingCollider.enabled = true;
-            crouchCollider.enabled = false;
-            firePoint = firePointStanding;
-        }
+                firePoint = firePointStanding;
+            }
 
 
 
-        if (Input.GetKeyDown(KeyCode.E) && tiempoTranscurridoDisparo >= tiempoEsperaDisparo)
-        {
-            sonidoDisparo.Play();
-            AnimarDisparo();
-            Disparar();
-            tiempoTranscurridoDisparo = 0f;
-
-            // Para el inicio de la carga
-            instantePresionBoton = Time.time;
-        }
-        tiempoTranscurridoDisparo += Time.deltaTime;
-
-
-        if (Input.GetKeyDown(KeyCode.R) && tiempoTranscurridoMisil >= tiempoEsperaMisil && gameManager.GetMissileUnlocked() && gameManager.GetCurrentMissiles() > 0)
-        {
-            sonidoMisil.Play();
-            AnimarDisparo();
-            DispararMisil();
-            tiempoTranscurridoMisil = 0f;
-        }
-        tiempoTranscurridoMisil += Time.deltaTime;
-
-        
-        if (Input.GetKey(KeyCode.E))
-        {
-            // Código a ejecutar mientras se mantenga presionada la tecla E
-
-            if (Time.time - instantePresionBoton >= tiempoRequeridoInicioCarga)
+            if (Input.GetKeyDown(KeyCode.E) && tiempoTranscurridoDisparo >= tiempoEsperaDisparo)
             {
-                // Si se ha mantenido presionada durante el tiempo requerido para comenzar la carga (0.1f):
-                // empieza a reproducirse el sonido de carga y a parpadear en azul el sprite
-                if (Time.time - instanteUltimoCambioColor >= intervaloCambioColor)
+                sonidoDisparo.Play();
+                AnimarDisparo();
+                Disparar();
+                tiempoTranscurridoDisparo = 0f;
+
+                // Para el inicio de la carga
+                instantePresionBoton = Time.time;
+            }
+            tiempoTranscurridoDisparo += Time.deltaTime;
+
+
+            if (Input.GetKeyDown(KeyCode.R) && tiempoTranscurridoMisil >= tiempoEsperaMisil && gameManager.GetMissileUnlocked() && gameManager.GetCurrentMissiles() > 0)
+            {
+                sonidoMisil.Play();
+                AnimarDisparo();
+                DispararMisil();
+                tiempoTranscurridoMisil = 0f;
+            }
+            tiempoTranscurridoMisil += Time.deltaTime;
+
+
+            if (Input.GetKey(KeyCode.E))
+            {
+                // Código a ejecutar mientras se mantenga presionada la tecla E
+
+                if (Time.time - instantePresionBoton >= tiempoRequeridoInicioCarga)
                 {
-                    ChangeColor();
-                    instanteUltimoCambioColor = Time.time;
-                }
+                    // Si se ha mantenido presionada durante el tiempo requerido para comenzar la carga (0.1f):
+                    // empieza a reproducirse el sonido de carga y a parpadear en azul el sprite
+                    if (Time.time - instanteUltimoCambioColor >= intervaloCambioColor)
+                    {
+                        ChangeColor();
+                        instanteUltimoCambioColor = Time.time;
+                    }
 
 
-                if (!sonidoCargando.isPlaying && tiempoTranscurridoSonidoCarga >= tiempoEsperaSonidoCarga)
-                {
-                    sonidoCargando.Play();
-                    tiempoTranscurridoSonidoCarga = 0f;
-                }
-                tiempoTranscurridoSonidoCarga += Time.deltaTime;
+                    if (!sonidoCargando.isPlaying && tiempoTranscurridoSonidoCarga >= tiempoEsperaSonidoCarga)
+                    {
+                        sonidoCargando.Play();
+                        tiempoTranscurridoSonidoCarga = 0f;
+                    }
+                    tiempoTranscurridoSonidoCarga += Time.deltaTime;
 
 
-                if (Time.time - instantePresionBoton >= tiempoRequeridoPresionDisparoCargado)
-                {
-                    // Disparo cargado disponible: ajustamos booleana de la que dependen el disparo y el objeto hijo que brilla
-                    disparoCargadoDisponible = true;
+                    if (Time.time - instantePresionBoton >= tiempoRequeridoPresionDisparoCargado)
+                    {
+                        // Disparo cargado disponible: ajustamos booleana de la que dependen el disparo y el objeto hijo que brilla
+                        disparoCargadoDisponible = true;
+                    }
                 }
             }
-        }
 
 
-        if (disparoCargadoDisponible && currentChargeEffect == null)
-        {
-            currentChargeEffect = Instantiate(chargeReadyEffect, firePoint.position, firePoint.rotation);
-            currentChargeEffect.transform.parent = transform;
-        }
-        if (disparoCargadoDisponible && currentChargeEffect != null)
-        {
-            currentChargeEffect.transform.position = firePoint.position;
-        }
-
-
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            sonidoCargando.Stop();
-
-            spRd.color = Color.white;
-            colorCambiado = false;
-
-            if (disparoCargadoDisponible)
+            if (disparoCargadoDisponible && currentChargeEffect == null)
             {
-                if (currentChargeEffect != null)
+                currentChargeEffect = Instantiate(chargeReadyEffect, firePoint.position, firePoint.rotation);
+                currentChargeEffect.transform.parent = transform;
+            }
+            if (disparoCargadoDisponible && currentChargeEffect != null)
+            {
+                currentChargeEffect.transform.position = firePoint.position;
+            }
+
+
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                sonidoCargando.Stop();
+
+                spRd.color = Color.white;
+                colorCambiado = false;
+
+                if (disparoCargadoDisponible)
                 {
-                    Destroy(currentChargeEffect);
+                    if (currentChargeEffect != null)
+                    {
+                        Destroy(currentChargeEffect);
+                    }
+
+                    sonidoDisparoCargado.Play();
+                    AnimarDisparo();
+                    DispararCargado();
+
+                    // Restablecer el tiempo de presión para poder ejecutar un nuevo disparo cargado
+                    instantePresionBoton = 0f;
+                    disparoCargadoDisponible = false;
                 }
-
-                sonidoDisparoCargado.Play();
-                AnimarDisparo();
-                DispararCargado();
-
-                // Restablecer el tiempo de presión para poder ejecutar un nuevo disparo cargado
-                instantePresionBoton = 0f;
-                disparoCargadoDisponible = false;
             }
         }
     }

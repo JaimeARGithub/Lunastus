@@ -73,82 +73,88 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // LEER SI EL BACKDASH ESTÁ DESBLOQUEADO
-        // LEER SI EL DOBLE SALTO ESTÁ DESBLOQUEADO
-
-        rb2d.velocity = new Vector2(movimientoH * velocidad, rb2d.velocity.y);
-
-
-        if (isGrounded() && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)))
+        if (!PauseMenu.gamePaused)
         {
-            movimientoH = 0f;
+            // LEER SI EL BACKDASH ESTÁ DESBLOQUEADO
+            // LEER SI EL DOBLE SALTO ESTÁ DESBLOQUEADO
+
+            rb2d.velocity = new Vector2(movimientoH * velocidad, rb2d.velocity.y);
 
 
-            if (Input.GetKey(KeyCode.DownArrow))
+            if (isGrounded() && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)))
             {
-                animator.SetBool("isCrouching", true);
-                animator.SetBool("isRunning", false);
+                movimientoH = 0f;
 
-            } else if (Input.GetKey(KeyCode.UpArrow))
+
+                if (Input.GetKey(KeyCode.DownArrow))
+                {
+                    animator.SetBool("isCrouching", true);
+                    animator.SetBool("isRunning", false);
+
+                }
+                else if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    animator.SetBool("isLookingUp", true);
+                    animator.SetBool("isRunning", false);
+
+                }
+
+
+            }
+            else
             {
-                animator.SetBool("isLookingUp", true);
-                animator.SetBool("isRunning", false);
-
+                movimientoH = Input.GetAxisRaw("Horizontal");
+                animator.SetBool("isCrouching", false);
+                animator.SetBool("isLookingUp", false);
             }
 
 
-        } else
-        {
-            movimientoH = Input.GetAxisRaw("Horizontal");
-            animator.SetBool("isCrouching", false);
-            animator.SetBool("isLookingUp", false);
-        }
 
-
-
-        if (movimientoH > 0 && !mirandoDerecha)
-        {
-            Girar();
-        }
-        else if (movimientoH < 0 && mirandoDerecha)
-        {
-            Girar();
-        }
-
-
-        if (movimientoH != 0)
-        {
-            animator.SetBool("isRunning", true);
-
-            if (!sonidoCaminar.isPlaying && isGrounded() && tiempoTranscurridoSonidoCaminar >= tiempoEsperaSonidoCaminar)
+            if (movimientoH > 0 && !mirandoDerecha)
             {
-                sonidoCaminar.Play();
-                tiempoTranscurridoSonidoCaminar = 0f;
+                Girar();
             }
-        } else
-        {
-            animator.SetBool("isRunning", false);
-            sonidoCaminar.Stop();
+            else if (movimientoH < 0 && mirandoDerecha)
+            {
+                Girar();
+            }
+
+
+            if (movimientoH != 0)
+            {
+                animator.SetBool("isRunning", true);
+
+                if (!sonidoCaminar.isPlaying && isGrounded() && tiempoTranscurridoSonidoCaminar >= tiempoEsperaSonidoCaminar)
+                {
+                    sonidoCaminar.Play();
+                    tiempoTranscurridoSonidoCaminar = 0f;
+                }
+            }
+            else
+            {
+                animator.SetBool("isRunning", false);
+                sonidoCaminar.Stop();
+            }
+
+            tiempoTranscurridoSonidoCaminar += Time.deltaTime;
+
+
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                quiereSaltar = true;
+            }
+
+
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                quiereBackdash = true;
+            }
+
+
+            steppingEnemy = Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, enemiesLayer);
         }
-
-        tiempoTranscurridoSonidoCaminar += Time.deltaTime;
-
-
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            quiereSaltar = true;
-        }
-
-
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            quiereBackdash = true;
-        }
-
-
-        steppingEnemy = Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, enemiesLayer);
     }
 
     public void activarBackdash()

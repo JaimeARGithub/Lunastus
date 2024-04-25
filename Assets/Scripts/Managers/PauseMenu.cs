@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
-    private bool gamePaused = false;
+    // La variable se hace pública para que de ella puedan leer Combat y Movement del cazador
+    // Ésto se hace porque, aunque el juego esté pausado, los intentos de acciones se registran
+    // y ejecutan cuando termina la pausa del juego
+    public static bool gamePaused = false;
     private MusicManager musicManager;
 
 
