@@ -37,6 +37,7 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         musicManager.PauseSound();
+
         gamePaused = true;
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
@@ -45,15 +46,23 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         musicManager.ResumeSound();
+
         gamePaused = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
 
+    // Si no le metemos el mismo reajuste de variables que en el Resume,
+    // al volver a entrar al juego tras Pausa > Menú > Continuar, se comporta
+    // como si el juego siguiera pausado
     public void LoadMenu()
     {
         musicManager.ClickSound();
-        SceneManager.LoadScene("MainMenu");
+
+        gamePaused = false;
+        pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+
+        SceneManager.LoadScene("MainMenu");
     }
 }
