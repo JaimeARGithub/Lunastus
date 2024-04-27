@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 public class Combat : MonoBehaviour
 {
     private GameManager gameManager;
+    private Movement movement;
 
     // PARA MOSTRAR COSAS EN IU
     public UnityEngine.UI.Image ammoImage;
@@ -85,6 +86,7 @@ public class Combat : MonoBehaviour
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        movement = GetComponent<Movement>();
 
         animator = GetComponent<Animator>();
         spRd = GetComponent<SpriteRenderer>();
@@ -309,8 +311,10 @@ public class Combat : MonoBehaviour
     {
         // Castear una caja en mi posición, del tamaño indicado, giro de 0 grados,
         // hacia abajo, a la distancia indicada y contra la layer del suelo
-        if (Movement.mirandoDerecha && Physics2D.BoxCast((transform.position + new Vector3(boxOffsetX, 0f, 0f)), boxSize, 0, -transform.up, castDistance, groundLayer) ||
-            !Movement.mirandoDerecha && Physics2D.BoxCast((transform.position - new Vector3(boxOffsetX, 0f, 0f)), boxSize, 0, -transform.up, castDistance, groundLayer))
+        // Para que coincida exactamente con la hitbox del jugador en verticalidad, se le
+        // suma o resta un offset dependiendo de a dónde esté mirando el jugador
+        if (movement.GetMirandoDerecha() && Physics2D.BoxCast((transform.position + new Vector3(boxOffsetX, 0f, 0f)), boxSize, 0, -transform.up, castDistance, groundLayer) ||
+            !movement.GetMirandoDerecha() && Physics2D.BoxCast((transform.position - new Vector3(boxOffsetX, 0f, 0f)), boxSize, 0, -transform.up, castDistance, groundLayer))
         {
             grounded = true;
         }

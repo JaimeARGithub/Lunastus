@@ -36,7 +36,11 @@ public class Movement : MonoBehaviour
 
     //Para la utilizacion del Animator del jugador
     private Animator animator;
-    public static bool mirandoDerecha = true;
+
+    // Se hace estático para que el Combat pueda leer directamente de él, sin tener que ubicar el componente
+    // CORRECCIÓN; SE QUITA EL ESTÁTICO, o el valor se conserva entre todas las instancias de la clase Movement
+    // y se provocan inversiones extrañas de controles
+    private bool mirandoDerecha = true;
 
 
     // Para el movimiento; izq-drch
@@ -61,6 +65,9 @@ public class Movement : MonoBehaviour
     public AudioSource sonidoSalto;
     public AudioSource sonidoBackdash;
     public AudioSource sonidoRebote;
+
+
+
 
 
 
@@ -252,6 +259,11 @@ public class Movement : MonoBehaviour
             sonidoRebote.Play();
             rb2d.AddForce(Vector2.up * potenciaSalto * 0.25f, ForceMode2D.Impulse);
         }
+    }
+
+    public bool GetMirandoDerecha()
+    {
+        return this.mirandoDerecha;
     }
 
 
