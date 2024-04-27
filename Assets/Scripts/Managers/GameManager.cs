@@ -134,14 +134,38 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         currentScene = SceneManager.GetActiveScene().name;
-
-        if (braptor1killed && braptor2killed && braptor3killed && braptor4killed && braptor5killed && braptor6killed)
-        {
-            badEnding = true;
-            Debug.Log("ACTIVADO FINAL MALO");
-        }
     }
 
+
+    // Para determinar qué final se alcanza
+    public void SetBadEnding()
+    {
+        this.badEnding = true;
+        Debug.Log("ACTIVADO EL BAD ENDING");
+    }
+
+    public bool GetBadEnding()
+    {
+        return this.badEnding;
+    }
+
+    public bool CheckBadEnding()
+    {
+        bool checker = false;
+
+        if (GetBraptor1Killed() && GetBraptor2Killed() && GetBraptor3Killed() &&
+                GetBraptor4Killed() && GetBraptor5Killed() && GetBraptor6Killed() &&
+                !GetBadEnding())
+        {
+            checker = true;
+        }
+
+        return checker;
+    }
+
+
+    // Para determinar la gestión de escenas; la actual, para los guardados,
+    // y la que debe cargarse, para los continuar partida y juego nuevo
     public string GetCurrentScene()
     {
         return this.currentScene;

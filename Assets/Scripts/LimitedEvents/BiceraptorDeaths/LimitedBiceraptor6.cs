@@ -26,6 +26,12 @@ public class LimitedBiceraptor6 : MonoBehaviour
         if (b.isDead())
         {
             gameManager.SetBraptor6Killed();
+
+
+            if (gameManager.CheckBadEnding())
+            {
+                gameManager.SetBadEnding();
+            }
         }
     }
 }

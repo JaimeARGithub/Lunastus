@@ -157,12 +157,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuMusic: {fileID: 8300000, guid: 7113fe946d062aa4fb2af108053aa112, type: 3}
-  initialSceneMusic: {fileID: 0}
-  surfaceMusic: {fileID: 0}
-  cavernsMusic: {fileID: 0}
-  depthsMusic: {fileID: 0}
-  corporationMusic: {fileID: 0}
-  gameOverMusic: {fileID: 0}
+  initialSceneMusic: {fileID: 8300000, guid: af404cbf93be11744bfc054fd1baff4b, type: 3}
+  cavernsMusic: {fileID: 8300000, guid: c2561f37066df4e469f7a1cc2f7c8eb0, type: 3}
+  iceMusic: {fileID: 8300000, guid: 0c2375e03794a7148b3abc31fa64ee61, type: 3}
+  depthsMusic: {fileID: 8300000, guid: 732ed282cbcf3d64192b0e95d59d4dc4, type: 3}
+  alienBossMusic: {fileID: 8300000, guid: d354094068384cd4f86121f3de01a496, type: 3}
+  corporationMusic: {fileID: 8300000, guid: 74cde512b5adef647958cf5f85d87af9, type: 3}
+  gameOverMusic: {fileID: 8300000, guid: 2ee2c048b1dc8a54291318e72bf305e8, type: 3}
   audioSource: {fileID: 531086019}
   clickSound: {fileID: 531086020}
   pauseSound: {fileID: 531086022}
