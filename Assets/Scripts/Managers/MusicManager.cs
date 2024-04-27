@@ -9,9 +9,10 @@ public class MusicManager : MonoBehaviour
 
     public AudioClip menuMusic;
     public AudioClip initialSceneMusic;
-    public AudioClip surfaceMusic;
     public AudioClip cavernsMusic;
+    public AudioClip iceMusic;
     public AudioClip depthsMusic;
+    public AudioClip alienBossMusic;
     public AudioClip corporationMusic;
     public AudioClip gameOverMusic;
 
@@ -75,17 +76,21 @@ public class MusicManager : MonoBehaviour
         {
             PlayInitialSceneMusic();
         }
-        else if (sceneName.Contains("Surface"))
-        {
-            PlaySurfaceMusic();
-        }
         else if (sceneName.Contains("Caverns"))
         {
             PlayCavernsMusic();
         }
+        else if (sceneName.Contains("Ice"))
+        {
+            PlayIceMusic();
+        }
         else if (sceneName.Contains("Depths"))
         {
             PlayDepthsMusic();
+        }
+        else if (sceneName.Contains("AlienBoss"))
+        {
+            PlayAlienBossMusic();
         }
         else if (sceneName.Contains("Corporation"))
         {
@@ -116,15 +121,6 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    public void PlaySurfaceMusic()
-    {
-        if (audioSource.clip != surfaceMusic || !audioSource.isPlaying)
-        {
-            audioSource.clip = surfaceMusic;
-            audioSource.Play();
-        }
-    }
-
     public void PlayCavernsMusic()
     {
         if (audioSource.clip != cavernsMusic || !audioSource.isPlaying)
@@ -134,11 +130,29 @@ public class MusicManager : MonoBehaviour
         }
     }
 
+    public void PlayIceMusic()
+    {
+        if (audioSource.clip != iceMusic || !audioSource.isPlaying)
+        {
+            audioSource.clip = iceMusic;
+            audioSource.Play();
+        }
+    }
+
     public void PlayDepthsMusic()
     {
         if (audioSource.clip != depthsMusic || !audioSource.isPlaying)
         {
             audioSource.clip = depthsMusic;
+            audioSource.Play();
+        }
+    }
+
+    public void PlayAlienBossMusic()
+    {
+        if (audioSource.clip != alienBossMusic || !audioSource.isPlaying)
+        {
+            audioSource.clip = alienBossMusic;
             audioSource.Play();
         }
     }
@@ -162,6 +176,8 @@ public class MusicManager : MonoBehaviour
     }
 
 
+    // Métodos para que la reproducción de sonidos en menús esté
+    // concentrada en el MusicManager
     public void ClickSound()
     {
         this.clickSound.Play();
