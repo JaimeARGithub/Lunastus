@@ -292,8 +292,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2200}
-  m_SizeDelta: {x: 1500, y: 3700}
+  m_AnchoredPosition: {x: 0, y: -2250}
+  m_SizeDelta: {x: 1500, y: 3750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1031594000
 MonoBehaviour:
@@ -316,17 +316,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: ">> Musica empleada\r\n\u201DVerge to Infinity\u201D, orquestacion original
-    de Alex Moukala\n\n\n>> Plugins usados para poder establecer la conexion con
-    MongoDB\r\nhttps://github.com/Julian23517/Unity-mongo-csharp-driver-dlls\r\n\n\n>>
-    Sprites de ansimuz en itch.io\r\nhttps://ansimuz.itch.io/warped-humanoid-enemies\r\nhttps://ansimuz.itch.io/warped-enemies-pack-1\r\nhttps://ansimuz.itch.io/warped-enemies-pack-2\r\nhttps://ansimuz.itch.io/warped-props\r\nhttps://ansimuz.itch.io/warped-shooting-fx\r\nhttps://ansimuz.itch.io/warped-caves\r\n\r\n\n>>
-    Sonidos usados para los disparos del jugador\r\nhttps://opengameart.org/content/theremin-laser-sfx\r\nhttps://opengameart.org/content/4-projectile-launches\r\nhttps://opengameart.org/content/electricity-game-sound-pack\r\nhttps://opengameart.org/content/laser-weapon-burst-fire\r\n\n\r\n>>
-    Sonidos usados para el movimiento del jugador\r\nhttps://opengameart.org/content/footsteps-on-different-surfaces\r\nhttps://opengameart.org/content/12-player-movement-sfx\r\nhttps://opengameart.org/content/thwack-sounds\r\nhttps://opengameart.org/content/50-cc0-sci-fi-sfx\r\n\n\r\n>>
-    Sonidos usados para recibir da\xF1o y muerte del jugador\r\nhttps://opengameart.org/content/8-bit-sound-effects-library\r\nhttps://opengameart.org/content/machine-death-sound\r\n\r\n\n>>
-    Sonidos usados para los enemigos alien\xEDgenas\r\nhttps://opengameart.org/content/15-monster-gruntpaindeath-sounds\r\nhttps://www.youtube.com/watch?v=faa5B1TQlek\r\n\r\n\n>>
-    Sonidos usados para los enemigos mec\xE1nicos\r\nhttps://opengameart.org/content/defect-motor-loop\r\nhttps://opengameart.org/content/mechanical-explosion\r\nhttps://jalastram.itch.io/30-shooting-sounds-by-jalastram\r\nhttps://opengameart.org/content/2-high-quality-explosions\r\n\r\n\n>>
-    Sonidos usados para objetos\r\nhttps://opengameart.org/content/ui-menu-open-and-close\r\nhttps://opengameart.org/content/scifi-rts-status-vocals\r\nhttps://opengameart.org/content/power-up-level-up-beansjam\r\nhttps://opengameart.org/content/ui-sound-effects-pack\r\nhttps://opengameart.org/content/ui-sound-effects-library\r\n\n\r\n>>
-    Barra de vida empleada\r\nhttps://opengameart.org/content/futuristic-health-bar\r\n\n\r\n>>
-    Fuentes usadas\r\nhttps://www.1001freefonts.com/computo-monospace.font\r\nhttps://www.1001freefonts.com/space-age.font\r\nhttps://www.1001freefonts.com/earth-orbiter.font\r\nhttps://www.1001freefonts.com/suissnord.font\r\n\n\r\n>>
+    de Alex Moukala\r\nhttps://opengameart.org/content/background-space-track\r\nhttps://opengameart.org/content/ancient-caverns-horror-ambient-loop\r\nhttps://opengameart.org/content/pressure\r\nhttps://opengameart.org/content/tower-of-lava\r\nhttps://opengameart.org/content/revenge-boss-battle\r\nhttps://opengameart.org/content/game-over-4\r\nhttps://opengameart.org/content/demonic-epic-soundtrack\r\n\r\n>>
+    Plugins usados para poder establecer la conexi\xF3n con MongoDB\r\nhttps://github.com/Julian23517/Unity-mongo-csharp-driver-dlls\r\n\r\n>>
+    Sprites de ansimuz en itch.io\r\nhttps://ansimuz.itch.io/warped-humanoid-enemies\r\nhttps://ansimuz.itch.io/warped-enemies-pack-1\r\nhttps://ansimuz.itch.io/warped-enemies-pack-2\r\nhttps://ansimuz.itch.io/warped-props\r\nhttps://ansimuz.itch.io/warped-shooting-fx\r\nhttps://ansimuz.itch.io/warped-caves\r\n\r\n>>
+    Sonidos usados para los disparos del jugador\r\nhttps://opengameart.org/content/theremin-laser-sfx\r\nhttps://opengameart.org/content/4-projectile-launches\r\nhttps://opengameart.org/content/electricity-game-sound-pack\r\nhttps://opengameart.org/content/laser-weapon-burst-fire\r\n\r\n>>
+    Sonidos usados para el movimiento del jugador\r\nhttps://opengameart.org/content/footsteps-on-different-surfaces\r\nhttps://opengameart.org/content/12-player-movement-sfx\r\nhttps://opengameart.org/content/thwack-sounds\r\nhttps://opengameart.org/content/50-cc0-sci-fi-sfx\r\n\r\n>>
+    Sonidos usados para recibir da\xF1o y muerte del jugador\r\nhttps://opengameart.org/content/8-bit-sound-effects-library\r\nhttps://opengameart.org/content/machine-death-sound\r\n\r\n>>
+    Sonidos usados para los enemigos alien\xEDgenas\r\nhttps://opengameart.org/content/15-monster-gruntpaindeath-sounds\r\nhttps://www.youtube.com/watch?v=faa5B1TQlek\r\n\r\n>>
+    Sonidos usados para los enemigos mec\xE1nicos\r\nhttps://opengameart.org/content/defect-motor-loop\r\nhttps://opengameart.org/content/mechanical-explosion\r\nhttps://jalastram.itch.io/30-shooting-sounds-by-jalastram\r\nhttps://opengameart.org/content/2-high-quality-explosions\r\n\r\n>>
+    Sonidos usados para objetos y menus\r\nhttps://opengameart.org/content/ui-menu-open-and-close\r\nhttps://opengameart.org/content/scifi-rts-status-vocals\r\nhttps://opengameart.org/content/power-up-level-up-beansjam\r\nhttps://opengameart.org/content/ui-sound-effects-pack\r\nhttps://opengameart.org/content/ui-sound-effects-library\r\nhttps://opengameart.org/content/4-sci-fi-menu-sounds\r\nhttps://opengameart.org/content/atmospheric-interaction-sound-pack\r\n\r\n>>
+    Barra de vida empleada\r\nhttps://opengameart.org/content/futuristic-health-bar\r\n\r\n>>
+    Fuentes usadas\r\nhttps://www.1001freefonts.com/computo-monospace.font\r\nhttps://www.1001freefonts.com/space-age.font\r\nhttps://www.1001freefonts.com/earth-orbiter.font\r\nhttps://www.1001freefonts.com/suissnord.font\r\n\r\n>>
     Fondos empleados\r\nhttps://wall.alphacoders.com/big.php?i=885542\r\nhttps://www.pinterest.es/pin/935200678921818681/\r\nhttps://www.pinterest.es/pin/738308932676946251/\r\nhttps://virusystem.itch.io/background-space"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8180bf564f429844fb12d932622a5ae6, type: 2}
@@ -720,7 +720,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1746733537}
   - component: {fileID: 1746733538}
-  - component: {fileID: 1746733539}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -756,20 +755,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1746733536}
   m_CullTransparentMesh: 1
---- !u!114 &1746733539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746733536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding: {x: 0, y: 0, z: 0, w: 0}
-  m_Softness: {x: 0, y: 0}
 --- !u!1 &1875304809
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Preload.unity
     guid: 5d93fd381165f7a4e8fb65ea7066ca3c
   - enabled: 1
-    path: Assets/Scenes/Pruebas.unity
+    path: Assets/Scenes/Pruebas/Pruebas.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/PruebasDos.unity
-    guid: ac661e01b70c10445827a6d572f4c2fe
+    path: Assets/Scenes/Pruebas/PruebasDos.unity
+    guid: 81ecb982e8bbcbe4e96d3cf1759adfa8
   - enabled: 1
     path: Assets/Scenes/Menu/MainMenu.unity
     guid: 3b1c93e5d58392e4890e8e412906117a
@@ -27,6 +27,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/CreditsMenu.unity
     guid: ee102f8970236b24abb68c2cb77e565b
   - enabled: 1
-    path: Assets/Scenes/GameOver.unity
+    path: Assets/Scenes/GameOver/GameOver.unity
     guid: 4731793d37bdc684aa6aa2f4f1cc0fe5
   m_configObjects: {}

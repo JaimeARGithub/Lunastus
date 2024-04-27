@@ -6,7 +6,7 @@ using TMPro;
 public class AutoScroll : MonoBehaviour
 {
     private float speed = 20f;
-    private float textPositionBegin = -2200f;
+    private float textPositionBegin = -2250f;
     private float textPositionEnd = 2200f;
     private float textPositionEndResetLimit = 2195f;
 
