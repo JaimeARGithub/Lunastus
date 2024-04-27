@@ -585,4 +585,11 @@ public class GameManager : MonoBehaviour
     {
         databaseAccess.SavePlayerData();
     }
+
+
+    // PARA EL ESTADO DE GAME OVER AL MORIR
+    public void GameOverState()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
 }

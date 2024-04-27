@@ -5,8 +5,12 @@ using UnityEngine;
 public class Death : MonoBehaviour
 {
     public AudioSource deathSound;
+    private GameManager gameManager;
+
+
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         StartCoroutine(Die());
     }
 
@@ -23,7 +27,7 @@ public class Death : MonoBehaviour
 
 
         // 3.- Game over definitivo; setter y destrucción del objeto
-        // SETTER DE GAME OVER = TRUE EN GAME MANAGER
+        gameManager.GameOverState();
         Debug.Log("GAME OVER");
         Destroy(gameObject);
     }
