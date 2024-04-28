@@ -32,7 +32,7 @@ public class SentinelBullet : MonoBehaviour
         Debug.Log(collision.name);
 
         if (!collision.name.Contains("Robot") && !collision.name.Contains("Bullet") && !collision.name.Equals("Missile(Clone)")
-            && !collision.name.Contains("Item"))
+            && !collision.name.Contains("Item") && !collision.name.Contains("Limits"))
         {
 
             if (collision.gameObject.CompareTag("Player"))

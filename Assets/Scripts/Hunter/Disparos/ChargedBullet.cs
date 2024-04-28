@@ -26,7 +26,7 @@ public class ChargedBullet : MonoBehaviour
         if (!collision.name.Equals("Hunter"))
         {
             if (!collision.name.Contains("Bullet") && !collision.name.Equals("Missile(Clone)")
-                && !collision.name.Contains("Item"))
+                && !collision.name.Contains("Item") && !collision.name.Contains("Limits"))
             {
                 switch (collision.name)
                 {
