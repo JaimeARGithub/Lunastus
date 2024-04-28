@@ -76,7 +76,7 @@ public class DatabaseAccess : MonoBehaviour
 
 
         var saveFile = new BsonDocument { { "playerName", PlayerPrefs.GetString("PlayerName")},
-                                            { "currentScene", "Pruebas" },
+                                            { "currentScene", "InitialScene" },
                                             { "maxHealth", 100 },
                                             { "backdashUnlocked", false },
                                             { "missileUnlocked", false },

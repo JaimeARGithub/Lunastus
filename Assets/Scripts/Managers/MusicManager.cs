@@ -72,11 +72,11 @@ public class MusicManager : MonoBehaviour
         {
             PlayMenuMusic();
         }
-        else if (sceneName.Contains("Pruebas"))
+        else if (sceneName.Contains("Initial"))
         {
             PlayInitialSceneMusic();
         }
-        else if (sceneName.Contains("Caverns"))
+        else if (sceneName.Contains("Caverns") || sceneName.Contains("Pruebas"))
         {
             PlayCavernsMusic();
         }

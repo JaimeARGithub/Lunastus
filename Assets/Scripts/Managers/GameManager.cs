@@ -181,7 +181,7 @@ public class GameManager : MonoBehaviour
     // MÉTODO PARA SITUAR LOS VALORES INICIALES EN UNA PARTIDA NUEVA
     public void SetStartValues()
     {
-        sceneToPlay = "Pruebas";
+        sceneToPlay = "InitialScene";
 
         firstSave = false;
 
