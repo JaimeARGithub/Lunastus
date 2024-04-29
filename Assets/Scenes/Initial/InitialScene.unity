@@ -1121,63 +1121,6 @@ Transform:
   - {fileID: 5965784}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &266531675
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.6192384
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.4359796
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7314545788461997032, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_Name
-      value: SentinelRobot
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
 --- !u!1 &297883238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,63 +1434,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &605219506
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.4192154
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.6032531
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7314545788461997032, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
-      propertyPath: m_Name
-      value: SentinelRobot (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
 --- !u!1 &651813317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,7 +1584,7 @@ Transform:
   m_GameObject: {fileID: 681752936}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.4997187, y: 0.62642205, z: -10}
+  m_LocalPosition: {x: -4.499784, y: 0.62642205, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6414,6 +6300,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4584052439537683795, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
   m_PrefabInstance: {fileID: 5051803}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1089563502
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.526455
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.0559387
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314545788461997032, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_Name
+      value: SentinelRobot
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
 --- !u!1001 &1118460820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6958,7 +6901,7 @@ Transform:
   m_GameObject: {fileID: 1881423924}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.9970112, y: 1.5594023, z: -10}
+  m_LocalPosition: {x: -3.0052333, y: 1.5594023, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6998,6 +6941,63 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1001 &1913677944
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.544949
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.3161101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892227673546153862, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314545788461997032, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
+      propertyPath: m_Name
+      value: SentinelRobot (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2f2a0120ea3360c42886590e65adf9db, type: 3}
 --- !u!1 &1932302342
 GameObject:
   m_ObjectHideFlags: 0
@@ -7097,5 +7097,5 @@ SceneRoots:
   - {fileID: 892981132}
   - {fileID: 5051803}
   - {fileID: 1251823823}
-  - {fileID: 266531675}
-  - {fileID: 605219506}
+  - {fileID: 1089563502}
+  - {fileID: 1913677944}
