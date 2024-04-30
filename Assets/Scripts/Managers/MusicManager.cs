@@ -18,11 +18,10 @@ public class MusicManager : MonoBehaviour
 
     // AudioSource para la reproducción de música por secciones
     public AudioSource audioSource;
-    // AudioSource para la reproducción del sonido de click
+    // AudioSource para la reproducción del sonido de click; necesario
+    // puesto que, si no está aquí, en los menús el cambio de escena es
+    // demasiado rápido y el sonido no se reproduce
     public AudioSource clickSound;
-    // AudioSources para la reproducción de los sonidos de pausar y reanudar juego
-    public AudioSource pauseSound;
-    public AudioSource resumeSound;
 
 
 
@@ -176,20 +175,12 @@ public class MusicManager : MonoBehaviour
     }
 
 
-    // Métodos para que la reproducción de sonidos en menús esté
-    // concentrada en el MusicManager
+    // Método para reproducir el sonido de click en botón, al ser muy rápido
+    // el cambio entre escenas y no reproducirse bien si se asigna a objetos
+    // no persistentes a lo largo del juego por destruirse éstos de una escena
+    // a otra
     public void ClickSound()
     {
         this.clickSound.Play();
-    }
-
-    public void PauseSound()
-    {
-        this.pauseSound.Play();
-    }
-
-    public void ResumeSound()
-    {
-        this.resumeSound.Play();
     }
 }
