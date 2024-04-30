@@ -56,11 +56,12 @@ public class Dialogue4 : MonoBehaviour
 
 
             Time.timeScale = 0f;
-
             startSound.Play();
             dialogueCanvas.SetActive(true);
+
+
             speakerText.text = speaker[progress];
-            dialogueText.text = dialogueSentences[progress];
+            StartCoroutine(TypeSentence(dialogueSentences[progress]));
         }
     }
 
@@ -68,13 +69,14 @@ public class Dialogue4 : MonoBehaviour
     private void progressDialogue()
     {
         progress++;
+        StopAllCoroutines();
 
         if (progress < speaker.Length)
         {
             progressSound.Play();
 
             speakerText.text = speaker[progress];
-            dialogueText.text = dialogueSentences[progress];
+            StartCoroutine(TypeSentence(dialogueSentences[progress]));
         }
         else
         {
@@ -82,6 +84,20 @@ public class Dialogue4 : MonoBehaviour
 
             dialogueCanvas.SetActive(false);
             Time.timeScale = 1f;
+        }
+    }
+
+
+    private IEnumerator TypeSentence(string sentence)
+    {
+        dialogueText.text = "";
+
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+
+            // yield return null hace una espera de UN frame
+            yield return null;
         }
     }
 }
