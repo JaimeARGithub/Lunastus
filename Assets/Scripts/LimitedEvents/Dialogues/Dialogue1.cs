@@ -25,6 +25,12 @@ public class Dialogue1 : MonoBehaviour
     [SerializeField] private int progress = 0;
 
 
+    // AudioSources para los sonidos de apertura, avance y cierre del diálogo
+    public AudioSource startSound;
+    public AudioSource progressSound;
+    public AudioSource finishSound;
+
+
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -49,6 +55,8 @@ public class Dialogue1 : MonoBehaviour
 
 
             Time.timeScale = 0f;
+
+            startSound.Play();
             dialogueCanvas.SetActive(true);
             speakerText.text = speaker[progress];
             dialogueText.text = dialogueSentences[progress];
@@ -62,10 +70,14 @@ public class Dialogue1 : MonoBehaviour
 
         if (progress < speaker.Length)
         {
+            progressSound.Play();
+
             speakerText.text = speaker[progress];
             dialogueText.text = dialogueSentences[progress];
         } else
         {
+            finishSound.Play();
+
             dialogueCanvas.SetActive(false);
             Time.timeScale = 1f;
         }
