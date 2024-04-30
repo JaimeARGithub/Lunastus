@@ -314,8 +314,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ">> W:\nsaltar\n\n>> W (En el aire):\ndoble salto \n\n>> Q:\nretroceso
-    deslizante\n\n>> Contacto con una cabina\nde guardado:\nguardar partida"
+  m_text: ">> W: saltar\n\n>> W (En el aire): doble salto \n\n>> Q: retroceso deslizante\n\n>>
+    Contacto con una cabina:\nguardar partida\n\n>> D: Avanzar dialogo"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8180bf564f429844fb12d932622a5ae6, type: 2}
   m_sharedMaterial: {fileID: -599139817903486450, guid: 8180bf564f429844fb12d932622a5ae6, type: 2}
@@ -1087,20 +1087,14 @@ MonoBehaviour:
     arriba
 
 
-    >> E (pulsar / mantener y soltar):
-
-    disparar / disparo cargado
+    >> E (pulsar / mantener y soltar): disparar / disparo cargado
 
 
     >>
-    R:
-
-    misil
+    R: misil
 
 
-    >> ESC:
-
-    menu de pausa'
+    >> ESC: menu de pausa'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8180bf564f429844fb12d932622a5ae6, type: 2}
   m_sharedMaterial: {fileID: -599139817903486450, guid: 8180bf564f429844fb12d932622a5ae6, type: 2}

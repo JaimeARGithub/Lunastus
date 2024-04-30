@@ -99,7 +99,13 @@ public class DatabaseAccess : MonoBehaviour
                                             { "augmMissiles2", false },
                                             { "augmMissiles3", false },
                                             { "augmMissiles4", false },
-                                            { "firstSave", false } };
+                                            { "firstSave", false },
+                                            { "dialogue1triggered", false },
+                                            { "dialogue2triggered", false },
+                                            { "dialogue3triggered", false },
+                                            { "dialogue4triggered", false },
+                                            { "dialogue5triggered", false },
+                                            { "dialogue6triggered", false }};
 
         saveFilesCollection.InsertOne(saveFile);
     }
@@ -160,6 +166,13 @@ public class DatabaseAccess : MonoBehaviour
             playerData["augmMissiles2"] = gameManager.GetAugmMissiles2();
             playerData["augmMissiles3"] = gameManager.GetAugmMissiles3();
             playerData["augmMissiles4"] = gameManager.GetAugmMissiles4();
+
+            playerData["dialogue1triggered"] = gameManager.GetDialogue1Triggered();
+            playerData["dialogue2triggered"] = gameManager.GetDialogue2Triggered();
+            playerData["dialogue3triggered"] = gameManager.GetDialogue3Triggered();
+            playerData["dialogue4triggered"] = gameManager.GetDialogue4Triggered();
+            playerData["dialogue5triggered"] = gameManager.GetDialogue5Triggered();
+            playerData["dialogue6triggered"] = gameManager.GetDialogue6Triggered();
 
             playerData["firstSave"] = gameManager.GetFirstSave();
 

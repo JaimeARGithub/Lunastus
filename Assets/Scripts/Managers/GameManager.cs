@@ -57,6 +57,15 @@ public class GameManager : MonoBehaviour
     // Variable para verificar si se ha ejecutado el primer guardado ingame (y mostrar o no la opción continuar)
     private bool firstSave;
 
+    // Variables para verificar (y que no se activen de nuevo) si se han
+    // ido activando los diálogos disponibles por el juego
+    private bool dialogue1triggered;
+    private bool dialogue2triggered;
+    private bool dialogue3triggered;
+    private bool dialogue4triggered;
+    private bool dialogue5triggered;
+    private bool dialogue6triggered;
+
 
 
 
@@ -212,6 +221,13 @@ public class GameManager : MonoBehaviour
         augmMissiles2 = false;
         augmMissiles3 = false;
         augmMissiles4 = false;
+
+        dialogue1triggered = false;
+        dialogue2triggered = false;
+        dialogue3triggered = false;
+        dialogue4triggered = false;
+        dialogue5triggered = false;
+        dialogue6triggered = false;
     }
 
 
@@ -528,6 +544,69 @@ public class GameManager : MonoBehaviour
     }
 
 
+    // MÉTODOS GETTERS Y SETTERS PARA LAS CONVERSACIONES DE SUCESO ÚNICO
+    public void SetDialogue1Triggered()
+    {
+        this.dialogue1triggered = true;
+    }
+
+    public bool GetDialogue1Triggered ()
+    {
+        return this.dialogue1triggered;
+    }
+
+    public void SetDialogue2Triggered()
+    {
+        this.dialogue2triggered = true;
+    }
+
+    public bool GetDialogue2Triggered()
+    {
+        return this.dialogue2triggered;
+    }
+
+    public void SetDialogue3Triggered()
+    {
+        this.dialogue3triggered = true;
+    }
+
+    public bool GetDialogue3Triggered()
+    {
+        return this.dialogue3triggered;
+    }
+
+    public void SetDialogue4Triggered()
+    {
+        this.dialogue4triggered = true;
+    }
+
+    public bool GetDialogue4Triggered()
+    {
+        return this.dialogue4triggered;
+    }
+
+    public void SetDialogue5Triggered()
+    {
+        this.dialogue5triggered = true;
+    }
+
+    public bool GetDialogue5Triggered()
+    {
+        return this.dialogue5triggered;
+    }
+
+    public void SetDialogue6Triggered()
+    {
+        this.dialogue6triggered = true;
+    }
+
+    public bool GetDialogue6Triggered()
+    {
+        return this.dialogue6triggered;
+    }
+
+
+
     // Métodos para leer y settear la variable del primer guardado
     public void SetFirstSave()
     {
@@ -576,6 +655,13 @@ public class GameManager : MonoBehaviour
         this.augmMissiles2 = playerdata["augmMissiles2"].AsBoolean;
         this.augmMissiles3 = playerdata["augmMissiles3"].AsBoolean;
         this.augmMissiles4 = playerdata["augmMissiles4"].AsBoolean;
+
+        this.dialogue1triggered = playerdata["dialogue1triggered"].AsBoolean;
+        this.dialogue2triggered = playerdata["dialogue2triggered"].AsBoolean;
+        this.dialogue3triggered = playerdata["dialogue3triggered"].AsBoolean;
+        this.dialogue4triggered = playerdata["dialogue4triggered"].AsBoolean;
+        this.dialogue5triggered = playerdata["dialogue5triggered"].AsBoolean;
+        this.dialogue6triggered = playerdata["dialogue6triggered"].AsBoolean;
 
         this.firstSave = playerdata["firstSave"].AsBoolean;
     }
