@@ -9,6 +9,10 @@ public class Dialogue5 : MonoBehaviour
     private GameManager gameManager;
 
 
+    // Referencia al animador del diálogo
+    //private AnimateDialogue aD;
+
+
     // Referencias a UI
     [SerializeField] private GameObject dialogueCanvas;
     [SerializeField] private TextMeshProUGUI speakerText;
@@ -35,6 +39,7 @@ public class Dialogue5 : MonoBehaviour
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        //aD = FindObjectOfType<AnimateDialogue>();
         dialogueCanvas.SetActive(false);
     }
 
@@ -58,6 +63,7 @@ public class Dialogue5 : MonoBehaviour
             Time.timeScale = 0f;
             startSound.Play();
             dialogueCanvas.SetActive(true);
+            //aD.OpenDialogue();
 
 
             speakerText.text = speaker[progress];
@@ -82,7 +88,7 @@ public class Dialogue5 : MonoBehaviour
         {
             finishSound.Play();
 
-            dialogueCanvas.SetActive(false);
+            StartCoroutine(CloseDialogue());
             Time.timeScale = 1f;
         }
     }
@@ -99,5 +105,13 @@ public class Dialogue5 : MonoBehaviour
             // yield return null hace una espera de UN frame
             yield return null;
         }
+    }
+
+
+    private IEnumerator CloseDialogue()
+    {
+        //aD.CloseDialogue();
+        yield return new WaitForSeconds(0.5f);
+        dialogueCanvas.SetActive(false);
     }
 }

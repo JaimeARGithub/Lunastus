@@ -10,6 +10,10 @@ public class Dialogue1 : MonoBehaviour
     private GameManager gameManager;
 
 
+    // Referencia al animador del diálogo
+    public Animator animator;
+
+
     // Referencias a UI
     [SerializeField] private GameObject dialogueCanvas;
     [SerializeField] private TextMeshProUGUI speakerText;
@@ -56,22 +60,13 @@ public class Dialogue1 : MonoBehaviour
         // El diálogo se inicia si no se había reproducido aún (y si lo que choca con el colisionador es el jugador)
         // Nada más iniciarse el diálogo, se settea en el Game Manager para que no se repita
 
-
-        // Al iniciarse el diálogo, se detiene el tiempo de juego
-        // Se reproduce el sonido de play Y se activa el canvas con el diálogo
-
-
         // Para el texto del hablante, se toma directamente del array de hablantes establecido como serializado
         // Para el texto hablado también, pero en lugar de ponerse tal cual el texto de ese TextMeshPro, se va añadiendo en la corrutina
         if (collision.gameObject.CompareTag("Player") && !gameManager.GetDialogue1Triggered())
         {
             gameManager.SetDialogue1Triggered();
 
-
-            Time.timeScale = 0f;
-            startSound.Play();
-            dialogueCanvas.SetActive(true);
-
+            StartCoroutine(OpenDialogue());
 
             speakerText.text = speaker[progress];
             StartCoroutine(TypeSentence(dialogueSentences[progress]));
@@ -94,10 +89,7 @@ public class Dialogue1 : MonoBehaviour
             StartCoroutine(TypeSentence(dialogueSentences[progress]));
         } else
         {
-            finishSound.Play();
-
-            dialogueCanvas.SetActive(false);
-            Time.timeScale = 1f;
+            StartCoroutine(CloseDialogue());
         }
     }
 
@@ -113,5 +105,32 @@ public class Dialogue1 : MonoBehaviour
             // yield return null hace una espera de UN frame
             yield return null;
         }
+    }
+
+
+
+    private IEnumerator OpenDialogue()
+    {
+        startSound.Play();
+
+        dialogueCanvas.SetActive(true);
+        animator.SetBool("IsOpen", true);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Time.timeScale = 0f;
+    }
+
+    private IEnumerator CloseDialogue()
+    {
+        finishSound.Play();
+
+        Time.timeScale = 1f;
+
+        animator.SetBool("IsOpen", false);
+
+        yield return new WaitForSeconds(0.5f);
+
+        dialogueCanvas.SetActive(false);
     }
 }

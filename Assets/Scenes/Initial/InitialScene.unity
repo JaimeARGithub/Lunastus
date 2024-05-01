@@ -1586,6 +1586,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1737395758708781968, guid: 2cc1534242ec00a42bbbfc94ee3a7b8e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 170
+      objectReference: {fileID: 0}
     - target: {fileID: 2251896356333621091, guid: 2cc1534242ec00a42bbbfc94ee3a7b8e, type: 3}
       propertyPath: m_text
       value: "Este es un texto de prueba. \xA1Bienvenidos a Lunastus! \xA1Esperamos
@@ -1745,6 +1749,11 @@ PrefabInstance:
 --- !u!1 &874291573 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2595010898688692479, guid: 2cc1534242ec00a42bbbfc94ee3a7b8e, type: 3}
+  m_PrefabInstance: {fileID: 874291572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &874291574 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8315442420644398857, guid: 2cc1534242ec00a42bbbfc94ee3a7b8e, type: 3}
   m_PrefabInstance: {fileID: 874291572}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &892981130
@@ -6311,7 +6320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3262762772153779474, guid: c346472a57f981944b220627b07012f6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5857632787397000810, guid: c346472a57f981944b220627b07012f6, type: 3}
       propertyPath: m_IsActive
@@ -6832,6 +6841,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 401642907991149664, guid: 602ce8bab377e244f8dcf92a511b60ff, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 874291574}
     - target: {fileID: 401642907991149664, guid: 602ce8bab377e244f8dcf92a511b60ff, type: 3}
       propertyPath: speakerText
       value: 
