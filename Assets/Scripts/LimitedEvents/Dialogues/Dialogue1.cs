@@ -6,21 +6,21 @@ using UnityEngine;
 
 public class Dialogue1 : MonoBehaviour
 {
-    // Referencia al Game Manager
+    // Referencia al Game Manager para detectar el accionamiento del diálogo
     private GameManager gameManager;
 
 
-    // Referencia al animador del diálogo
+    // Referencia al animador del diálogo para animar la imagen
     public Animator animator;
 
 
-    // Referencias a UI
+    // Referencias a UI para habilitar canvas y reformular textos
     [SerializeField] private GameObject dialogueCanvas;
     [SerializeField] private TextMeshProUGUI speakerText;
     [SerializeField] private TextMeshProUGUI dialogueText;
 
 
-    // Contenido del diálogo
+    // Contenido del diálogo (arrays públicos que contienen las strings con los hablantes y las frases)
     [SerializeField] private string[] speaker;
     [TextArea()]
     [SerializeField] private string[] dialogueSentences;
@@ -108,7 +108,8 @@ public class Dialogue1 : MonoBehaviour
     }
 
 
-
+    // Apertura: se reproduce el sonido, se habilita el canvas, salta la imagen hacia arriba,
+    // se espera medio segundo y se detiene el tiempo de juego
     private IEnumerator OpenDialogue()
     {
         startSound.Play();
@@ -121,6 +122,9 @@ public class Dialogue1 : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+
+    // Cierre: se reproduce el sonido, se reanuda el tiempo de juego, salta la imagen hacia abajo,
+    // se espera medio segundo y se deshabilita el canvas
     private IEnumerator CloseDialogue()
     {
         finishSound.Play();
