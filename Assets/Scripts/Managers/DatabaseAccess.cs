@@ -89,6 +89,7 @@ public class DatabaseAccess : MonoBehaviour
                                             { "braptor4killed", false },
                                             { "braptor5killed", false },
                                             { "braptor6killed", false },
+                                            { "badEnding", false },
                                             { "augmHealth1", false },
                                             { "augmHealth2", false },
                                             { "augmHealth3", false },
@@ -154,6 +155,7 @@ public class DatabaseAccess : MonoBehaviour
             playerData["braptor4killed"] = gameManager.GetBraptor4Killed();
             playerData["braptor5killed"] = gameManager.GetBraptor5Killed();
             playerData["braptor6killed"] = gameManager.GetBraptor6Killed();
+            playerData["badEnding"] = gameManager.GetBadEnding();
 
             playerData["augmHealth1"] = gameManager.GetAugmHealth1();
             playerData["augmHealth2"] = gameManager.GetAugmHealth2();

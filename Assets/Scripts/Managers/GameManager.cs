@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
     private bool braptor5killed;
     private bool braptor6killed;
 
+    // Variable para elegir el final del juego, en función de si se mataron o no los seis biceraptors
+    private bool badEnding;
+
     // Para verificar si se han recogido las mejoras de vida y capacidad de
     // misiles dispersas por el mapa
     private bool augmHealth1;
@@ -50,9 +53,6 @@ public class GameManager : MonoBehaviour
     private bool augmMissiles2;
     private bool augmMissiles3;
     private bool augmMissiles4;
-
-    // Variable para elegir el final del juego, en función de si se mataron o no los seis biceraptors
-    private bool badEnding;
 
     // Variable para verificar si se ha ejecutado el primer guardado ingame (y mostrar o no la opción continuar)
     private bool firstSave;
@@ -145,32 +145,6 @@ public class GameManager : MonoBehaviour
         currentScene = SceneManager.GetActiveScene().name;
     }
 
-
-    // Para determinar qué final se alcanza
-    public void SetBadEnding()
-    {
-        this.badEnding = true;
-        Debug.Log("ACTIVADO EL BAD ENDING");
-    }
-
-    public bool GetBadEnding()
-    {
-        return this.badEnding;
-    }
-
-    public bool CheckBadEnding()
-    {
-        bool checker = false;
-
-        if (GetBraptor1Killed() && GetBraptor2Killed() && GetBraptor3Killed() &&
-                GetBraptor4Killed() && GetBraptor5Killed() && GetBraptor6Killed() &&
-                !GetBadEnding())
-        {
-            checker = true;
-        }
-
-        return checker;
-    }
 
 
     // Para determinar la gestión de escenas; la actual, para los guardados,
@@ -377,6 +351,7 @@ public class GameManager : MonoBehaviour
     }
 
     
+
     // MÉTODOS PARA EL ASESINATO PERMANENTE DE LOS BICERAPTOR
     public void SetBraptor1Killed()
     {
@@ -436,6 +411,38 @@ public class GameManager : MonoBehaviour
     public bool GetBraptor6Killed()
     {
         return this.braptor6killed;
+    }
+
+
+    // MÉTODOS PARA DETERMINAR QUÉ FINAL SE ALCANZA:
+    // SETTER (A TRUE), GETTER Y CHECKER PARA HACER COMPROBACIONES EN CLASES EXTERNAS
+    public void SetBadEnding()
+    {
+        this.badEnding = true;
+        Debug.Log("ACTIVADO EL BAD ENDING");
+    }
+
+    public bool GetBadEnding()
+    {
+        return this.badEnding;
+    }
+
+
+    // ANTES EL CHECKER ERA UNA LLAMADA A LOS SEIS GETTERS DE LA MUERTE DE LOS BICERAPTOR, PERO CONCENTRÁNDOLO
+    // TODO AQUÍ SE EVITA REPETICIÓN INNECESARIA DE CÓDIGO (EN LUGAR DE LLAMAR A LOS SEIS GETTERS EN EL MOMENTO
+    // DE LA MUERTE DE CADA BICERAPTOR)
+    public bool CheckBadEnding()
+    {
+        bool checker = false;
+
+        if (GetBraptor1Killed() && GetBraptor2Killed() && GetBraptor3Killed() &&
+                GetBraptor4Killed() && GetBraptor5Killed() && GetBraptor6Killed() &&
+                !GetBadEnding())
+        {
+            checker = true;
+        }
+
+        return checker;
     }
 
 
@@ -643,6 +650,7 @@ public class GameManager : MonoBehaviour
         this.braptor4killed = playerdata["braptor4killed"].AsBoolean;
         this.braptor5killed = playerdata["braptor5killed"].AsBoolean;
         this.braptor6killed = playerdata["braptor6killed"].AsBoolean;
+        this.badEnding = playerdata["badEnding"].AsBoolean;
 
         this.augmHealth1 = playerdata["augmHealth1"].AsBoolean;
         this.augmHealth2 = playerdata["augmHealth2"].AsBoolean;
