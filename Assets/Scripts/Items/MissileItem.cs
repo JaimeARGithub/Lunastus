@@ -25,7 +25,7 @@ public class MissileItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name.Equals("Hunter"))
+        if (collision.name.Equals("Hunter") && !gameManager.GetMissileUnlocked())
         {
             Color colorSprite = spRd.material.color;
             colorSprite.a = 0f;

@@ -20,7 +20,7 @@ public class LimitedMissileAugment3 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name.Equals("Hunter"))
+        if (collision.name.Equals("Hunter") && !gameManager.GetAugmMissiles3())
         {
             Combat c = collision.GetComponent<Combat>();
             if (c.getMisilesDesbloqueados())

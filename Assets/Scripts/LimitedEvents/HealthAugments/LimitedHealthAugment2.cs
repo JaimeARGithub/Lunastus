@@ -19,7 +19,7 @@ public class LimitedHealthAugment2 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name.Equals("Hunter"))
+        if (collision.name.Equals("Hunter") && !gameManager.GetAugmHealth2())
         {
             gameManager.SetAugmHealth2();
         }
