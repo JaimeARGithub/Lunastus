@@ -40,6 +40,11 @@ public class Dialogue1 : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         dialogueCanvas.SetActive(false);
+
+        if (gameManager.GetDialogue1Triggered())
+        {
+            Destroy(gameObject);
+        }
     }
 
 
@@ -124,7 +129,7 @@ public class Dialogue1 : MonoBehaviour
 
 
     // Cierre: se reproduce el sonido, se reanuda el tiempo de juego, salta la imagen hacia abajo,
-    // se espera medio segundo y se deshabilita el canvas
+    // se espera un segundo y se deshabilita el canvas
     private IEnumerator CloseDialogue()
     {
         finishSound.Play();
@@ -133,8 +138,12 @@ public class Dialogue1 : MonoBehaviour
 
         animator.SetBool("IsOpen", false);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         dialogueCanvas.SetActive(false);
+
+        // La destrucción del objeto se realiza al final de la corrutina para que el sonido de cierre se reproduzca
+        // Si se hace de seguido con la ejecución de la corrutina, las dos cosas se ejecutan casi a la vez
+        Destroy(gameObject);
     }
 }
