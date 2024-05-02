@@ -35,10 +35,17 @@ public class Dialogue5 : MonoBehaviour
     public AudioSource finishSound;
 
 
+    // Para el efecto el pulso electromagnético
+    public GameObject emp;
+    public AudioSource empSound;
+    private GameObject hunter;
+
+
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
         dialogueCanvas.SetActive(false);
+        hunter = GameObject.FindGameObjectWithTag("Player");
 
         if (gameManager.GetDialogue5Triggered())
         {
@@ -68,6 +75,12 @@ public class Dialogue5 : MonoBehaviour
         // Para el texto hablado también, pero en lugar de ponerse tal cual el texto de ese TextMeshPro, se va añadiendo en la corrutina
         if (collision.gameObject.CompareTag("Player") && !gameManager.GetDialogue5Triggered())
         {
+            // INSTANCIAR EL EFECTO VISUAL Y REPRODUCIR EL SONIDO LO PRIMERO
+            Instantiate(emp, hunter.transform.position, hunter.transform.rotation);
+            empSound.Play();
+
+
+
             gameManager.SetDialogue5Triggered();
 
             StartCoroutine(OpenDialogue());
@@ -115,6 +128,7 @@ public class Dialogue5 : MonoBehaviour
 
     // Apertura: se reproduce el sonido, se habilita el canvas, salta la imagen hacia arriba,
     // se espera medio segundo y se detiene el tiempo de juego
+    // TIEMPO AMPLIADO A 0.61 SEGUNDOS PARA QUE AL EMP LE DÉ TIEMPO A DESTRUIRSE
     private IEnumerator OpenDialogue()
     {
         startSound.Play();
@@ -122,7 +136,7 @@ public class Dialogue5 : MonoBehaviour
         dialogueCanvas.SetActive(true);
         animator.SetBool("IsOpen", true);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.61f);
 
         Time.timeScale = 0f;
     }
