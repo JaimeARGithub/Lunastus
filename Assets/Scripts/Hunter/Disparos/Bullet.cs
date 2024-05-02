@@ -24,7 +24,8 @@ public class Bullet : MonoBehaviour
         if (!collision.name.Equals("Hunter"))
         {
             if (!collision.name.Contains("Bullet") && !collision.name.Equals("Missile(Clone)")
-                && !collision.name.Contains("Item") && !collision.name.Contains("Limits") && !collision.name.Contains("Conversation"))
+                && !collision.name.Contains("Item") && !collision.name.Contains("Limits") && !collision.name.Contains("Conversation")
+                && !collision.name.Contains("Fireball"))
             {
                 switch (collision.name)
                 {
@@ -145,6 +146,13 @@ public class Bullet : MonoBehaviour
                         if (enemyPC != null)
                         {
                             enemyPC.TakeDamage(damageBullet);
+                        }
+                        break;
+                    case string name when name.StartsWith("AlienBoss"):
+                        AlienBoss alienBoss = collision.GetComponent<AlienBoss>();
+                        if (alienBoss != null)
+                        {
+                            alienBoss.TakeDamage(damageBullet);
                         }
                         break;
                 }
