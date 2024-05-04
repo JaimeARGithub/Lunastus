@@ -40,7 +40,7 @@ public class Combat : MonoBehaviour
                                                // CAMBIARLO PARA QUE LEA EL VALOR DE ÉL EN EL UPDATE
 
     private float tiempoTranscurridoDisparo = 0f;
-    private float tiempoEsperaDisparo = 0.15f;
+    private float tiempoEsperaDisparo = 0.1f;
     private float tiempoTranscurridoMisil = 0f;
     private float tiempoEsperaMisil = 1f;
 
@@ -64,7 +64,7 @@ public class Combat : MonoBehaviour
     // Variables de tiempo para el disparo cargado
     private float instantePresionBoton = 0f;
     private float tiempoRequeridoInicioCarga = 0.3f;
-    private float tiempoRequeridoPresionDisparoCargado = 2f;
+    private float tiempoRequeridoPresionDisparoCargado = 1.5f;
     private float tiempoTranscurridoSonidoCarga = 0f;
     private float tiempoEsperaSonidoCarga = 0.7f;
     private bool disparoCargadoDisponible = false;
