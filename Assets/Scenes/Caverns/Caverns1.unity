@@ -1273,7 +1273,7 @@ Transform:
   m_GameObject: {fileID: 146249121}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 0.06, z: -10}
+  m_LocalPosition: {x: -1.1633573, y: 0.8937597, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1344,7 +1344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BoundingShape2D: {fileID: 0}
+  m_BoundingShape2D: {fileID: 1220471863}
   m_Damping: 0.5
   m_MaxWindowSize: -1
 --- !u!114 &214412225
@@ -1395,7 +1395,7 @@ Transform:
   m_GameObject: {fileID: 214412223}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 0.06, z: -10}
+  m_LocalPosition: {x: -6.02, y: 6.71, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5714,11 +5714,11 @@ PrefabInstance:
       objectReference: {fileID: 2125754385}
     - target: {fileID: 4584052439537683795, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2
+      value: -6.02
       objectReference: {fileID: 0}
     - target: {fileID: 4584052439537683795, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.06
+      value: 6.71
       objectReference: {fileID: 0}
     - target: {fileID: 4584052439537683795, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5797,11 +5797,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3019703875732439739, guid: f001746334159b842947e03d5341fa63, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3019703875732439739, guid: f001746334159b842947e03d5341fa63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3019703875732439739, guid: f001746334159b842947e03d5341fa63, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5909,6 +5909,7 @@ SceneRoots:
   - {fileID: 1419751197}
   - {fileID: 1145672135}
   - {fileID: 146249124}
+  - {fileID: 5739710274822228521}
   - {fileID: 214412226}
   - {fileID: 1220471864}
   - {fileID: 667382689}
@@ -5917,4 +5918,3 @@ SceneRoots:
   - {fileID: 944876989}
   - {fileID: 1824775777}
   - {fileID: 5096015}
-  - {fileID: 5739710274822228521}
