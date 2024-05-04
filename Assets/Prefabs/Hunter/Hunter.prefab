@@ -154,7 +154,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: c931bfeb81adefd448500707887ebbc4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -205,15 +205,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba636a844e142a4fbd65a1bd3713e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGrounded: 0
+  grounded: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   enemiesLayer:
     serializedVersion: 2
     m_Bits: 128
-  piesCollider: {fileID: 0}
-  mirandoDerecha: 1
   tr: {fileID: 2300724672578969786}
   sonidoCaminar: {fileID: 3146364269995309827}
   sonidoSalto: {fileID: 6239374328562225596}
@@ -821,11 +819,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoImage: {fileID: 0}
   ammoText: {fileID: 0}
-  isGrounded: 0
+  grounded: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  piesCollider: {fileID: 0}
   sonidoDisparo: {fileID: 2160673492936959802}
   sonidoMisil: {fileID: 6265459533982539499}
   sonidoDisparoCargado: {fileID: 7644413697804514894}
