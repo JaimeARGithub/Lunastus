@@ -74,12 +74,12 @@ public class RedRobot : MonoBehaviour
 
         switch (random)
         {
-            case 5:
+            case 3:
+            case 6:
                 Instantiate(ammoItem, transform.position, Quaternion.identity);
                 break;
-            case 10:
-            case 15:
-            case 20:
+            case 13:
+            case 16:
                 Instantiate(healItem, transform.position, Quaternion.identity);
                 break;
         }
