@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Preload.unity
     guid: 5d93fd381165f7a4e8fb65ea7066ca3c
   - enabled: 1
-    path: Assets/Scenes/Pruebas/Pruebas.unity
+    path: Assets/Scenes/Pruebas/AlienBoss.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Pruebas/PruebasDos.unity
@@ -35,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Caverns/Caverns1.unity
     guid: 92037555fcbb1ea4b90b55615eea93a6
+  - enabled: 1
+    path: Assets/Scenes/Caverns/Caverns1-2.unity
+    guid: a955204288c14184f81563b0abb54775
+  - enabled: 1
+    path: Assets/Scenes/Caverns/Caverns3.unity
+    guid: 479a6253b55d6fd43991a4007fab5842
   m_configObjects: {}
