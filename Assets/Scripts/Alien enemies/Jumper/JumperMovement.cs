@@ -13,6 +13,8 @@ public class JumperMovement : MonoBehaviour
     public Collider2D col;
     [SerializeField] private bool isGrounded;
     public LayerMask groundLayer;
+    [SerializeField] private bool isOnEnemy;
+    public LayerMask enemiesLayer;
 
     // Para movimiento en general
     private float distance;
@@ -38,11 +40,13 @@ public class JumperMovement : MonoBehaviour
             // Cada instante se evalúan la distancia entre jumper y cazador y si el jumper está tocando el suelo
             distance = Vector2.Distance(transform.position, hunter.transform.position);
             isGrounded = Physics2D.IsTouchingLayers(col, groundLayer);
+            isOnEnemy = Physics2D.IsTouchingLayers(col, enemiesLayer);
+
 
 
             // Si el jumper está tocando el suelo y la distancia es menor que 6: salto
             // Salto hacia un lado o a otro dependiendo de la posición del hunter
-            if (isGrounded && distance < 4.5)
+            if ((isGrounded || isOnEnemy) && distance < 4.5)
             {
                 if (hunter.transform.position.x <= transform.position.x)
                 {
@@ -56,7 +60,7 @@ public class JumperMovement : MonoBehaviour
 
             // Si está saltando: animación de salto
             // Si no: animación idle
-            if (!isGrounded)
+            if (!isGrounded && !isOnEnemy)
             {
                 animator.SetBool("isJumping", true);
             } else

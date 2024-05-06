@@ -313,6 +313,10 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  isOnEnemy: 0
+  enemiesLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!61 &4407164699266413788
 BoxCollider2D:
   m_ObjectHideFlags: 0
