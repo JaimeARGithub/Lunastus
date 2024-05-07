@@ -47,12 +47,13 @@ public class ParallaxEffect : MonoBehaviour
         // --El valor absoluto de la resta entre la X de la posición del sprite y la X de la posición de la cámara supere a la mitad del ancho
         // --El valor absoluto de la resta entre la Y de la posición del sprite y la Y de la posición de la cámara supere a la mitad del alto
 
-        if (Mathf.Abs(transform.position.x - Camera.main.transform.position.x) > spriteWidth / 2 ||
-            Mathf.Abs(transform.position.y - Camera.main.transform.position.y) > spriteHeight / 2)
-        {
+        // LOS DESPLAZAMIENTOS EN LOS EJES DE X E Y SE EVALÚAN DE MANERA SEPARADA
+
+        if (Mathf.Abs(transform.position.x - Camera.main.transform.position.x) > spriteWidth / 1.25) {
 
             // Se identifica la posición inicial del sprite para después reasignarla
             Vector3 newSpritePosition = transform.position;
+
 
             // Desplazamiento a derecha o a izquierda, dependiendo de si la cámara se halla
             // más hacia la derecha o más hacia la izquierda que el sprite
@@ -64,6 +65,17 @@ public class ParallaxEffect : MonoBehaviour
             {
                 newSpritePosition.x -= spriteWidth;
             }
+
+
+            // Se reasigna la posición con los valores calculados, dependiendo del
+            // desplazamiento a ejecutar
+            transform.position = newSpritePosition;
+        }
+
+
+        if (Mathf.Abs(transform.position.y - Camera.main.transform.position.y) > spriteHeight / 1.25) {
+            // Se identifica la posición inicial del sprite para después reasignarla
+            Vector3 newSpritePosition = transform.position;
 
 
             // Desplazamiento hacia arriba o hacia abajo, dependiendo de si la cámara se halla
