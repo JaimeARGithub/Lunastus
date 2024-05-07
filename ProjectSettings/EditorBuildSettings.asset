@@ -53,4 +53,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Caverns/Caverns4.unity
     guid: d5ee59d8eb237c740acf22e8dd1ae564
+  - enabled: 1
+    path: Assets/Scenes/Caverns/Caverns2-4.unity
+    guid: ea0a9feebe3915e4faa1ae6b2d09701b
+  - enabled: 1
+    path: Assets/Scenes/Caverns/Caverns5.unity
+    guid: 73f4cd4157839604ab85f582522feed6
   m_configObjects: {}
