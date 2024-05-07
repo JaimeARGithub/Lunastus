@@ -29,6 +29,7 @@ public class ParallaxEffect : MonoBehaviour
     {
         // TRAS CADA FRAME, calculamos mediante un Vector3 la distancia entre la
         // posición actual de la cámara y la posición anterior de la cámara
+        // (EN TÉRMINOS DE DESPLAZAMIENTO)
 
         // Al sprite del parallax le aplicamos una variación del transform
         // en los ejes X e Y igual a la distancia entre las posiciones actual
@@ -49,9 +50,12 @@ public class ParallaxEffect : MonoBehaviour
         if (Mathf.Abs(transform.position.x - Camera.main.transform.position.x) > spriteWidth / 2 ||
             Mathf.Abs(transform.position.y - Camera.main.transform.position.y) > spriteHeight / 2)
         {
-            // Reposition sprite to the opposite side
+
+            // Se identifica la posición inicial del sprite para después reasignarla
             Vector3 newSpritePosition = transform.position;
 
+            // Desplazamiento a derecha o a izquierda, dependiendo de si la cámara se halla
+            // más hacia la derecha o más hacia la izquierda que el sprite
             if (Camera.main.transform.position.x > transform.position.x)
             {
                 newSpritePosition.x += spriteWidth;
@@ -62,6 +66,8 @@ public class ParallaxEffect : MonoBehaviour
             }
 
 
+            // Desplazamiento hacia arriba o hacia abajo, dependiendo de si la cámara se halla
+            // más hacia arriba o más hacia abajo que el sprite
             if (Camera.main.transform.position.y > transform.position.y)
             {
                 newSpritePosition.y += spriteHeight;
@@ -72,6 +78,8 @@ public class ParallaxEffect : MonoBehaviour
             }
 
 
+            // Se reasigna la posición con los valores calculados, dependiendo del
+            // desplazamiento a ejecutar
             transform.position = newSpritePosition;
         }
     }
