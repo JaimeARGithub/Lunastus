@@ -131,42 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2300724672578969786, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
-      propertyPath: m_Parameters.colorGradient.atime1
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300724672578969786, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
-      propertyPath: m_Parameters.colorGradient.ctime0
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300724672578969786, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
-      propertyPath: m_Parameters.colorGradient.ctime1
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300724672578969786, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.b
-      value: 0.082730055
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300724672578969786, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300724672578969786, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300724672578969786, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.b
-      value: 0.6727541
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300724672578969786, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300724672578969786, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.r
-      value: 0.6245283
-      objectReference: {fileID: 0}
     - target: {fileID: 3147277619409726254, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
       propertyPath: ammoText
       value: 
