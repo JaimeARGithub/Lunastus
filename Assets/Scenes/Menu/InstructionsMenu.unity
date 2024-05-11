@@ -314,7 +314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ">> W: saltar\n\n>> W (En el aire): doble salto \n\n>> Q: retroceso deslizante\n\n>>
+  m_text: ">> Espacio: saltar\n\n>> Espacio (En el aire): doble salto \n\n>> Q: Deslizamiento\n\n>>
     Contacto con una cabina:\nguardar partida\n\n>> D: Avanzar dialogo"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8180bf564f429844fb12d932622a5ae6, type: 2}

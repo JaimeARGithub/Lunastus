@@ -149,7 +149,7 @@ public class Movement : MonoBehaviour
 
 
 
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 quiereSaltar = true;
             }
@@ -305,13 +305,13 @@ public class Movement : MonoBehaviour
 
 
         Vector2 posicionInicial = transform.position;
-        Vector2 posicionFinal;
+        Vector2 posicionFinal = new Vector2(0f, 0f);
         sonidoBackdash.Play();
 
-        if (mirandoDerecha)
+        if (movimientoH < 0 || (movimientoH == 0 && mirandoDerecha))
         {
             posicionFinal = posicionInicial - new Vector2(transform.localScale.x * fuerzaBackdash, 0f);
-        } else
+        } else if (movimientoH > 0 || (movimientoH == 0 && !mirandoDerecha))
         {
             posicionFinal = posicionInicial + new Vector2(transform.localScale.x * fuerzaBackdash, 0f);
         }
