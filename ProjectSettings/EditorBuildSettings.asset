@@ -101,4 +101,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Caverns/Caverns12-2.unity
     guid: 022185db55f0cf4459a81f062f8f8305
+  - enabled: 1
+    path: Assets/Scenes/Caverns/Caverns13.unity
+    guid: 09303fc42e2976447b3580fb1ebffdba
+  - enabled: 1
+    path: Assets/Scenes/Caverns/Caverns13-2.unity
+    guid: 801d20f057cbe6249bc3e04744492343
+  - enabled: 1
+    path: Assets/Scenes/Caverns/Caverns13-3.unity
+    guid: fdc8621386eff264bb8eb5672532cb12
   m_configObjects: {}
