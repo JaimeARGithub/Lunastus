@@ -125,4 +125,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Caverns/Caverns16.unity
     guid: d1c92b1f535dff945a6738caae77d852
+  - enabled: 1
+    path: Assets/Scenes/Ice/Ice1.unity
+    guid: c6ef5ee887adf4d40b41eb9ccbf4cfd3
+  - enabled: 1
+    path: Assets/Scenes/Ice/Ice1-2.unity
+    guid: 43dfbdd535e7c5949a97187c0c08d5fb
   m_configObjects: {}
