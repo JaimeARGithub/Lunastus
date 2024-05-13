@@ -152,4 +152,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ice/Ice4-2.unity
     guid: c67c5d7a7c9f70241b4e6ae66d7d4d08
+  - enabled: 1
+    path: Assets/Scenes/Ice/Ice5.unity
+    guid: e9c52044c93612a48ab0358311a583f3
+  - enabled: 1
+    path: Assets/Scenes/Ice/Ice5-2.unity
+    guid: 57b2730a3028dd140904973336c06200
+  - enabled: 1
+    path: Assets/Scenes/Ice/Ice5-3.unity
+    guid: e301ff86c15324941869c188de6c6373
+  - enabled: 1
+    path: Assets/Scenes/Ice/Ice6.unity
+    guid: 967bc1c31f83d3c4d8b4df5ef4edf11a
   m_configObjects: {}
