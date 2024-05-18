@@ -57,6 +57,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Caverns/Caverns2-4.unity
     guid: ea0a9feebe3915e4faa1ae6b2d09701b
   - enabled: 1
+    path: Assets/Scenes/Caverns/Caverns2-5.unity
+    guid: f61b0abe506020c43ae2eab94c35efcc
+  - enabled: 1
     path: Assets/Scenes/Caverns/Caverns5.unity
     guid: 73f4cd4157839604ab85f582522feed6
   - enabled: 1
@@ -182,4 +185,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ice/Ice9-2.unity
     guid: 48719295a8883f847bfb44bd9027d678
+  - enabled: 1
+    path: Assets/Scenes/Ice/Ice10.unity
+    guid: 4fe7ae058622e964a83d534c095cc8b2
   m_configObjects: {}
