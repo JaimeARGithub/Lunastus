@@ -224,4 +224,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ice/Ice16.unity
     guid: e73d823a8729d33439fe7dfaf05a086c
+  - enabled: 1
+    path: Assets/Scenes/Depths/Depths1.unity
+    guid: 4d749c26460dc8b45a2543cd88864dd3
+  - enabled: 1
+    path: Assets/Scenes/Depths/Depths1-2.unity
+    guid: a88128626a04eda468ab6d49886a8cee
   m_configObjects: {}

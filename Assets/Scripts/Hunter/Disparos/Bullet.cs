@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
         {
             if (!collision.name.Contains("Bullet") && !collision.name.Equals("Missile(Clone)")
                 && !collision.name.Contains("Item") && !collision.name.Contains("Limits") && !collision.name.Contains("Conversation")
-                && !collision.name.Contains("Fireball"))
+                && !collision.name.Contains("Fireball") && !collision.name.Contains("Lava"))
             {
                 switch (collision.name)
                 {
