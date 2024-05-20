@@ -6,31 +6,31 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
-      value: 00505104520d5d0f5a56557a4171064441164c2f2a2c75322b704c65b5b33261
-      flags: 0
-    RecentlyUsedSceneGuid-1:
       value: 015707035105515e5a575b76147b5e44144f1d7b2f7e766128701c66bae33660
       flags: 0
-    RecentlyUsedSceneGuid-2:
+    RecentlyUsedSceneGuid-1:
       value: 5554565201575a035a0d582146710844144e4d297e7874662c284f66bab03168
       flags: 0
+    RecentlyUsedSceneGuid-2:
+      value: 510105070103590a095c5b21127309444616487c757f233374784966b2b5303c
+      flags: 0
     RecentlyUsedSceneGuid-3:
-      value: 0209520504015058080d5c26482059441216407e2e787736757d1f62e0b9303e
-      flags: 0
-    RecentlyUsedSceneGuid-4:
-      value: 5000010756575a595a08557712725d44464e4b2e7c7e7434752b4b66b2b33639
-      flags: 0
-    RecentlyUsedSceneGuid-5:
-      value: 0001510053075b090e0c5c274526074446164e79797877697a2a1f35e7b86c60
-      flags: 0
-    RecentlyUsedSceneGuid-6:
-      value: 5004075e55540d5d550f0827147b5d44424e1d2b292b24622f7c4463e4b06c3e
-      flags: 0
-    RecentlyUsedSceneGuid-7:
       value: 01020c5400515b0c0959092412215d44404e1c292a7c22627c701862b7e66d3d
       flags: 0
+    RecentlyUsedSceneGuid-4:
+      value: 5004075e55540d5d550f0827147b5d44424e1d2b292b24622f7c4463e4b06c3e
+      flags: 0
+    RecentlyUsedSceneGuid-5:
+      value: 0700575f5757585d585d59261625064443164e7d7f7025312c2c4a64e6b8616a
+      flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 07045103500c0d03080c5e714720084446161b2c7e7a2368292d4c32e7b5626c
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 060607025d075a5a55595e7b14700c44454e1e2f7b2c20312b794832b2b8623b
+      flags: 0
     RecentlyUsedSceneGuid-8:
-      value: 510105070103590a095c5b21127309444616487c757f233374784966b2b5303c
+      value: 00575107060651030f080d2743265c44174f4b2c7d7d7669287b4f67e0b33769
       flags: 0
     RecentlyUsedSceneGuid-9:
       value: 56550d5503515a035c5f5a7716745e44134f1e287a7d23317a794b65e1e1673b
