@@ -245,4 +245,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Depths/Depths3.unity
     guid: e5a15dce67ba1dd44af350ea23226899
+  - enabled: 1
+    path: Assets/Scenes/Depths/Depths4.unity
+    guid: ebec4470800636c4c941158b2c1e8440
+  - enabled: 1
+    path: Assets/Scenes/Depths/Depths4-2.unity
+    guid: c2e7ea9e7d79c0945a45cd0004f22d6e
+  - enabled: 1
+    path: Assets/Scenes/Depths/Depths4-3.unity
+    guid: 8bb6cc155df78bf4795e81b7eb3a09cf
   m_configObjects: {}
