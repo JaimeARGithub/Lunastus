@@ -686,4 +686,16 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("GameOver");
     }
+
+
+    // PARA LOS FINALES
+    public void BadEndingState()
+    {
+        SceneManager.LoadScene("BadEnding");
+    }
+
+    public void GoodEndingState()
+    {
+        SceneManager.LoadScene("GoodEnding");
+    }
 }

@@ -9,12 +9,14 @@ public class AlienBoss : MonoBehaviour
     public AudioSource deathSound;
     private SpriteRenderer spRd;
     private bool dead = false;
+    private GameManager gameManager;
 
 
     // Start is called before the first frame update
     void Start()
     {
         spRd = GetComponent<SpriteRenderer>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
 
@@ -31,12 +33,12 @@ public class AlienBoss : MonoBehaviour
 
         if (health <= 0)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
 
-    private void Die()
+    private IEnumerator Die()
     {
         dead = true;
         // Al morir, al mismo tiempo se hacen invisible el objeto, se instancia la animación de muerte
@@ -54,7 +56,9 @@ public class AlienBoss : MonoBehaviour
 
         // Tras emitirse el sonido de muerte con el objeto ya invisible y la animación de muerte
         // reproduciéndose, se destruye el objeto
-        Destroy(gameObject, 3f);
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
+        gameManager.BadEndingState();
     }
 
 

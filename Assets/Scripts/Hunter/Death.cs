@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
+    // Cuando el Hunter muere, no se puede destruir el gameObject al instante; es necesario dejar un
+    // pequeño delay para que la animación y el sonido se reproduzcan correctamente
+    // Dado que hay que hacer muchos ajustes en el gameObject del Hunter para conseguir correctamente
+    // esta "muerte tardía" Y se da lugar a inconsistencias en el comportamiento de los enemigos que
+    // trackean al Hunter, se ha optado por destruir su gameObject al instante y meter la lógica de
+    // la muerte (sonido, cambio de escena) en el efecto de la muerte
     public AudioSource deathSound;
     private GameManager gameManager;
 
