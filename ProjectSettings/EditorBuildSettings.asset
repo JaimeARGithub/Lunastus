@@ -335,4 +335,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AlienBoss/AlienBoss.unity
     guid: bd6b68474005bf44fbe32c7041231f8f
+  - enabled: 1
+    path: Assets/Scenes/Endings/BadEnding.unity
+    guid: 4385eb2b19cc3c841b81d4bb2ea396d5
   m_configObjects: {}

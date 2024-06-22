@@ -162,6 +162,8 @@ MonoBehaviour:
   alienBossMusic: {fileID: 8300000, guid: d354094068384cd4f86121f3de01a496, type: 3}
   corporationMusic: {fileID: 8300000, guid: 74cde512b5adef647958cf5f85d87af9, type: 3}
   gameOverMusic: {fileID: 8300000, guid: 2ee2c048b1dc8a54291318e72bf305e8, type: 3}
+  badEndingMusic: {fileID: 8300000, guid: 7d4fcdde25ddb604ba6bc3ba171f43a4, type: 3}
+  goodEndingMusic: {fileID: 8300000, guid: b2dce0a1877db5742a34762436c8aad7, type: 3}
   audioSource: {fileID: 531086019}
   clickSound: {fileID: 531086020}
 --- !u!4 &531086018

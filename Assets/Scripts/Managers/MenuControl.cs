@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ public class MenuControl : MonoBehaviour
     private GameManager gameManager;
     public Button continueButton;
     private MusicManager musicManager;
+    public TextMeshProUGUI endingText;
+    private bool badMessageSeen = false;
 
 
 
@@ -75,5 +78,20 @@ public class MenuControl : MonoBehaviour
         musicManager.ClickSound();
         gameManager.SetStartValues();
         SceneManager.LoadScene(gameManager.GetSceneToPlay());
+    }
+
+
+    // Para el botón "Volver al menú principal" en la pantalla de Bad Ending
+    public void OnBadEndingContinueButton()
+    {
+        if (!badMessageSeen)
+        {
+            musicManager.ClickSound();
+            endingText.text = "MISION CUMPLIDA?";
+            badMessageSeen = true;
+        } else
+        {
+            OnButtonMainMenu();
+        }
     }
 }

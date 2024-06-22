@@ -15,6 +15,8 @@ public class MusicManager : MonoBehaviour
     public AudioClip alienBossMusic;
     public AudioClip corporationMusic;
     public AudioClip gameOverMusic;
+    public AudioClip badEndingMusic;
+    public AudioClip goodEndingMusic;
 
     // AudioSource para la reproducción de música por secciones
     public AudioSource audioSource;
@@ -67,6 +69,12 @@ public class MusicManager : MonoBehaviour
     {
         string sceneName = scene.name;
 
+
+        // Se usa una sentencia if-else porque el switch de C# no admite sentencia "contains"
+
+        // En el caso de scripts como Bullet puede usarse el switch porque C# admite sentencias de tipo
+        // pattern-matching en el switch (búsqueda de patrones, que la variable a evaluar (string) comience
+        // con unos determinados caracteres), pero eso no nos vale para la gestión de escenas
         if (sceneName.Contains("Menu"))
         {
             PlayMenuMusic();
@@ -98,6 +106,14 @@ public class MusicManager : MonoBehaviour
         else if (sceneName.Contains("GameOver"))
         {
             PlayGameOverMusic();
+        }
+        else if (sceneName.Contains("BadEnding"))
+        {
+            PlayBadEndingMusic();
+        } 
+        else if (sceneName.Contains("GoodEnding"))
+        {
+            PlayGoodEndingMusic();
         }
     }
 
@@ -170,6 +186,24 @@ public class MusicManager : MonoBehaviour
         if (audioSource.clip != gameOverMusic || !audioSource.isPlaying)
         {
             audioSource.clip = gameOverMusic;
+            audioSource.Play();
+        }
+    }
+
+    public void PlayBadEndingMusic()
+    {
+        if (audioSource.clip != badEndingMusic || !audioSource.isPlaying)
+        {
+            audioSource.clip = badEndingMusic;
+            audioSource.Play();
+        }
+    }
+
+    public void PlayGoodEndingMusic()
+    {
+        if (audioSource.clip != goodEndingMusic || !audioSource.isPlaying)
+        {
+            audioSource.clip = goodEndingMusic;
             audioSource.Play();
         }
     }
