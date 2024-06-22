@@ -30,7 +30,8 @@ public class Fireball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.name.Contains("AlienBoss") && !collision.name.Contains("Bullet") && !collision.name.Equals("Missile(Clone)")
+        if (!collision.name.Contains("AlienBoss") && !collision.name.Contains("Lava") && !collision.name.Contains("Fireball") &&
+            !collision.name.Contains("Bullet") && !collision.name.Equals("Missile(Clone)")
             && !collision.name.Contains("Item") && !collision.name.Contains("Limits") && !collision.name.Contains("Conversation"))
         {
 
