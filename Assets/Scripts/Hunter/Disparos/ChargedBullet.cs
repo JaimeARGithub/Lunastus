@@ -160,12 +160,20 @@ public class ChargedBullet : MonoBehaviour
                 }
 
 
-                Vector3 impactPosition = transform.position;
-                Vector3 bulletDirection = rb.velocity.normalized;
-                impactPosition += bulletDirection * 0.5f;
+                if (collision.name.StartsWith("MissileGate"))
+                {
+                    transform.Rotate(0, 180, 0);
+                    rb.velocity = transform.right * velocidad;
+                }
+                else
+                {
+                    Vector3 impactPosition = transform.position;
+                    Vector3 bulletDirection = rb.velocity.normalized;
+                    impactPosition += bulletDirection * 0.5f;
 
-                Instantiate(impactEffect, impactPosition, transform.rotation);
-                Destroy(gameObject);
+                    Instantiate(impactEffect, impactPosition, transform.rotation);
+                    Destroy(gameObject);
+                }
             }
         }
     }

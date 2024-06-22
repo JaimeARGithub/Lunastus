@@ -11,6 +11,7 @@ public class MissileGate : MonoBehaviour
 
     public AudioSource openSound;
     public AudioSource closeSound;
+    public AudioSource errorSound;
 
     private int maxHealth = 100;
     private int health = 100;
@@ -50,6 +51,9 @@ public class MissileGate : MonoBehaviour
         if (health <= 0)
         {
             Open();
+        } else
+        {
+            errorSound.Play();
         }
     }
 

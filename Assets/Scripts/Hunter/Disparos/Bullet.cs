@@ -157,8 +157,16 @@ public class Bullet : MonoBehaviour
                         break;
                 }
 
-                Instantiate(impactEffect, transform.position, transform.rotation);
-                Destroy(gameObject);
+
+                if (collision.name.StartsWith("MissileGate"))
+                {
+                    transform.Rotate(0, 180, 0);
+                    rb.velocity = transform.right * velocidad;
+                } else
+                {
+                    Instantiate(impactEffect, transform.position, transform.rotation);
+                    Destroy(gameObject);
+                } 
             }
         }
     }
