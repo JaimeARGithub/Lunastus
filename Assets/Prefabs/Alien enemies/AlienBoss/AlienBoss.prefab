@@ -218,7 +218,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -314,7 +314,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -410,7 +410,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -514,6 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9504bcbb817ca834a8ed98076dbf8158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mirandoDerecha: 0
   firepoint: {fileID: 7256753394769440660}
   fireball: {fileID: 4934724300321725653, guid: 89a7928e4b26b674783a0f9d033f040c, type: 3}
   fireSound: {fileID: 2275293844319535688}
