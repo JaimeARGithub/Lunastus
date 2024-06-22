@@ -10,7 +10,14 @@ public class LevelLoader : MonoBehaviour
     // creado con las animaciones también creadas
     public Animator animator;
 
+    // Para la lógica sobre qué escena cargar al llegar a AlienBoss
+    private GameManager gameManager;
 
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
 
     public IEnumerator LoadScene(string sceneName)
@@ -19,6 +26,13 @@ public class LevelLoader : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        SceneManager.LoadScene(sceneName);
+
+        if (sceneName.Equals("AlienBoss") && !gameManager.GetBadEnding())
+        {
+            SceneManager.LoadScene("Depths19");
+        } else
+        {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }
