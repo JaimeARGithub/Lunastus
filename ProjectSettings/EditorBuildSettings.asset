@@ -338,4 +338,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Endings/BadEnding.unity
     guid: 4385eb2b19cc3c841b81d4bb2ea396d5
+  - enabled: 1
+    path: Assets/Scenes/Depths/Depths19.unity
+    guid: 1c714a23e5fd6424bba54be2b77fb710
   m_configObjects: {}
