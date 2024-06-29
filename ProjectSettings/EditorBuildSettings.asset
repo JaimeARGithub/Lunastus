@@ -28,7 +28,7 @@ EditorBuildSettings:
     guid: ee102f8970236b24abb68c2cb77e565b
   - enabled: 1
     path: Assets/Scenes/GameOver/GameOver.unity
-    guid: 4731793d37bdc684aa6aa2f4f1cc0fe5
+    guid: 2906ec4ae9447e94da86aee57f1c838f
   - enabled: 1
     path: Assets/Scenes/Initial/InitialScene.unity
     guid: df2fd7d61039e9a4d83b55d2ef4de618
@@ -344,4 +344,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Corporation/Corporation1.unity
     guid: aa8a723a4ce6d8d49ab66803fce80c1e
+  - enabled: 1
+    path: Assets/Scenes/Corporation/Corporation1-2.unity
+    guid: af51096fb8e313d409cad17f208fec1b
+  - enabled: 1
+    path: Assets/Scenes/Corporation/Corporation2.unity
+    guid: 8614744231c35b0469661e6a1db8c327
   m_configObjects: {}
