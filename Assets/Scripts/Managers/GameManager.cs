@@ -684,18 +684,21 @@ public class GameManager : MonoBehaviour
     // PARA EL ESTADO DE GAME OVER AL MORIR
     public void GameOverState()
     {
-        SceneManager.LoadScene("GameOver");
+        LevelLoader levelLoader = FindObjectOfType<LevelLoader>();
+        StartCoroutine(levelLoader.LoadScene("GameOver"));
     }
 
 
     // PARA LOS FINALES
     public void BadEndingState()
     {
-        SceneManager.LoadScene("BadEnding");
+        LevelLoader levelLoader = FindObjectOfType<LevelLoader>();
+        StartCoroutine(levelLoader.LoadScene("BadEnding"));
     }
 
     public void GoodEndingState()
     {
-        SceneManager.LoadScene("GoodEnding");
+        LevelLoader levelLoader = FindObjectOfType<LevelLoader>();
+        StartCoroutine(levelLoader.LoadScene("GoodEnding"));
     }
 }

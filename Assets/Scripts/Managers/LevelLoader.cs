@@ -26,10 +26,15 @@ public class LevelLoader : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-
-        if (sceneName.Equals("AlienBoss") && !gameManager.GetBadEnding())
+        if (sceneName.Equals("AlienBoss"))
         {
-            SceneManager.LoadScene("Depths19");
+            if (gameManager.GetBadEnding())
+            {
+                SceneManager.LoadScene(sceneName);
+            } else
+            {
+                SceneManager.LoadScene("Depths19");
+            }
         } else
         {
             SceneManager.LoadScene(sceneName);

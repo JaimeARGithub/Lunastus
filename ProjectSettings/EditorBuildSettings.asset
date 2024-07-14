@@ -377,4 +377,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Corporation/Corporation6-2.unity
     guid: 1081aba6f9107554ebb2860dcfa1ef98
+  - enabled: 1
+    path: Assets/Scenes/Corporation/Corporation7.unity
+    guid: d07135362352ed145870eba37458ee80
+  - enabled: 1
+    path: Assets/Scenes/Corporation/Corporation7-2.unity
+    guid: 425e66ddd31a642408a94518053149d9
   m_configObjects: {}
