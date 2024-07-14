@@ -57,8 +57,8 @@ public class AlienBoss : MonoBehaviour
         // Tras emitirse el sonido de muerte con el objeto ya invisible y la animación de muerte
         // reproduciéndose, se destruye el objeto
         yield return new WaitForSeconds(3f);
-        Destroy(gameObject);
         gameManager.BadEndingState();
+        Destroy(gameObject);
     }
 
 
