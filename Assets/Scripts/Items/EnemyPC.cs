@@ -9,12 +9,14 @@ public class EnemyPC : MonoBehaviour
     public GameObject explosionEffect;
     private SpriteRenderer spRd;
     private bool dead = false;
+    private GameManager gameManager;
 
 
     // Start is called before the first frame update
     void Start()
     {
         spRd = GetComponent<SpriteRenderer>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     public void TakeDamage(int damage)
@@ -50,6 +52,9 @@ public class EnemyPC : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
             }
         }
+
+        yield return new WaitForSeconds(3f);
+        gameManager.GoodEndingState();
     }
 
 
