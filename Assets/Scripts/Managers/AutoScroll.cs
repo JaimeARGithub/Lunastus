@@ -6,9 +6,9 @@ using TMPro;
 public class AutoScroll : MonoBehaviour
 {
     private float speed = 20f;
-    private float textPositionBegin = -2600f;
-    private float textPositionEnd = 2600f;
-    private float textPositionEndResetLimit = 2595f;
+    private float textPositionBegin = -2800f;
+    private float textPositionEnd = 2800f;
+    private float textPositionEndResetLimit = 2795f;
 
     RectTransform gameObjectRectTransform;
     [SerializeField] public TextMeshProUGUI creditsText;
