@@ -314,8 +314,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ">> Espacio: saltar\n\n>> Espacio (En el aire): doble salto \n\n>> Q: Deslizamiento\n\n>>
-    Contacto con una cabina:\nguardar partida\n\n>> D: Avanzar dialogo"
+  m_text: '>> Espacio (en tierra / en el aire): saltar / doble salto
+
+
+    >> Q (quieto
+    / en movimiento): deslizamiento de retroceso / avance
+
+
+    >> Contacto con una
+    cabina:
+
+    guardar partida
+
+
+    >> D: avanzar dialogo'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8180bf564f429844fb12d932622a5ae6, type: 2}
   m_sharedMaterial: {fileID: -599139817903486450, guid: 8180bf564f429844fb12d932622a5ae6, type: 2}
@@ -938,6 +950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   continueButton: {fileID: 0}
+  endingText: {fileID: 0}
 --- !u!1 &1974436935
 GameObject:
   m_ObjectHideFlags: 0
