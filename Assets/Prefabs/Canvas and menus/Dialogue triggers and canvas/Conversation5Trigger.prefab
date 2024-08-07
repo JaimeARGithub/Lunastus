@@ -210,6 +210,8 @@ MonoBehaviour:
   - ALIEN
   - NYXARIS
   - ALIEN
+  - ALIEN
+  - ALIEN
   dialogueSentences:
   - "\xA1\xA1\xA1AAAAAAAAAAAAAAAAAAAAAAAAAAAAYYYYYYYY!!!"
   - Sabia que darte un pulso electromagnetico desde la estacion no te iba a molar,
@@ -238,7 +240,7 @@ MonoBehaviour:
   - Eso para colmo. No solamente son pacificos por naturaleza; son racionales e inteligentes,
     MUY inteligentes.
   - Esta mision era una mentira de pies a cabeza.
-  - "Pues ahora que lo mencionas. \xBFPara que leches nos hab\xEDan contratado entonces?
+  - "Pues ahora que lo mencionas. \xBFPara que leches nos habian contratado entonces?
     \xA1Aqui no hay ninguna amenaza!"
   - 'Exactamente para lo que estabas haciendo: quitarlos del medio.'
   - Los de Valtaris Corp llegaron al planeta con todas las intenciones de extraer
@@ -282,14 +284,17 @@ MonoBehaviour:
   - "No preocuparte, glob glob. Tu enga\xF1ada, no poder echarte toda culpa..."
   - "Oye... \xBFentonces todas esas mejoras que me he ido encontrando...?"
   - "Regalos, glob. \xA1Nosotros muy buenos con tecnologia!"
-  - "Entonces... \xBFte ves capaz de crear un teletransportador?"
+  - "Entonces... \xBFte ves capaz de crear un teletransportador hacia la base espacial
+    de esa gentuza?"
   - "\xA1Si, glob! \xA1Ser sencillo! Pero... si ir a hacer lo que yo pensar que ir
     a hacer..."
   - ...
   - Tener cuidado, glob glob. Ya haberse perdido suficientes vidas.
   - "No te preocupes por eso, peque\xF1ajo. En este punto, esto es personal. Por
     vosotros, por mi, y por Adam."
-  - De acuerdo entonces, glob glob...
+  - No gustar idea, pero de acuerdo, glob glob...
+  - Sin embargo, si tener algo pendiente por hacer en planeta, mejor hacer ahora.
+  - Una vez que usar teletransportador... no haber vuelta atras, glob.
   progress: 0
   startSound: {fileID: 1581867940393345870}
   progressSound: {fileID: 940312764195874430}
