@@ -84,6 +84,7 @@ public class MenuControl : MonoBehaviour
     // Para el botón "Volver al menú principal" en la pantalla de Bad Ending
     public void OnBadEndingContinueButton()
     {
+        // Si no se ha visto aún el mensaje de bad ending y se toca el botón, se muestra el mensaje de bad ending y cambia la variable
         if (!badMessageSeen)
         {
             musicManager.ClickSound();
@@ -91,6 +92,10 @@ public class MenuControl : MonoBehaviour
             badMessageSeen = true;
         } else
         {
+            // Si ya se ha visto el mensaje de bad ending y se toca el botón, se vuelve al menú principal y se restablece la variable
+            // que controla el mensaje de bad ending para que la próxima vez pueda verse
+            // Si no se restablece la variable y se deja a true, existe riesgo de que en futuros bad endings el mensaje no se reescriba
+            badMessageSeen = false;
             OnButtonMainMenu();
         }
     }

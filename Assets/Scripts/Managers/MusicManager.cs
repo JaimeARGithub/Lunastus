@@ -83,7 +83,7 @@ public class MusicManager : MonoBehaviour
         {
             PlayInitialSceneMusic();
         }
-        else if (sceneName.Contains("Caverns") || sceneName.Contains("Pruebas"))
+        else if (sceneName.Contains("Caverns"))
         {
             PlayCavernsMusic();
         }
