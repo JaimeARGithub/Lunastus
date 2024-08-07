@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df81e297c4aba64cb5651de0012e4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   dialogueCanvas: {fileID: 0}
   speakerText: {fileID: 0}
   dialogueText: {fileID: 0}
@@ -170,6 +171,7 @@ MonoBehaviour:
   - ADAM
   - NYXARIS
   - ADAM
+  - ADAM
   dialogueSentences:
   - "Nyxaris, \xBFme recibes?"
   - "Alto y claro, Adam. \xBFQue pasa?"
@@ -179,8 +181,8 @@ MonoBehaviour:
     caminando por el teclado.
   - "Si, tu sigue echando la culpa a esa bolita de pelos adorable. \xBFTe importa
     que repasemos los detalles de la mision, ya que estamos?"
-  - Sin problema. Veamos... la gente para la que trabajo, los de Valtaris Corp, te
-    han contratado para lo que ellos llaman "hacer limpieza".
+  - Sin problema. Veamos... la gente para la que trabajo, Valtaris Corp, te han contratado
+    para lo que ellos llaman "hacer limpieza".
   - Parece ser que, en una de sus muchas expediciones al espacio, localizaron en
     Hiperion unos recursos particularme valiosos.
   - Parecia que todo iba en orden, pero a la hora de mandar personal para investigar,
@@ -202,8 +204,10 @@ MonoBehaviour:
   - Meh, igual se han replegado o algo por el estilo. En cualquier caso, dales cera,
     que el siguiente viernes de pizza lo pagas tu.
   - "No perdonas ni una, \xBFeh? Muy bien, pues ya te ire diciendo algo conforme
-    vaya viendo. \xA1Y manda un miau de mi parte al Sr Bigotes!"
+    vaya viendo. \xA1Y manda un miau de mi parte al Sr. Bigotes!"
   - "\xA1Recibido, te manda otro de vuelta! \xA1Cambio y fuera!"
+  - "\xA1Ah, y espero que te hayas leido las instrucciones! \xA1Ya sabes, las del
+    traje que llevas!"
   progress: 0
   startSound: {fileID: 6057214676551426613}
   progressSound: {fileID: 8521268464382746401}
