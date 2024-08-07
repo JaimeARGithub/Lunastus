@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 14343730}
   - component: {fileID: 14343729}
   m_Layer: 3
-  m_Name: Tilemap
+  m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5128,7 +5128,7 @@ Transform:
   m_GameObject: {fileID: 251438735}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9886994, y: -14.85295, z: -10}
+  m_LocalPosition: {x: -1.9814911, y: -14.85295, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6002,11 +6002,11 @@ PrefabInstance:
       objectReference: {fileID: 1525854540}
     - target: {fileID: 4584052439537683795, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.931
+      value: -8.85
       objectReference: {fileID: 0}
     - target: {fileID: 4584052439537683795, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.98
+      value: -16.08
       objectReference: {fileID: 0}
     - target: {fileID: 4584052439537683795, guid: 6b85664f965fd8544977903cda3d7759, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7227,7 +7227,7 @@ Transform:
   m_GameObject: {fileID: 2048357292}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.931, y: -15.98, z: -10}
+  m_LocalPosition: {x: -8.85, y: -16.08, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
