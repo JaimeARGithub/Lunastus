@@ -50,6 +50,19 @@ public class Health : MonoBehaviour
             colorSprite.a = 1f;
             spRd.material.color = colorSprite;
         }
+
+
+        // Si se recibe daño mortal durante una transición, aunque la muerte suceda, sucede antes la carga de la escena
+        // y en la siguiente escena el Hunter aparece con la vida que le corresponda (0)
+        // Ésto sucede porque la posibilidad de morir solamente se estaba evaluando en el instante en que se recibía daño,
+        // y no de manera generalizada a lo largo del tiempo
+        // Con ello, era posible morir durante una transición, que la muerte no llegase a efectuarse y estar jugando con vida 0
+        // porque las condiciones de muerte solamente se estaba evaluando en el instante en que se recibía el daño
+        // Solución: evaluación constante de si los puntos de vida actuales son 0 o menos
+        if (gameManager.GetCurrentHealth() <= 0)
+        {
+            Die();
+        }
     }
 
     public void upgradeHealth()
