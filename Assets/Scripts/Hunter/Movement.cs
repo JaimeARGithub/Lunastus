@@ -90,18 +90,18 @@ public class Movement : MonoBehaviour
             rb2d.velocity = new Vector2(movimientoH * velocidad, rb2d.velocity.y);
 
 
-            if (isGrounded() && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)))
+            if (isGrounded() && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))
             {
                 movimientoH = 0f;
 
 
-                if (Input.GetKey(KeyCode.DownArrow))
+                if (Input.GetKey(KeyCode.S))
                 {
                     animator.SetBool("isCrouching", true);
                     animator.SetBool("isRunning", false);
 
                 }
-                else if (Input.GetKey(KeyCode.UpArrow))
+                else if (Input.GetKey(KeyCode.W))
                 {
                     animator.SetBool("isLookingUp", true);
                     animator.SetBool("isRunning", false);
@@ -156,7 +156,7 @@ public class Movement : MonoBehaviour
 
 
 
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.P))
             {
                 quiereBackdash = true;
             }

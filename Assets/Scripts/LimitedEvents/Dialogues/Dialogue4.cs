@@ -49,10 +49,10 @@ public class Dialogue4 : MonoBehaviour
 
     private void Update()
     {
-        if (dialogueCanvas.activeSelf && Input.GetKeyDown(KeyCode.D))
+        if (dialogueCanvas.activeSelf && Input.GetKeyDown(KeyCode.F))
         {
             // A ejecución una vez por frame, SI EL CANVAS DE DIÁLOGO ESTÁ ACTIVO
-            // (ya se ha iniciado la conversación) y SE PRESIONA 'D', se avanza el diálogo
+            // (ya se ha iniciado la conversación) y SE PRESIONA 'F', se avanza el diálogo
             progressDialogue();
         }
     }

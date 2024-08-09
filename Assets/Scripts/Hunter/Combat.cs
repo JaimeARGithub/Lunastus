@@ -119,15 +119,15 @@ public class Combat : MonoBehaviour
 
 
 
-            if (isGrounded() && (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow)))
+            if (isGrounded() && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W)))
             {
-                if (Input.GetKey(KeyCode.DownArrow))
+                if (Input.GetKey(KeyCode.S))
                 {
                     standingCollider.enabled = false;
                     crouchCollider.enabled = true;
                     firePoint = firePointCrouch;
                 }
-                else if (Input.GetKey(KeyCode.UpArrow))
+                else if (Input.GetKey(KeyCode.W))
                 {
                     standingCollider.enabled = true;
                     crouchCollider.enabled = false;
@@ -144,7 +144,7 @@ public class Combat : MonoBehaviour
 
 
 
-            if (Input.GetKeyDown(KeyCode.E) && tiempoTranscurridoDisparo >= tiempoEsperaDisparo)
+            if (Input.GetKeyDown(KeyCode.I) && tiempoTranscurridoDisparo >= tiempoEsperaDisparo)
             {
                 sonidoDisparo.Play();
                 AnimarDisparo();
@@ -157,7 +157,7 @@ public class Combat : MonoBehaviour
             tiempoTranscurridoDisparo += Time.deltaTime;
 
 
-            if (Input.GetKeyDown(KeyCode.R) && tiempoTranscurridoMisil >= tiempoEsperaMisil && gameManager.GetMissileUnlocked() && gameManager.GetCurrentMissiles() > 0)
+            if (Input.GetKeyDown(KeyCode.O) && tiempoTranscurridoMisil >= tiempoEsperaMisil && gameManager.GetMissileUnlocked() && gameManager.GetCurrentMissiles() > 0)
             {
                 sonidoMisil.Play();
                 AnimarDisparo();
@@ -167,7 +167,7 @@ public class Combat : MonoBehaviour
             tiempoTranscurridoMisil += Time.deltaTime;
 
 
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.I))
             {
                 // Código a ejecutar mientras se mantenga presionada la tecla E
 
@@ -210,7 +210,7 @@ public class Combat : MonoBehaviour
             }
 
 
-            if (Input.GetKeyUp(KeyCode.E))
+            if (Input.GetKeyUp(KeyCode.I))
             {
                 sonidoCargando.Stop();
 

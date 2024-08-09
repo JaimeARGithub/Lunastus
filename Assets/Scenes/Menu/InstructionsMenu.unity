@@ -317,7 +317,7 @@ MonoBehaviour:
   m_text: '>> Espacio (en tierra / en el aire): saltar / doble salto
 
 
-    >> Q (quieto
+    >> P (quieto
     / en movimiento): deslizamiento de retroceso / avance
 
 
@@ -327,7 +327,7 @@ MonoBehaviour:
     guardar partida
 
 
-    >> D: avanzar dialogo'
+    >> F: avanzar dialogo'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8180bf564f429844fb12d932622a5ae6, type: 2}
   m_sharedMaterial: {fileID: -599139817903486450, guid: 8180bf564f429844fb12d932622a5ae6, type: 2}
@@ -1092,22 +1092,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '>> Flechas direccionales:
-
-    caminar / agacharse / apuntar
-
-    hacia
-    arriba
+  m_text: '>> WASD: caminar / agacharse / apuntar hacia arriba
 
 
-    >> E (pulsar / mantener y soltar): disparar / disparo cargado
+    >> I (pulsar
+    / mantener y soltar): disparar / disparo cargado
 
 
-    >>
-    R: misil
+    >> O: misil
 
 
-    >> ESC: menu de pausa'
+    >> ESC:
+    menu de pausa'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8180bf564f429844fb12d932622a5ae6, type: 2}
   m_sharedMaterial: {fileID: -599139817903486450, guid: 8180bf564f429844fb12d932622a5ae6, type: 2}
